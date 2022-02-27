@@ -1,16 +1,20 @@
-## TweakerMore
+## TweakerPlus
 
-[![License](https://img.shields.io/github/license/Fallen-Breath/tweakermore.svg)](http://www.gnu.org/licenses/lgpl-3.0.html)
-[![Issues](https://img.shields.io/github/issues/Fallen-Breath/tweakermore.svg)](https://github.com/Fallen-Breath/tweakermore/issues)
-[![MC Versions](http://cf.way2muchnoise.eu/versions/For%20MC_tweakermore_all.svg)](https://www.curseforge.com/minecraft/mc-mods/tweakermore)
-[![CurseForge](http://cf.way2muchnoise.eu/full_tweakermore_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/tweakermore)
-[![Modrinth](https://img.shields.io/modrinth/dt/GBeCx05I?label=Modrinth%20Downloads)](https://modrinth.com/mod/tweakermore)
+[![License](https://img.shields.io/github/license/Ivan-1F/treakerplus.svg)](http://www.gnu.org/licenses/lgpl-3.0.html)
+[![Issues](https://img.shields.io/github/issues/Ivan-1F/treakerplus.svg)](https://github.com/Ivan-1F/treakerplus/issues)
+[![MC Versions](http://cf.way2muchnoise.eu/versions/For%20MC_tweakerplus_all.svg)](https://www.curseforge.com/minecraft/mc-mods/tweakerplus)
+[![CurseForge](http://cf.way2muchnoise.eu/full_tweakerplus_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/tweakerplus)
+[![Modrinth](https://img.shields.io/modrinth/dt/GBeCx05I?label=Modrinth%20Downloads)](https://modrinth.com/mod/tweakerplus)
 
 A collection of client-side tweak kits for enhance your Minecraft game experience
 
-Everything is disabled by default, so you don't need to worry about the game becoming "not-vanilla" before you enable some tweaks
+Forked from [Fallen_Breath/tweakermore](https://github.com/Fallen-Breath/treakermore)
 
-Press `K` + `C` to open the config GUI. You can also access the config GUI via [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu)
+Everything is disabled by default, so you don't need to worry about the game becoming "not-vanilla" before you enable
+some tweaks
+
+Press `K` + `C` to open the config GUI. You can also access the config GUI
+via [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu)
 
 Check [here](./docs) to see the document of all available options
 

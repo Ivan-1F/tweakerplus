@@ -112,10 +112,10 @@ jobs:
       - name: Publish Minecraft Mods
         uses: Kir-Antipov/mc-publish@v2.1
         with:
-          modrinth-id: GBeCx05I  # https://modrinth.com/mod/tweakermore
+          modrinth-id: GBeCx05I  # https://modrinth.com/mod/tweakerplus
           modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
 
-          curseforge-id: 531235  # https://www.curseforge.com/minecraft/mc-mods/tweakermore
+          curseforge-id: 531235  # https://www.curseforge.com/minecraft/mc-mods/tweakerplus
           curseforge-token: ${{ secrets.CF_API_TOKEN }}
 
           github-tag: ${{ steps.release_info.outputs.tag_name }}
@@ -124,7 +124,7 @@ jobs:
           files-primary: build/libs/!(*-@(dev|sources)).jar
           files-secondary: ''
 
-          name: ${{ format('TweakerMore v{0} for mc{1}', steps.mod_version.outputs.value, steps.minecraft_version.outputs.value) }}
+          name: ${{ format('TweakerPlus v{0} for mc{1}', steps.mod_version.outputs.value, steps.minecraft_version.outputs.value) }}
           version: ${{ format('mc{0}-v{1}', steps.minecraft_version.outputs.value, steps.mod_version.outputs.value) }}
           version-type: release
           changelog: ${{ format('{0}{1}', github.event.release.body, steps.get_release.outputs.body) }}  # one of them should be an empty string (null)
