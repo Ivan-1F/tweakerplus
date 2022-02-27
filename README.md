@@ -8,7 +8,7 @@
 
 A collection of client-side tweak kits for enhance your Minecraft game experience
 
-Forked from [Fallen_Breath/tweakermore](https://github.com/Fallen-Breath/treakermore)
+Forked from [Fallen_Breath/tweakermore](https://github.com/Fallen-Breath/tweakermore)
 
 Everything is disabled by default, so you don't need to worry about the game becoming "not-vanilla" before you enable
 some tweaks
