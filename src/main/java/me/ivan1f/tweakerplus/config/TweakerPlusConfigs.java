@@ -8,6 +8,7 @@ import fi.dy.masa.malilib.interfaces.IValueChangeCallback;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
+import net.minecraft.client.MinecraftClient;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -26,6 +27,9 @@ public class TweakerPlusConfigs {
     ////////////////////
     //    MC Tweaks   //
     ////////////////////
+
+    @Config(value = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBooleanHotkeyed LIMIT_WORLD_MODIFICATION = ConfigFactory.newConfigBooleanHotkeyed("limitWorldModification", false, "");
 
     // Generic
 

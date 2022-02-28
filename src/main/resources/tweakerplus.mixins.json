@@ -12,7 +12,8 @@
     "core.gui.WidgetListBaseMixin",
     "core.gui.WidgetListConfigOptionMixin",
     "core.gui.WidgetListConfigOptionsAccessor",
-    "core.gui.WidgetListConfigOptionsMixin"
+    "core.gui.WidgetListConfigOptionsMixin",
+    "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin"
   ],
   "client": [
   ],

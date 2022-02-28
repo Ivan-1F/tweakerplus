@@ -1,6 +1,9 @@
 {
   "// MC Tweaks": "================================================",
 
+  "tweakerplus.config.limitWorldModification": "limitWorldModification",
+  "tweakerplus.config.limitWorldModification.comment": "Prevent any player interaction",
+
   "// Mod Tweaks": "================================================",
 
   "// Setting": "================================================",
