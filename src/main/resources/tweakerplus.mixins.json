@@ -13,7 +13,8 @@
     "core.gui.WidgetListConfigOptionMixin",
     "core.gui.WidgetListConfigOptionsAccessor",
     "core.gui.WidgetListConfigOptionsMixin",
-    "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin"
+    "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
+    "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
   ],
   "client": [
   ],

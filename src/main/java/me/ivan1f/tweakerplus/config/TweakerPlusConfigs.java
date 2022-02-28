@@ -5,6 +5,8 @@ import com.google.common.collect.Maps;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
 import fi.dy.masa.malilib.interfaces.IValueChangeCallback;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
@@ -16,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
+
+import static me.ivan1f.tweakerplus.util.ModIds.xaero_worldmap;
 
 public class TweakerPlusConfigs {
     /**
@@ -40,6 +44,9 @@ public class TweakerPlusConfigs {
     ////////////////////
     //   Mod Tweaks   //
     ////////////////////
+
+    @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(xaero_worldmap)))
+    public static final TweakerPlusConfigBooleanHotkeyed XMAP_NO_DEATH_WAYPOINT_FOR_CREATIVE = ConfigFactory.newConfigBooleanHotkeyed("xmapNoDeathWaypointForCreative", false, "");
 
     //////////////////////////
     //  TweakerPlus Setting //
