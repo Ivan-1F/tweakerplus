@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xaero.common.minimap.waypoints.WaypointWorld;
 import xaero.common.minimap.waypoints.WaypointsManager;
 
-@Restriction(require = @Condition(ModIds.xaero_worldmap))
+@Restriction(require = @Condition(ModIds.xaero_minimap))
 @Mixin(value = WaypointsManager.class, remap = false)
 public class WaypointsManagerMixin {
     @Inject(method = "createDeathpoint(Lnet/minecraft/entity/player/PlayerEntity;Lxaero/common/minimap/waypoints/WaypointWorld;Z)V", at = @At("HEAD"), cancellable = true)

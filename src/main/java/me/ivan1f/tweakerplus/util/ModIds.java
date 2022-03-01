@@ -15,6 +15,7 @@ public class ModIds {
     // others
     public static final String optifine = "optifabric";
     public static final String xaero_worldmap = "xaeroworldmap";
+    public static final String xaero_minimap = "xaerominimap";
     public static final String raise_chat_limit = "raise-chat-limit";
     public static final String easier_crafting = "easiercrafting";
     public static final String replay_mod = "replaymod";

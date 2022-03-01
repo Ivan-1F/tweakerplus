@@ -10,7 +10,6 @@ import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
-import net.minecraft.client.MinecraftClient;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -19,7 +18,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static me.ivan1f.tweakerplus.util.ModIds.xaero_worldmap;
+import static me.ivan1f.tweakerplus.util.ModIds.*;
 
 public class TweakerPlusConfigs {
     /**
@@ -45,7 +44,7 @@ public class TweakerPlusConfigs {
     //   Mod Tweaks   //
     ////////////////////
 
-    @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(xaero_worldmap)))
+    @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(xaero_minimap)))
     public static final TweakerPlusConfigBooleanHotkeyed XMAP_NO_DEATH_WAYPOINT_FOR_CREATIVE = ConfigFactory.newConfigBooleanHotkeyed("xmapNoDeathWaypointForCreative", false, "");
 
     //////////////////////////
