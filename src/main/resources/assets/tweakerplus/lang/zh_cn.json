@@ -9,6 +9,9 @@
 
   "// Mod Tweaks": "================================================",
 
+  "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
+  "tweakerplus.config.leftAlignTitleGlobally.comment": "将左对齐的标题应用到所有使用Malilib的配置界面",
+
   "// Setting": "================================================",
 
   "tweakerplus.config.hideDisabledOptions": "隐藏禁用的选项",
