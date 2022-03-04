@@ -54,6 +54,9 @@ public class TweakerPlusConfigs {
     @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS)
     public static final TweakerPlusConfigBoolean LEFT_ALIGN_TITLE_GLOBALLY = ConfigFactory.newConfigBoolean("leftAlignTitleGlobally", false);
 
+    @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
+    public static final TweakerPlusConfigBoolean BUNDLE_ORIGIN_IN_SCHEMATIC = ConfigFactory.newConfigBoolean("bundleOriginInSchematic", false);
+
     //////////////////////////
     //  TweakerPlus Setting //
     //////////////////////////

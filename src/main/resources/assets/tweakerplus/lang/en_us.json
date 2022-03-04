@@ -15,6 +15,9 @@
   "tweakerplus.config.xmapNoDeathWaypointForCreative": "xmapNoDeathWaypointForCreative",
   "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "Stop creating death waypoints for creative players",
 
+  "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
+  "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle origin in schematic",
+
   "// Setting": "================================================",
 
   "tweakerplus.config.hideDisabledOptions": "hideDisabledOptions",
@@ -61,5 +64,9 @@
   "tweakerplus.util.mod.replaymod": "Replay mod",
   "tweakerplus.util.mod.tweakeroo": "Tweakeroo",
   "tweakerplus.util.mod.xaeroworldmap": "Xaero's World Map",
-  "tweakerplus.util.mod.xaerominimap": "Xaero's Minimap"
+  "tweakerplus.util.mod.xaerominimap": "Xaero's Minimap",
+
+  "tweakerplus.gui.label.schematic_info.origin": "Origin: §f%d§r",
+  "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "Move to origin",
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "Move to origin"
 }

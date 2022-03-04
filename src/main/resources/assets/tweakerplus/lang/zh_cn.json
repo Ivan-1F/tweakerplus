@@ -15,6 +15,9 @@
   "tweakerplus.config.xmapNoDeathWaypointForCreative": "xaero地图创造玩家无死亡标记",
   "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "阻止xaero地图为创造玩家创建死亡标记",
 
+  "tweakerplus.config.bundleOriginInSchematic": "将原点打包入原理图",
+  "tweakerplus.config.bundleOriginInSchematic.comment": "将原点打包入原理图",
+
   "// Setting": "================================================",
 
   "tweakerplus.config.hideDisabledOptions": "隐藏禁用的选项",
@@ -61,5 +64,9 @@
   "tweakerplus.util.mod.replaymod": "Replay mod",
   "tweakerplus.util.mod.tweakeroo": "Tweakeroo",
   "tweakerplus.util.mod.xaeroworldmap": "Xaero's World Map",
-  "tweakerplus.util.mod.xaerominimap": "Xaero's Minimap"
+  "tweakerplus.util.mod.xaerominimap": "Xaero's Minimap",
+
+  "tweakerplus.gui.label.schematic_info.origin": "原点: §f%d§r",
+  "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "移动至原点",
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "移动至原点"
 }
