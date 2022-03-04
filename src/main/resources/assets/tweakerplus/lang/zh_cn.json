@@ -7,13 +7,13 @@
   "tweakerplus.config.immediatelyRespawn": "立即重生",
   "tweakerplus.config.immediatelyRespawn.comment": "死亡后立刻重生，不显示死亡界面",
 
-  "tweakerplus.config.xmapNoDeathWaypointForCreative": "xaero地图创造玩家无死亡标记",
-  "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "阻止xaero地图为创造玩家创建死亡标记",
-
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
   "tweakerplus.config.leftAlignTitleGlobally.comment": "将左对齐的标题应用到所有使用Malilib的配置界面",
+
+  "tweakerplus.config.xmapNoDeathWaypointForCreative": "xaero地图创造玩家无死亡标记",
+  "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "阻止xaero地图为创造玩家创建死亡标记",
 
   "// Setting": "================================================",
 

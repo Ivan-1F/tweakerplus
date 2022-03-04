@@ -7,13 +7,13 @@
   "tweakerplus.config.immediatelyRespawn": "immediatelyRespawn",
   "tweakerplus.config.immediatelyRespawn.comment": "Respawn immediately after death without showing the death screen",
 
-  "tweakerplus.config.xmapNoDeathWaypointForCreative": "xmapNoDeathWaypointForCreative",
-  "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "Stop creating death waypoints for creative players",
-
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",
   "tweakerplus.config.leftAlignTitleGlobally.comment": "Apply the left aligned title to all config GUIs using malilib",
+
+  "tweakerplus.config.xmapNoDeathWaypointForCreative": "xmapNoDeathWaypointForCreative",
+  "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "Stop creating death waypoints for creative players",
 
   "// Setting": "================================================",
 
