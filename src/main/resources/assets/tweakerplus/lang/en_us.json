@@ -4,6 +4,9 @@
   "tweakerplus.config.limitWorldModification": "limitWorldModification",
   "tweakerplus.config.limitWorldModification.comment": "Prevent any player interaction",
 
+  "tweakerplus.config.immediatelyRespawn": "immediatelyRespawn",
+  "tweakerplus.config.immediatelyRespawn.comment": "Respawn immediately after death without showing the death screen",
+
   "tweakerplus.config.xmapNoDeathWaypointForCreative": "xmapNoDeathWaypointForCreative",
   "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "Stop creating death waypoints for creative players",
 

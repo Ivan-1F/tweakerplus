@@ -10,6 +10,7 @@ import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
+import net.minecraft.client.MinecraftClient;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -33,6 +34,9 @@ public class TweakerPlusConfigs {
 
     @Config(value = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed LIMIT_WORLD_MODIFICATION = ConfigFactory.newConfigBooleanHotkeyed("limitWorldModification", false, "");
+
+    @Config(value = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBooleanHotkeyed IMMEDIATELY_RESPAWN = ConfigFactory.newConfigBooleanHotkeyed("immediatelyRespawn", false, "");
 
     // Generic
 
@@ -84,6 +88,11 @@ public class TweakerPlusConfigs {
 
         // value listeners
         HIDE_DISABLE_OPTIONS.setValueChangeCallback(redrawConfigGui);
+        IMMEDIATELY_RESPAWN.setValueChangeCallback(newValue -> {
+            if (MinecraftClient.getInstance().player != null) {
+                MinecraftClient.getInstance().player.setShowsDeathScreen(!newValue.getBooleanValue());
+            }
+        });
 
         // debugs
         TWEAKERPLUS_DEBUG_MODE.setValueChangeCallback(redrawConfigGui);

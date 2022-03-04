@@ -4,6 +4,9 @@
   "tweakerplus.config.limitWorldModification": "限制世界修改",
   "tweakerplus.config.limitWorldModification.comment": "阻止任何形式的玩家交互",
 
+  "tweakerplus.config.immediatelyRespawn": "立即重生",
+  "tweakerplus.config.immediatelyRespawn.comment": "死亡后立刻重生，不显示死亡界面",
+
   "tweakerplus.config.xmapNoDeathWaypointForCreative": "xaero地图创造玩家无死亡标记",
   "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "阻止xaero地图为创造玩家创建死亡标记",
 
