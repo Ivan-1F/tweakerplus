@@ -3,7 +3,7 @@ package me.ivan1f.tweakerplus.mixins.tweaks.bundleOriginInSchematic;
 import fi.dy.masa.litematica.schematic.LitematicaSchematic;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import fi.dy.masa.malilib.util.NBTUtils;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
@@ -30,7 +30,7 @@ public class LitematicaSchematicMixin implements ILitematicaSchematic {
     // 2. read origin using ILitematicaSchematic#getOrigin and move the placement to origin (GuiSchematicLoadButtonListenerMixin#movePlacementToOrigin)
 
     @Inject(method = "writeToNBT", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void writeOriginToNBT(CallbackInfoReturnable<CompoundTag> cir, CompoundTag nbt) {
+    private void writeOriginToNBT(CallbackInfoReturnable<NbtCompound> cir, NbtCompound nbt) {
         // if bundleOriginInSchematic is disabled, the origin will be null since GuiSchematicSaveButtonListenerMixin will not be triggered
         if (((ILitematicaSchematic) this).hasOrigin()) return;
         BlockPos origin = ((ILitematicaSchematic) this).getOrigin();
@@ -38,7 +38,7 @@ public class LitematicaSchematicMixin implements ILitematicaSchematic {
     }
 
     @Inject(method = "readFromNBT", at = @At("RETURN"))
-    private void readOriginFromNBT(CompoundTag nbt, CallbackInfoReturnable<Boolean> cir) {
+    private void readOriginFromNBT(NbtCompound nbt, CallbackInfoReturnable<Boolean> cir) {
         // if no origin info is present or bundleOriginInSchematic is disabled, don't read
         if (!nbt.contains("Origin") || !TweakerPlusConfigs.BUNDLE_ORIGIN_IN_SCHEMATIC.getBooleanValue()) return;
         BlockPos origin = NBTUtils.readBlockPos(nbt.getCompound("Origin"));

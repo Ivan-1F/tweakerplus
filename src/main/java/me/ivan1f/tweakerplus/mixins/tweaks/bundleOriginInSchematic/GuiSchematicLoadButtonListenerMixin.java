@@ -42,7 +42,7 @@ public class GuiSchematicLoadButtonListenerMixin {
     )
     private Vec3d movePlacementToOrigin(ClientPlayerEntity player) {
         if (this.shouldMoveToOrigin()) {
-            return new Vec3d(((ILitematicaSchematic) this.loadingSchematic).getOrigin());
+            return Vec3d.of(((ILitematicaSchematic) this.loadingSchematic).getOrigin());
         }
         return player.getPos();
     }

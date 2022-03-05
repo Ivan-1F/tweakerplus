@@ -15,6 +15,7 @@ import me.ivan1f.tweakerplus.config.Config;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.config.TweakerPlusOption;
 import me.ivan1f.tweakerplus.util.FabricUtil;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -98,9 +99,9 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
         this.initGui();
     }
 
-    public void renderDropDownList(int mouseX, int mouseY) {
+    public void renderDropDownList(MatrixStack matrixStack, int mouseX, int mouseY) {
         if (this.typeFilterDropDownList != null) {
-            this.typeFilterDropDownList.render(mouseX, mouseY, this.typeFilterDropDownList.isMouseOver(mouseX, mouseY));
+            this.typeFilterDropDownList.render(mouseX, mouseY, this.typeFilterDropDownList.isMouseOver(mouseX, mouseY), matrixStack);
         }
     }
 

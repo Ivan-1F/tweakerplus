@@ -5,6 +5,7 @@ import fi.dy.masa.malilib.gui.widgets.WidgetListBase;
 import fi.dy.masa.malilib.gui.widgets.WidgetListConfigOptions;
 import fi.dy.masa.malilib.gui.widgets.WidgetListEntryBase;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
+import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,18 +24,18 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
             method = "drawContents",
             at = @At(
                     value = "INVOKE",
-                    target = "Lfi/dy/masa/malilib/gui/widgets/WidgetBase;postRenderHovered(IIZ)V",
+                    target = "Lfi/dy/masa/malilib/gui/widgets/WidgetBase;postRenderHovered(IIZLnet/minecraft/client/util/math/MatrixStack;)V",
                     remap = false
             ),
             remap = false
     )
-    private void drawTweakerPlusConfigGuiDropDownListAgainBeforeHover(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.drawTweakerPlusConfigGuiDropDownListAgain(mouseX, mouseY);
+    private void drawTweakerPlusConfigGuiDropDownListAgainBeforeHover(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
+        this.drawTweakerPlusConfigGuiDropDownListAgain(matrixStack, mouseX, mouseY);
     }
 
     @Inject(method = "drawContents", at = @At("TAIL"), remap = false)
-    private void drawTweakerPlusConfigGuiDropDownListAgainAfterHover(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.drawTweakerPlusConfigGuiDropDownListAgain(mouseX, mouseY);
+    private void drawTweakerMoreConfigGuiDropDownListAgainAfterHover(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
+        this.drawTweakerPlusConfigGuiDropDownListAgain(matrixStack, mouseX, mouseY);
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -46,12 +47,12 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
         return false;
     }
 
-    private void drawTweakerPlusConfigGuiDropDownListAgain(int mouseX, int mouseY) {
+    private void drawTweakerPlusConfigGuiDropDownListAgain(MatrixStack matrixStack, int mouseX, int mouseY) {
         if (this.isTweakerPlusConfigGui() && this.shouldRenderTweakerPlusConfigGuiDropDownList) {
             GuiConfigsBase guiConfig = ((WidgetListConfigOptionsAccessor) this).getParent();
 
             // render it again to make sure it's on the top but below hovering widgets
-            ((TweakerPlusConfigGui) guiConfig).renderDropDownList(mouseX, mouseY);
+            ((TweakerPlusConfigGui) guiConfig).renderDropDownList(matrixStack, mouseX, mouseY);
             this.shouldRenderTweakerPlusConfigGuiDropDownList = false;
         }
     }

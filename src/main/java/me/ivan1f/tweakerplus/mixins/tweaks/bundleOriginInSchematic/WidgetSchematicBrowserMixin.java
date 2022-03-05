@@ -9,6 +9,7 @@ import fi.dy.masa.malilib.gui.widgets.WidgetFileBrowserBase;
 import fi.dy.masa.malilib.util.StringUtils;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
+import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,7 +30,7 @@ public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase 
             locals = LocalCapture.CAPTURE_FAILHARD,
             remap = false
     )
-    private void appendOriginInfo(DirectoryEntry entry, CallbackInfo ci, int x, int y) {
+    private void appendOriginInfo(DirectoryEntry entry, MatrixStack matrixStack, CallbackInfo ci, int x, int y) {
         int textColor = -1061109568;
         if (!TweakerPlusConfigs.BUNDLE_ORIGIN_IN_SCHEMATIC.getBooleanValue()) return;
         LitematicaSchematic schematic = LitematicaSchematic.createFromFile(entry.getDirectory(), entry.getName());
@@ -38,7 +39,7 @@ public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase 
                     "tweakerplus.gui.label.schematic_info.origin",
                     ((ILitematicaSchematic) schematic).getOrigin().toShortString()
             );
-            this.drawString(msg, x, y, textColor);
+            this.drawString(matrixStack, msg, x, y, textColor);
         }
     }
 }
