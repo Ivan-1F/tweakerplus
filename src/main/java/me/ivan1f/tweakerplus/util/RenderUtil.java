@@ -1,6 +1,7 @@
 package me.ivan1f.tweakerplus.util;
 
-import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.util.math.MatrixStack;
+import org.jetbrains.annotations.Nullable;
 
 public class RenderUtil {
     public static Scaler createScaler(int anchorX, int anchorY, double factor) {
@@ -11,6 +12,8 @@ public class RenderUtil {
         private final int anchorX;
         private final int anchorY;
         private final double factor;
+        @Nullable
+        private MatrixStack matrixStack = null;
 
         private Scaler(int anchorX, int anchorY, double factor) {
             this.anchorX = anchorX;
@@ -21,15 +24,21 @@ public class RenderUtil {
             this.factor = factor;
         }
 
-        public void apply() {
-            RenderSystem.pushMatrix();
-            RenderSystem.translated(-anchorX * factor, -anchorY * factor, 0);
-            RenderSystem.scaled(factor, factor, 1);
-            RenderSystem.translated(anchorX / factor, anchorY / factor, 0);
+        public void apply(MatrixStack matrixStack) {
+            this.matrixStack = matrixStack;
+            matrixStack.push();
+            matrixStack.translate(-anchorX * factor, -anchorY * factor, 0);
+            matrixStack.scale((float) factor, (float) factor, 1);
+            matrixStack.translate(anchorX / factor, anchorY / factor, 0);
         }
 
         public void restore() {
-            RenderSystem.popMatrix();
+            if (this.matrixStack != null) {
+                this.matrixStack.pop();
+            } else {
+                throw new RuntimeException("RenderUtil.Scaler: Calling restore before calling apply");
+            }
+            this.matrixStack = null;
         }
     }
 }
