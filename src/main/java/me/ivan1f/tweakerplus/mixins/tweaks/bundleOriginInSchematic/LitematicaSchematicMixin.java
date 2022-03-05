@@ -39,7 +39,7 @@ public class LitematicaSchematicMixin implements ILitematicaSchematic {
 
     @Inject(method = "readFromNBT", at = @At("RETURN"))
     private void readOriginFromNBT(CompoundTag nbt, CallbackInfoReturnable<Boolean> cir) {
-        // if no origin data is present or bundleOriginInSchematic is disabled, don't read
+        // if no origin info is present or bundleOriginInSchematic is disabled, don't read
         if (!nbt.contains("Origin") || !TweakerPlusConfigs.BUNDLE_ORIGIN_IN_SCHEMATIC.getBooleanValue()) return;
         BlockPos origin = NBTUtils.readBlockPos(nbt.getCompound("Origin"));
         ((ILitematicaSchematic) this).setOrigin(origin);

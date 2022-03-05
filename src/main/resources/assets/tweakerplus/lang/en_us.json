@@ -16,7 +16,7 @@
   "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "Stop creating death waypoints for creative players",
 
   "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
-  "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle origin in schematic",
+  "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle the origin in the schematic when saving it\nWhen loading the schematic, if the origin info is present in the file, the placement will be moved to its origin\n(Using 'Create placement' button after loading will still place the placement at the player)\nThe origin info will be appended at the right panel of the schematic browser",
 
   "// Setting": "================================================",
 
@@ -68,5 +68,5 @@
 
   "tweakerplus.gui.label.schematic_info.origin": "Origin: §f%d§r",
   "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "Move to origin",
-  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "Move to origin"
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "If checked, if origin info is present in the schematic, the placement will be moved to its origin instead of the player"
 }

@@ -16,7 +16,7 @@
   "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "阻止xaero地图为创造玩家创建死亡标记",
 
   "tweakerplus.config.bundleOriginInSchematic": "将原点打包入原理图",
-  "tweakerplus.config.bundleOriginInSchematic.comment": "将原点打包入原理图",
+  "tweakerplus.config.bundleOriginInSchematic.comment": "在保存原理图时将原点信息打包入文件\n在加载原理图时，若文件中含有原点信息，则将放置移动至原点\n（加载后使用 '创建放置' 按钮仍会将放置创建在玩家处）\n原理图浏览器右侧面板中会追加显示原点信息",
 
   "// Setting": "================================================",
 
@@ -68,5 +68,5 @@
 
   "tweakerplus.gui.label.schematic_info.origin": "原点: §f%d§r",
   "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "移动至原点",
-  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "移动至原点"
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "若勾选，含有原点信息的原理图将被放置在其原点，而不是玩家位置"
 }
