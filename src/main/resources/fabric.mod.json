@@ -1,33 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "tweakermore",
+  "id": "tweakerplus",
   "version": "${version}",
-
-  "name": "TweakerMore",
+  "name": "TweakerPlus",
   "description": "A collection of client-side tweak kits for enhance your Minecraft game experience",
   "authors": [
-    "Fallen_Breath"
+    "Fallen_Breath",
+    "Ivan1F"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/tweakermore",
-    "sources": "https://github.com/Fallen-Breath/tweakermore"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/tweakerplus",
+    "sources": "https://github.com/Ivan1F/tweakerplus"
   },
-
-  "icon": "assets/tweakermore/icon.png",
-
+  "icon": "assets/tweakerplus/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "me.fallenbreath.tweakermore.TweakerMoreMod"
+      "me.ivan1f.tweakerplus.TweakerPlusMod"
     ],
     "modmenu": [
-      "me.fallenbreath.tweakermore.compat.modmenu.ModMenuApiImpl"
+      "me.ivan1f.tweakerplus.compat.modmenu.ModMenuApiImpl"
     ]
   },
   "mixins": [
-    "tweakermore.mixins.json"
+    "tweakerplus.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.10.4",
     "conditional-mixin": "*",
