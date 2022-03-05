@@ -1,0 +1,72 @@
+{
+  "// MC Tweaks": "================================================",
+
+  "tweakerplus.config.limitWorldModification": "limitWorldModification",
+  "tweakerplus.config.limitWorldModification.comment": "Prevent any player interaction",
+
+  "tweakerplus.config.immediatelyRespawn": "immediatelyRespawn",
+  "tweakerplus.config.immediatelyRespawn.comment": "Respawn immediately after death without showing the death screen",
+
+  "// Mod Tweaks": "================================================",
+
+  "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",
+  "tweakerplus.config.leftAlignTitleGlobally.comment": "Apply the left aligned title to all config GUIs using malilib",
+
+  "tweakerplus.config.xmapNoDeathWaypointForCreative": "xmapNoDeathWaypointForCreative",
+  "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "Stop creating death waypoints for creative players",
+
+  "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
+  "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle the origin in the schematic when saving it\nWhen loading the schematic, if the origin info is present in the file, the placement will be moved to its origin\n(Using 'Create placement' button after loading will still place the placement at the player)\nThe origin info will be appended at the right panel of the schematic browser",
+
+  "// Setting": "================================================",
+
+  "tweakerplus.config.hideDisabledOptions": "hideDisabledOptions",
+  "tweakerplus.config.hideDisabledOptions.comment": "Hide options which are disabled due to mod relations unsatisfied in the config GUI",
+  "tweakerplus.config.openTweakerPlusConfigGui": "openTweakerPlusConfigGui",
+  "tweakerplus.config.openTweakerPlusConfigGui.comment": "Open the config GUI of TweakerPlus",
+
+  "tweakerplus.config.tweakerPlusDebugMode": "tweakerPlusDebugMode",
+  "tweakerplus.config.tweakerPlusDebugMode.comment": "Debug mode of TweakerPlus\nWhen enabled, debug parameter options and options not supported by the current Minecraft version will be displayed\nand debugging related functions will be enabled",
+  "tweakerplus.config.tweakerPlusDebugMode.pretty_name": "TweakerPlus Debug Mode",
+  "tweakerplus.config.tweakerPlusDebugInt": "tweakerPlusDebugInt",
+  "tweakerplus.config.tweakerPlusDebugInt.comment": "A integer parameter for TweakerPlus debugging",
+  "tweakerplus.config.tweakerPlusDebugDouble": "tweakerPlusDebugDouble",
+  "tweakerplus.config.tweakerPlusDebugDouble.comment": "A double parameter for TweakerPlus debugging",
+
+  "// GUI and Misc": "================================================",
+  "tweakerplus.hotkeys.category.main": "TweakerPlus",
+  "tweakerplus.gui.title": "TweakerPlus v%1$s Config GUI",
+  "tweakerplus.gui.selector_drop_down_list.all": "All",
+  "tweakerplus.gui.trigger_button.text": "Trigger",
+  "tweakerplus.gui.trigger_button.hover": "Click to trigger %1$s once\n§7§oThis will simulate hotkey pressed and released in order§r",
+  "tweakerplus.gui.config_category.mc_tweaks": "Tweaks",
+  "tweakerplus.gui.config_category.mod_tweaks": "Mods Tweaks",
+  "tweakerplus.gui.config_category.setting": "Setting",
+  "tweakerplus.gui.config_type.label_text": "Type filter",
+  "tweakerplus.gui.config_type.generic": "Generic",
+  "tweakerplus.gui.config_type.hotkey": "Hotkey",
+  "tweakerplus.gui.config_type.list": "List",
+  "tweakerplus.gui.config_type.tweak": "Tweak",
+  "tweakerplus.gui.config_type.disable": "Disable",
+  "tweakerplus.gui.config_type.config": "Config",
+  "tweakerplus.gui.mod_relation_footer.or": "or",
+  "tweakerplus.gui.mod_relation_footer.requirement": "Required mods:",
+  "tweakerplus.gui.mod_relation_footer.confliction": "Conflicted mods:",
+  "tweakerplus.util.mod.easiercrafting": "EasierCrafting",
+  "tweakerplus.util.mod.fabric": "Fabric API",
+  "tweakerplus.util.mod.fabricloader": "Fabric Loader",
+  "tweakerplus.util.mod.iris": "Iris",
+  "tweakerplus.util.mod.itemscroller": "Item Scroller",
+  "tweakerplus.util.mod.litematica": "Litematica",
+  "tweakerplus.util.mod.minecraft": "Minecraft",
+  "tweakerplus.util.mod.optifabric": "Optifine",
+  "tweakerplus.util.mod.raise-chat-limit": "Raise Chat Limit",
+  "tweakerplus.util.mod.replaymod": "Replay mod",
+  "tweakerplus.util.mod.tweakeroo": "Tweakeroo",
+  "tweakerplus.util.mod.xaeroworldmap": "Xaero's World Map",
+  "tweakerplus.util.mod.xaerominimap": "Xaero's Minimap",
+
+  "tweakerplus.gui.label.schematic_info.origin": "Origin: §f%d§r",
+  "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "Move to origin",
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "If checked, if origin info is present in the schematic, the placement will be moved to its origin instead of the player"
+}

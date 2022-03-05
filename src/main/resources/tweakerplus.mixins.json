@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.ivan1f.tweakerplus.mixins",
+  "plugin": "me.ivan1f.tweakerplus.util.mixin.TweakerPlusMixinConfigPlugin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "core.gui.ConfigBaseMixin",
+    "core.gui.GuiBaseMixin",
+    "core.gui.KeybindMultiAccessor",
+    "core.gui.WidgetDropDownListMixin",
+    "core.gui.WidgetLabelMixin",
+    "core.gui.WidgetListBaseMixin",
+    "core.gui.WidgetListConfigOptionMixin",
+    "core.gui.WidgetListConfigOptionsAccessor",
+    "core.gui.WidgetListConfigOptionsMixin",
+    "tweaks.bundleOriginInSchematic.GuiSchematicLoadButtonListenerMixin",
+    "tweaks.bundleOriginInSchematic.GuiSchematicLoadMixin",
+    "tweaks.bundleOriginInSchematic.GuiSchematicSaveButtonListenerMixin",
+    "tweaks.bundleOriginInSchematic.LitematicaSchematicMixin",
+    "tweaks.bundleOriginInSchematic.WidgetSchematicBrowserMixin",
+    "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
+    "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
