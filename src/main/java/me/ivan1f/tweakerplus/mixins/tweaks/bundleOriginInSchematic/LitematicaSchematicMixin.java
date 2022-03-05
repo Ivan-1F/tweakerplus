@@ -1,10 +1,10 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.bundleOriginInSchematic;
 
 import fi.dy.masa.litematica.schematic.LitematicaSchematic;
+import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.IntTag;
-import net.minecraft.nbt.ListTag;
+import fi.dy.masa.malilib.util.NBTUtils;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,29 +14,35 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(LitematicaSchematic.class)
 public class LitematicaSchematicMixin implements ILitematicaSchematic {
+    // handles ILitematicaSchematic, will be used when:
+    //  - saving the schematic with bundleOriginInSchematic enabled, will be used at LitematicaSchematicMixin#writeOriginToNBT (GuiSchematicSaveButtonListenerMixin#appendOriginOnSave)
+    //  - reading a schematic with origin stored in nbt and bundleOriginInSchematic enabled, will be used at GuiSchematicLoadButtonListenerMixin#setOrigin (LitematicaSchematicMixin#readOriginFromNBT)
     private BlockPos origin;
+
+    // save schematic:
+    // 1. save button clicked (GuiSchematicSaveButtonListenerMixin) write origin using ILitematicaSchematic#setOrigin
+    // 2. save task generated
+    // 3. read origin using ILitematicaSchematic#getOrigin and write it to nbt (LitematicaSchematicMixin#writeOriginToNBT)
+    // 4. the injected nbt will be written to the file
+
+    // read schematic:
+    // 1. load origin using ILitematicaSchematic#setOrigin from the nbt (LitematicaSchematicMixin#readOriginFromNBT)
+    // 2. read origin using ILitematicaSchematic#getOrigin and move the placement to origin (GuiSchematicLoadButtonListenerMixin#movePlacementToOrigin)
 
     @Inject(method = "writeToNBT", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void writeOriginToNBT(CallbackInfoReturnable<CompoundTag> cir, CompoundTag nbt) {
-        if (((ILitematicaSchematic) this).getOrigin() == null) return;
+        // if bundleOriginInSchematic is disabled, the origin will be null since GuiSchematicSaveButtonListenerMixin will not be triggered
+        if (((ILitematicaSchematic) this).hasOrigin()) return;
         BlockPos origin = ((ILitematicaSchematic) this).getOrigin();
-        nbt.put("Origin", this.toListTag(origin.getX(), origin.getY(), origin.getZ()));
+        nbt.put("Origin", NBTUtils.createBlockPosTag(origin));
     }
 
     @Inject(method = "readFromNBT", at = @At("RETURN"))
     private void readOriginFromNBT(CompoundTag nbt, CallbackInfoReturnable<Boolean> cir) {
-        if (!nbt.contains("Origin")) return;
-        ListTag list = nbt.getList("Origin", 3);
-        BlockPos origin = new BlockPos(list.getInt(0), list.getInt(1), list.getInt(2));
+        // if no origin data is present or bundleOriginInSchematic is disabled, don't read
+        if (!nbt.contains("Origin") || !TweakerPlusConfigs.BUNDLE_ORIGIN_IN_SCHEMATIC.getBooleanValue()) return;
+        BlockPos origin = NBTUtils.readBlockPos(nbt.getCompound("Origin"));
         ((ILitematicaSchematic) this).setOrigin(origin);
-    }
-
-    protected ListTag toListTag(int ... values) {
-        ListTag listTag = new ListTag();
-        for (int i : values) {
-            listTag.add(IntTag.of(i));
-        }
-        return listTag;
     }
 
     @Override

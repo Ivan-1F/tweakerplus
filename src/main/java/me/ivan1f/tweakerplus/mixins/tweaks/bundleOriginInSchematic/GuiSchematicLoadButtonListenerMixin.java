@@ -22,6 +22,7 @@ import java.io.File;
 public class GuiSchematicLoadButtonListenerMixin {
     private LitematicaSchematic loadingSchematic;
 
+    // Local capture is not available for @Redirect, so fetch the schematic before redirecting
     @Inject(
             method = "actionPerformedWithButton",
             at = @At(
@@ -39,7 +40,7 @@ public class GuiSchematicLoadButtonListenerMixin {
             method = "actionPerformedWithButton",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getPos()Lnet/minecraft/util/math/Vec3d;")
     )
-    private Vec3d setOrigin(ClientPlayerEntity player) {
+    private Vec3d movePlacementToOrigin(ClientPlayerEntity player) {
         if (this.shouldMoveToOrigin()) {
             return new Vec3d(((ILitematicaSchematic) this.loadingSchematic).getOrigin());
         }
@@ -47,6 +48,7 @@ public class GuiSchematicLoadButtonListenerMixin {
     }
 
     private boolean shouldMoveToOrigin() {
+        // bundleOriginInSchematic is enabled, moveToOrigin checkbox is checked, schematic fetched and origin is not null
         return TweakerPlusConfigs.BUNDLE_ORIGIN_IN_SCHEMATIC.getBooleanValue() && BundleOriginInSchematicHelper.moveToOrigin &&
                 this.loadingSchematic != null && ((ILitematicaSchematic) this.loadingSchematic).hasOrigin();
     }
