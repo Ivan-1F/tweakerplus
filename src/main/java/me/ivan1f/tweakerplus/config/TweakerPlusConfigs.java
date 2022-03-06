@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigDouble;
 import static me.ivan1f.tweakerplus.util.ModIds.*;
 
 public class TweakerPlusConfigs {
@@ -32,11 +33,20 @@ public class TweakerPlusConfigs {
     //    MC Tweaks   //
     ////////////////////
 
-    @Config(value = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
+    @Config(Config.Type.GENERIC)
     public static final TweakerPlusConfigBooleanHotkeyed LIMIT_WORLD_MODIFICATION = ConfigFactory.newConfigBooleanHotkeyed("limitWorldModification", false, "");
 
-    @Config(value = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
+    @Config(Config.Type.GENERIC)
     public static final TweakerPlusConfigBooleanHotkeyed IMMEDIATELY_RESPAWN = ConfigFactory.newConfigBooleanHotkeyed("immediatelyRespawn", false, "");
+
+    @Config(Config.Type.GENERIC)
+    public static final TweakerPlusConfigDouble PLAYER_LIST_SCALE = newConfigDouble("playerListScale", 1, 0.001, 2);
+
+    @Config(Config.Type.DISABLE)
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PUMPKIN_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePumpkinOverlay", false, "");
+
+    @Config(Config.Type.DISABLE)
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PORTAL_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePortalOverlay", false, "");
 
     // Generic
 
