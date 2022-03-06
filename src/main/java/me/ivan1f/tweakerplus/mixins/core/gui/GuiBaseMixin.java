@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(GuiBase.class)
 public class GuiBaseMixin {
     @ModifyConstant(method = "drawTitle", constant = @Constant(intValue = 20), remap = false)
-    private int leftAlignedTitle(int constant) {
+    private int leftAlignTitle(int constant) {
         return shouldApply() ? 12 : constant;
     }
 
