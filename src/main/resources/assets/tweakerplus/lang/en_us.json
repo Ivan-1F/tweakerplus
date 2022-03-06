@@ -7,6 +7,9 @@
   "tweakerplus.config.immediatelyRespawn": "immediatelyRespawn",
   "tweakerplus.config.immediatelyRespawn.comment": "Respawn immediately after death without showing the death screen",
 
+  "tweakerplus.config.playerListScale": "playerListScale",
+  "tweakerplus.config.playerListScale.comment": "Scale the player list hud with given factor",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",

@@ -7,6 +7,9 @@
   "tweakerplus.config.immediatelyRespawn": "立即重生",
   "tweakerplus.config.immediatelyRespawn.comment": "死亡后立刻重生，不显示死亡界面",
 
+  "tweakerplus.config.playerListScale": "玩家列表缩放",
+  "tweakerplus.config.playerListScale.comment": "将玩家列表按照给定参数进行缩放显示",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
