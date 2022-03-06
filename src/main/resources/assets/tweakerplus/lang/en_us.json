@@ -10,6 +10,12 @@
   "tweakerplus.config.playerListScale": "playerListScale",
   "tweakerplus.config.playerListScale.comment": "Scale the player list hud with given factor",
 
+  "tweakerplus.config.disablePumpkinOverlay": "disablePumpkinOverlay",
+  "tweakerplus.config.disablePumpkinOverlay.comment": "Disable the overlay rendered when the player is equipped with a carved pumpkin",
+
+  "tweakerplus.config.disablePortalOverlay": "disablePortalOverlay",
+  "tweakerplus.config.disablePortalOverlay.comment": "Disable the overlay rendered when the player is in the nether portal",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",

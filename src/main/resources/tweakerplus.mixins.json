@@ -19,6 +19,8 @@
     "tweaks.bundleOriginInSchematic.GuiSchematicSaveButtonListenerMixin",
     "tweaks.bundleOriginInSchematic.LitematicaSchematicMixin",
     "tweaks.bundleOriginInSchematic.WidgetSchematicBrowserMixin",
+    "tweaks.disablePortalOverlay.InGameHudMixin",
+    "tweaks.disablePumpkinOverlay.InGameHudMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
     "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
