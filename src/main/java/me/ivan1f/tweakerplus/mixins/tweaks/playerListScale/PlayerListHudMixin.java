@@ -22,7 +22,7 @@ public class PlayerListHudMixin {
         this.scaler = null;
         if (TweakerPlusConfigs.PLAYER_LIST_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(width / 2, 0, TweakerPlusConfigs.PLAYER_LIST_SCALE.getDoubleValue());
-            this.scaler.apply();
+            this.scaler.apply(matrices);
         }
     }
 
