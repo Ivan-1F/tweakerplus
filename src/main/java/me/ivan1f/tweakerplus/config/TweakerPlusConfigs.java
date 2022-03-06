@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigDouble;
 import static me.ivan1f.tweakerplus.util.ModIds.*;
 
 public class TweakerPlusConfigs {
@@ -37,6 +38,10 @@ public class TweakerPlusConfigs {
 
     @Config(value = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed IMMEDIATELY_RESPAWN = ConfigFactory.newConfigBooleanHotkeyed("immediatelyRespawn", false, "");
+
+    @Config(Config.Type.GENERIC)
+    public static final TweakerPlusConfigDouble PLAYER_LIST_SCALE = newConfigDouble("playerListScale", 1, 0.001, 2);
+
 
     // Generic
 

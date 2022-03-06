@@ -20,6 +20,7 @@
     "tweaks.bundleOriginInSchematic.LitematicaSchematicMixin",
     "tweaks.bundleOriginInSchematic.WidgetSchematicBrowserMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
+    "tweaks.playerListScale.PlayerListHudMixin",
     "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
   ],
   "client": [
