@@ -32,7 +32,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
         super(x, y, width, height);
     }
 
-    private boolean shouldUseTranslatedOptionLabelLogic() {
+    private boolean shouldUseTranslatedOptionLabelLogic$tweakerplus() {
         WidgetLabel self = (WidgetLabel) (Object) this;
         return self instanceof TweakerPlusOptionLabel && ((TweakerPlusOptionLabel) self).shouldShowOriginalLines();
     }
@@ -47,8 +47,8 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             remap = false,
             ordinal = 4
     )
-    private int translatedOptionLabelShiftyTextStart(int yTextStart) {
-        if (this.shouldUseTranslatedOptionLabelLogic()) {
+    private int translatedOptionLabelShiftyTextStart$tweakerplus(int yTextStart) {
+        if (this.shouldUseTranslatedOptionLabelLogic$tweakerplus()) {
             yTextStart -= this.fontHeight * TweakerPlusOptionLabel.TRANSLATION_SCALE * 0.6;
         }
         return yTextStart;
@@ -65,9 +65,9 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             remap = false,
             locals = LocalCapture.CAPTURE_FAILHARD
     )
-    private void translatedOptionLabelRenderTranslation(int mouseX, int mouseY, boolean selected, CallbackInfo ci, int fontHeight, int yCenter, int yTextStart, int i, String text) {
-        if (this.shouldUseTranslatedOptionLabelLogic()) {
-            int color = darkerColor(this.textColor);
+    private void translatedOptionLabelRenderTranslation$tweakerplus(int mouseX, int mouseY, boolean selected, CallbackInfo ci, int fontHeight, int yCenter, int yTextStart, int i, String text) {
+        if (this.shouldUseTranslatedOptionLabelLogic$tweakerplus()) {
+            int color = darkerColor$tweakerplus(this.textColor);
             double scale = TweakerPlusOptionLabel.TRANSLATION_SCALE;
             String originText = ((TweakerPlusOptionLabel) (Object) this).getOriginalLines()[i];
             int x = this.x + (this.centered ? this.width / 2 : 0);
@@ -88,7 +88,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
     }
 
     @SuppressWarnings("PointlessBitwiseExpression")
-    private static int darkerColor(int color) {
+    private static int darkerColor$tweakerplus(int color) {
         int a = (color >> 24) & 0xFF;
         int r = (color >> 16) & 0xFF;
         int g = (color >> 8) & 0xFF;

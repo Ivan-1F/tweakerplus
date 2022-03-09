@@ -15,7 +15,7 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
     private boolean shouldRenderTweakerPlusConfigGuiDropDownList = false;
 
     @Inject(method = "drawContents", at = @At("HEAD"), remap = false)
-    private void drawTweakerPlusConfigGuiDropDownListSetFlag(CallbackInfo ci) {
+    private void drawTweakerPlusConfigGuiDropDownListSetFlag$tweakerplus(CallbackInfo ci) {
         shouldRenderTweakerPlusConfigGuiDropDownList = true;
     }
 
@@ -28,13 +28,13 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
             ),
             remap = false
     )
-    private void drawTweakerPlusConfigGuiDropDownListAgainBeforeHover(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.drawTweakerPlusConfigGuiDropDownListAgain(mouseX, mouseY);
+    private void drawTweakerPlusConfigGuiDropDownListAgainBeforeHover$tweakerplus(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
+        this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(mouseX, mouseY);
     }
 
     @Inject(method = "drawContents", at = @At("TAIL"), remap = false)
-    private void drawTweakerPlusConfigGuiDropDownListAgainAfterHover(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.drawTweakerPlusConfigGuiDropDownListAgain(mouseX, mouseY);
+    private void drawTweakerPlusConfigGuiDropDownListAgainAfterHover$tweakerplus(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
+        this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(mouseX, mouseY);
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -46,7 +46,7 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
         return false;
     }
 
-    private void drawTweakerPlusConfigGuiDropDownListAgain(int mouseX, int mouseY) {
+    private void drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(int mouseX, int mouseY) {
         if (this.isTweakerPlusConfigGui() && this.shouldRenderTweakerPlusConfigGuiDropDownList) {
             GuiConfigsBase guiConfig = ((WidgetListConfigOptionsAccessor) this).getParent();
 
