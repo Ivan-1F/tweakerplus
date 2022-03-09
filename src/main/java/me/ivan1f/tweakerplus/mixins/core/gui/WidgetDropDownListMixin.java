@@ -21,7 +21,7 @@ public abstract class WidgetDropDownListMixin {
             ),
             remap = false
     )
-    private void selectorDropDownListMakeOpaque(Args args) {
+    private void selectorDropDownListMakeOpaque$tweakerplus(Args args) {
         if ((WidgetDropDownList<?>) (Object) this instanceof SelectorDropDownList<?>) {
             // ensure background is opaque
             int bgColor = args.get(4);
@@ -46,7 +46,7 @@ public abstract class WidgetDropDownListMixin {
             cancellable = true,
             remap = false
     )
-    private void fixNoReturnValueHandlingForScroll(CallbackInfoReturnable<Boolean> cir) {
+    private void fixNoReturnValueHandlingForScroll$tweakerplus(CallbackInfoReturnable<Boolean> cir) {
         if ((WidgetDropDownList<?>) (Object) this instanceof SelectorDropDownList<?>) {
             cir.setReturnValue(true);
         }

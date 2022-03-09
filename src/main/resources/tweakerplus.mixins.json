@@ -19,6 +19,7 @@
     "tweaks.bundleOriginInSchematic.GuiSchematicSaveButtonListenerMixin",
     "tweaks.bundleOriginInSchematic.LitematicaSchematicMixin",
     "tweaks.bundleOriginInSchematic.WidgetSchematicBrowserMixin",
+    "tweaks.disableMinihudWhenChatOpened.OverlayRendererMixin",
     "tweaks.disablePortalOverlay.InGameHudMixin",
     "tweaks.disablePumpkinOverlay.InGameHudMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",

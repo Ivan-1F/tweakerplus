@@ -56,7 +56,7 @@ public abstract class WidgetListConfigOptionsMixin extends WidgetListConfigOptio
             ),
             remap = false
     )
-    private int updateMaxNameLengthIfUsingTweakerPlusOptionLabelAndShowsOriginalText(int maxWidth, List<GuiConfigsBase.ConfigOptionWrapper> wrappers) {
+    private int updateMaxNameLengthIfUsingTweakerPlusOptionLabelAndShowsOriginalText$tweakerplus(int maxWidth, List<GuiConfigsBase.ConfigOptionWrapper> wrappers) {
         if (this.parent instanceof TweakerPlusConfigGui) {
             for (GuiConfigsBase.ConfigOptionWrapper wrapper : wrappers) {
                 if (wrapper.getType() == GuiConfigsBase.ConfigOptionWrapper.Type.CONFIG) {
@@ -80,7 +80,7 @@ public abstract class WidgetListConfigOptionsMixin extends WidgetListConfigOptio
             ),
             remap = false
     )
-    private void adjustConfigAndOptionPanelWidth(CallbackInfo ci) {
+    private void adjustConfigAndOptionPanelWidth$tweakerplus(CallbackInfo ci) {
         if (this.parent instanceof TweakerPlusConfigGui) {
             Pair<Integer, Integer> result = ((TweakerPlusConfigGui) this.parent).adjustWidths(this.totalWidth, this.maxLabelWidth);
             this.maxLabelWidth = result.getFirst();
