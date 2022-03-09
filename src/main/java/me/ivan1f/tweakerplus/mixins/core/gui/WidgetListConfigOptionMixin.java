@@ -87,7 +87,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             index = 1,
             remap = false
     )
-    private int tweaksCommentHeight_minY(int y) {
+    private int tweaksCommentHeight_minY$tweakerplus(int y) {
         if (this.showOriginalTextsThisTime) {
             y -= 4;
         }
@@ -104,7 +104,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             index = 3,
             remap = false
     )
-    private int tweaksCommentHeight_height(int height) {
+    private int tweaksCommentHeight_height$tweakerplus(int height) {
         if (this.showOriginalTextsThisTime) {
             height += 6;
         }
@@ -120,13 +120,13 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
     private void tweakerPlusCustomConfigGui(int x, int y, int configWidth, String configName, IHotkey config, CallbackInfo ci) {
         if (this.isTweakerPlusConfigGui()) {
             if ((config).getKeybind() instanceof KeybindMulti) {
-                this.addButtonAndHotkeyWidgets(x, y, configWidth, config);
+                this.addButtonAndHotkeyWidgets$tweakerplus(x, y, configWidth, config);
                 ci.cancel();
             }
         }
     }
 
-    private void addButtonAndHotkeyWidgets(int x, int y, int configWidth, IHotkey config) {
+    private void addButtonAndHotkeyWidgets$tweakerplus(int x, int y, int configWidth, IHotkey config) {
         IKeybind keybind = config.getKeybind();
 
         int triggerBtnWidth = (configWidth - 24) / 2;

@@ -8,6 +8,7 @@ public class ModIds {
 
     // masa's
     public static final String malilib = "malilib";
+    public static final String minihud = "minihud";
     public static final String tweakeroo = "tweakeroo";
     public static final String itemscroller = "itemscroller";
     public static final String litematica = "litematica";

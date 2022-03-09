@@ -35,7 +35,7 @@ public abstract class ConfigBaseMixin {
     }
 
     @Inject(method = "getComment", at = @At("TAIL"), cancellable = true, remap = false)
-    private void appendModRequirementHeader(CallbackInfoReturnable<String> cir) {
+    private void appendModRequirementHeader$tweakerplus(CallbackInfoReturnable<String> cir) {
         TweakerPlusConfigs.getOptionFromConfig((IConfigBase) this).ifPresent(tweakerPlusOption -> {
             List<String> footers = tweakerPlusOption.getModRelationsFooter();
             if (!footers.isEmpty()) {
