@@ -67,7 +67,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             locals = LocalCapture.CAPTURE_FAILHARD
     )
     private void translatedOptionLabelRenderTranslation$tweakerplus(int mouseX, int mouseY, boolean selected, MatrixStack matrixStackd, CallbackInfo ci, int fontHeight, int yCenter, int yTextStart, int i, String text) {
-        if (this.shouldUseTranslatedOptionLabelLogic()) {
+        if (this.shouldUseTranslatedOptionLabelLogic$tweakerplus()) {
             int color = darkerColor$tweakerplus(this.textColor);
             double scale = TweakerPlusOptionLabel.TRANSLATION_SCALE;
             String originText = ((TweakerPlusOptionLabel) (Object) this).getOriginalLines()[i];
