@@ -63,7 +63,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
      * to make compact ConfigBooleanHotkeyed option panel works
      */
     @Inject(method = "<init>", at = @At("TAIL"), remap = false)
-    private void initInitialState(CallbackInfo ci) {
+    private void initInitialState$tweakerplus(CallbackInfo ci) {
         if (isTweakerPlusConfigGui() && this.wrapper.getType() == GuiConfigsBase.ConfigOptionWrapper.Type.CONFIG) {
             IConfigBase config = wrapper.getConfig();
             if (config instanceof ConfigBooleanHotkeyed) {
@@ -121,7 +121,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             index = 1,
             remap = false
     )
-    private int tweaksCommentHeight_minY(int y) {
+    private int tweaksCommentHeight_minY$tweakerplus(int y) {
         if (this.showOriginalTextsThisTime) {
             y -= 4;
         }
@@ -138,7 +138,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             index = 3,
             remap = false
     )
-    private int tweaksCommentHeight_height(int height) {
+    private int tweaksCommentHeight_height$tweakerplus(int height) {
         if (this.showOriginalTextsThisTime) {
             height += 6;
         }
@@ -159,9 +159,9 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
         if (this.isTweakerPlusConfigGui() && config instanceof IHotkey) {
             boolean modified = true;
             if (config instanceof IHotkeyTogglable) {
-                this.addBooleanAndHotkeyWidgets(x, y, configWidth, (IHotkeyTogglable) config);
+                this.addBooleanAndHotkeyWidgets$tweakerplus(x, y, configWidth, (IHotkeyTogglable) config);
             } else if (((IHotkey) config).getKeybind() instanceof KeybindMulti) {
-                this.addButtonAndHotkeyWidgets(x, y, configWidth, (IHotkey) config);
+                this.addButtonAndHotkeyWidgets$tweakerplus(x, y, configWidth, (IHotkey) config);
             } else {
                 modified = false;
             }
@@ -171,7 +171,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
         }
     }
 
-    private void addButtonAndHotkeyWidgets(int x, int y, int configWidth, IHotkey config) {
+    private void addButtonAndHotkeyWidgets$tweakerplus(int x, int y, int configWidth, IHotkey config) {
         IKeybind keybind = config.getKeybind();
 
         int triggerBtnWidth = (configWidth - 24) / 2;
@@ -204,7 +204,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
         this.addKeybindResetButton(x, y, keybind, keybindButton);
     }
 
-    private void addBooleanAndHotkeyWidgets(int x, int y, int configWidth, IHotkeyTogglable config) {
+    private void addBooleanAndHotkeyWidgets$tweakerplus(int x, int y, int configWidth, IHotkeyTogglable config) {
         IKeybind keybind = config.getKeybind();
 
         int booleanBtnWidth = (configWidth - 24) / 2;
@@ -245,7 +245,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             cancellable = true,
             remap = false
     )
-    private void specialJudgeCustomConfigBooleanHotkeyed(CallbackInfoReturnable<Boolean> cir) {
+    private void specialJudgeCustomConfigBooleanHotkeyed$tweakerplus(CallbackInfoReturnable<Boolean> cir) {
         IConfigBase config = this.wrapper.getConfig();
         if (config instanceof ConfigBooleanHotkeyed && TweakerPlusConfigs.hasConfig(config)) {
             ConfigBooleanHotkeyed booleanHotkey = (ConfigBooleanHotkeyed) config;
@@ -270,7 +270,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             index = 0,
             remap = false
     )
-    private int whyNotAlignTheHotkeyConfigButtonWidthWithOthers(int x) {
+    private int whyNotAlignTheHotkeyConfigButtonWidthWithOthers$tweakerplus(int x) {
         if (isTweakerPlusConfigGui()) {
             x += 1;
         }
@@ -287,7 +287,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             index = 2,
             remap = false
     )
-    private int whyNotAlignTheHotkeySetterButtonWidthWithOthers(int width) {
+    private int whyNotAlignTheHotkeySetterButtonWidthWithOthers$tweakerplus(int width) {
         if (isTweakerPlusConfigGui()) {
             width += 3;
         }

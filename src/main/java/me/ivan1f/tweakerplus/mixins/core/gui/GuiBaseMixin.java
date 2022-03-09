@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(GuiBase.class)
 public class GuiBaseMixin {
     @ModifyConstant(method = "drawTitle", constant = @Constant(intValue = 20), remap = false)
-    private int leftAlignTitle(int constant) {
-        return shouldApply() ? 12 : constant;
+    private int leftAlignTitle$tweakerplus(int constant) {
+        return shouldLeftAlignTitle() ? 12 : constant;
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -19,7 +19,7 @@ public class GuiBaseMixin {
         return (GuiBase)(Object) this instanceof TweakerPlusConfigGui;
     }
 
-    private boolean shouldApply() {
+    private boolean shouldLeftAlignTitle() {
         return isTweakerPlusConfigGui() || TweakerPlusConfigs.LEFT_ALIGN_TITLE_GLOBALLY.getBooleanValue();
     }
 }

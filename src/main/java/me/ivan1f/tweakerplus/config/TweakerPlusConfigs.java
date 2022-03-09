@@ -67,6 +67,9 @@ public class TweakerPlusConfigs {
     @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
     public static final TweakerPlusConfigBoolean BUNDLE_ORIGIN_IN_SCHEMATIC = ConfigFactory.newConfigBoolean("bundleOriginInSchematic", false);
 
+    @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(minihud)))
+    public static final TweakerPlusConfigBoolean DISABLE_MINIHUD_WHEN_CHAT_OPENED = ConfigFactory.newConfigBoolean("disableMinihudWhenChatOpened", false);
+
     //////////////////////////
     //  TweakerPlus Setting //
     //////////////////////////
