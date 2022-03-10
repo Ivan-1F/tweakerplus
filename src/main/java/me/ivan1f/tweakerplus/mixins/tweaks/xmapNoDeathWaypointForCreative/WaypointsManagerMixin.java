@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Pseudo
 @Mixin(targets = "xaero.common.core.XaeroMinimapCore")
 public class WaypointsManagerMixin {
-    @Inject(method = "beforeRespawn", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "beforeRespawn", at = @At("HEAD"), cancellable = true, remap = false)
     private static void stopCreatingDeathPoint(PlayerEntity player, CallbackInfo ci) {
         if (player.isCreative() && TweakerPlusConfigs.XMAP_NO_DEATH_WAYPOINT_FOR_CREATIVE.getBooleanValue()) {
             ci.cancel();
