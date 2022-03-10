@@ -33,6 +33,8 @@ public class TweakerPlusConfigs {
     //    MC Tweaks   //
     ////////////////////
 
+    // Generic
+
     @Config(Config.Type.GENERIC)
     public static final TweakerPlusConfigBooleanHotkeyed LIMIT_WORLD_MODIFICATION = ConfigFactory.newConfigBooleanHotkeyed("limitWorldModification", false, "");
 
@@ -48,8 +50,6 @@ public class TweakerPlusConfigs {
     @Config(Config.Type.DISABLE)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PORTAL_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePortalOverlay", false, "");
 
-    // Generic
-
     // List
 
     // Tweak
@@ -59,7 +59,7 @@ public class TweakerPlusConfigs {
     ////////////////////
 
     @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(xaero_minimap)))
-    public static final TweakerPlusConfigBooleanHotkeyed XMAP_NO_DEATH_WAYPOINT_FOR_CREATIVE = ConfigFactory.newConfigBooleanHotkeyed("xmapNoDeathWaypointForCreative", false, "");
+    public static final TweakerPlusConfigBoolean XMAP_NO_DEATH_WAYPOINT_FOR_CREATIVE = ConfigFactory.newConfigBoolean("xmapNoDeathWaypointForCreative", false);
 
     @Config(value = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS)
     public static final TweakerPlusConfigBoolean LEFT_ALIGN_TITLE_GLOBALLY = ConfigFactory.newConfigBoolean("leftAlignTitleGlobally", false);
