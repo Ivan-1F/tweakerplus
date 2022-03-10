@@ -3,18 +3,22 @@
 
   "tweakerplus.config.limitWorldModification": "limitWorldModification",
   "tweakerplus.config.limitWorldModification.comment": "Prevent any player interaction",
+  "tweakerplus.config.limitWorldModification.pretty_name": "Limit World Modification",
 
   "tweakerplus.config.immediatelyRespawn": "immediatelyRespawn",
   "tweakerplus.config.immediatelyRespawn.comment": "Respawn immediately after death without showing the death screen",
+  "tweakerplus.config.immediatelyRespawn.pretty_name": "Immediately Respawn",
 
   "tweakerplus.config.playerListScale": "playerListScale",
   "tweakerplus.config.playerListScale.comment": "Scale the player list hud with given factor",
 
   "tweakerplus.config.disablePumpkinOverlay": "disablePumpkinOverlay",
   "tweakerplus.config.disablePumpkinOverlay.comment": "Disable the overlay rendered when the player is equipped with a carved pumpkin",
+  "tweakerplus.config.disablePumpkinOverlay.pretty_name": "Disable Pumpkin Overlay",
 
   "tweakerplus.config.disablePortalOverlay": "disablePortalOverlay",
   "tweakerplus.config.disablePortalOverlay.comment": "Disable the overlay rendered when the player is in the nether portal",
+  "tweakerplus.config.disablePortalOverlay.pretty_name": "Disable Portal Overlay",
 
   "// Mod Tweaks": "================================================",
 
@@ -26,6 +30,7 @@
 
   "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
   "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle the origin in the schematic when saving it\nWhen loading the schematic, if the origin info is present in the file, the placement will be moved to its origin\n(Using 'Create placement' button after loading will still place the placement at the player)\nThe origin info will be appended at the right panel of the schematic browser",
+  "tweakerplus.config.bundleOriginInSchematic.pretty_name": "Bundle Origin in Schematic",
 
   "// Setting": "================================================",
 
