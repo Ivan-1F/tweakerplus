@@ -33,6 +33,8 @@ public class TweakerPlusConfigs {
     //    MC Tweaks   //
     ////////////////////
 
+    // Generic
+
     @Config(Config.Type.GENERIC)
     public static final TweakerPlusConfigBooleanHotkeyed LIMIT_WORLD_MODIFICATION = ConfigFactory.newConfigBooleanHotkeyed("limitWorldModification", false, "");
 
@@ -47,8 +49,6 @@ public class TweakerPlusConfigs {
 
     @Config(Config.Type.DISABLE)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PORTAL_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePortalOverlay", false, "");
-
-    // Generic
 
     // List
 
