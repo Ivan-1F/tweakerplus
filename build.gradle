@@ -50,9 +50,6 @@ dependencies {
     modCompileOnly "com.terraformersmc:modmenu:${project.mod_menu_version}"
     modImplementation "com.github.Fallen-Breath:conditional-mixin:${project.conditionalmixin_version}"
     include "com.github.Fallen-Breath:conditional-mixin:${project.conditionalmixin_version}"
-    implementation "com.github.LlamaLad7:MixinExtras:0.0.6"
-    annotationProcessor "com.github.LlamaLad7:MixinExtras:0.0.6"
-    include "com.github.LlamaLad7:MixinExtras:0.0.6"
 
     // runtime mods
     modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
