@@ -1,0 +1,85 @@
+{
+  "// MC Tweaks": "================================================",
+
+  "tweakerplus.config.limitWorldModification": "限制世界修改",
+  "tweakerplus.config.limitWorldModification.comment": "阻止任何形式的玩家交互",
+  "tweakerplus.config.limitWorldModification.pretty_name": "限制世界修改",
+
+  "tweakerplus.config.immediatelyRespawn": "立即重生",
+  "tweakerplus.config.immediatelyRespawn.comment": "死亡后立刻重生，不显示死亡界面",
+  "tweakerplus.config.immediatelyRespawn.pretty_name": "立即重生",
+
+  "tweakerplus.config.playerListScale": "玩家列表缩放",
+  "tweakerplus.config.playerListScale.comment": "将玩家列表按照给定参数进行缩放显示",
+
+  "tweakerplus.config.disablePumpkinOverlay": "禁用南瓜头覆盖渲染",
+  "tweakerplus.config.disablePumpkinOverlay.comment": "禁用玩家佩戴南瓜头时的覆盖渲染",
+  "tweakerplus.config.disablePumpkinOverlay.pretty_name": "禁用南瓜头覆盖渲染",
+
+  "tweakerplus.config.disablePortalOverlay": "禁用地狱门覆盖渲染",
+  "tweakerplus.config.disablePortalOverlay.comment": "禁用玩家在地狱门中时的覆盖渲染",
+  "tweakerplus.config.disablePortalOverlay.pretty_name": "禁用地狱门覆盖渲染",
+
+  "// Mod Tweaks": "================================================",
+
+  "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
+  "tweakerplus.config.leftAlignTitleGlobally.comment": "将左对齐的标题应用到所有使用Malilib的配置界面",
+
+  "tweakerplus.config.xmapNoDeathWaypointForCreative": "xaero地图创造玩家无死亡标记",
+  "tweakerplus.config.xmapNoDeathWaypointForCreative.comment": "阻止xaero地图为创造玩家创建死亡标记",
+
+  "tweakerplus.config.bundleOriginInSchematic": "将原点打包入原理图",
+  "tweakerplus.config.bundleOriginInSchematic.comment": "在保存原理图时将原点信息打包入文件\n在加载原理图时，若文件中含有原点信息，则将放置移动至原点\n（加载后使用 '创建放置' 按钮仍会将放置创建在玩家处）\n原理图浏览器右侧面板中会追加显示原点信息",
+
+  "// Setting": "================================================",
+
+  "tweakerplus.config.hideDisabledOptions": "隐藏禁用的选项",
+  "tweakerplus.config.hideDisabledOptions.comment": "在配置界面中隐藏因模组约束关系不被满足而被禁用的选项",
+  "tweakerplus.config.openTweakerPlusConfigGui": "打开TweakerPlus配置界面",
+  "tweakerplus.config.openTweakerPlusConfigGui.comment": "打开TweakerPlus的配置界面",
+
+  "tweakerplus.config.tweakerPlusDebugMode": "TweakerPlus调试模式",
+  "tweakerplus.config.tweakerPlusDebugMode.comment": "TweakerPlus的调试模式\n当启用时，调试用参数选项以及当前游戏版本不支持的选项会被显示\n以及调试相关的功能会被启用",
+  "tweakerplus.config.tweakerPlusDebugMode.pretty_name": "TweakerPlus调试模式",
+  "tweakerplus.config.tweakerPlusDebugInt": "TweakerPlus调试用Int",
+  "tweakerplus.config.tweakerPlusDebugInt.comment": "用于调试TweakerPlus的Int",
+  "tweakerplus.config.tweakerPlusDebugDouble": "TweakerPlus调试用Double",
+  "tweakerplus.config.tweakerPlusDebugDouble.comment": "用于调试TweakerPlus的Double",
+
+  "// GUI and Misc": "================================================",
+  "tweakerplus.hotkeys.category.main": "TweakerPlus",
+  "tweakerplus.gui.title": "TweakerPlus v%1$s 配置界面",
+  "tweakerplus.gui.selector_drop_down_list.all": "全部",
+  "tweakerplus.gui.trigger_button.text": "触发",
+  "tweakerplus.gui.trigger_button.hover": "点击以触发一次 %1$s\n§7§o这将依次模拟热键按下与松开操作§r",
+  "tweakerplus.gui.config_category.mc_tweaks": "功能",
+  "tweakerplus.gui.config_category.mod_tweaks": "模组修改",
+  "tweakerplus.gui.config_category.setting": "配置",
+  "tweakerplus.gui.config_type.label_text": "类型筛选",
+  "tweakerplus.gui.config_type.generic": "通用 Generic",
+  "tweakerplus.gui.config_type.hotkey": "热键 Hotkey",
+  "tweakerplus.gui.config_type.list": "列表 List",
+  "tweakerplus.gui.config_type.tweak": "工具 Tweak",
+  "tweakerplus.gui.config_type.disable": "禁用 Disable",
+  "tweakerplus.gui.config_type.config": "配置 Config",
+  "tweakerplus.gui.mod_relation_footer.or": "或",
+  "tweakerplus.gui.mod_relation_footer.requirement": "依赖模组:",
+  "tweakerplus.gui.mod_relation_footer.confliction": "冲突模组:",
+  "tweakerplus.util.mod.easiercrafting": "EasierCrafting",
+  "tweakerplus.util.mod.fabric": "Fabric API",
+  "tweakerplus.util.mod.fabricloader": "Fabric Loader",
+  "tweakerplus.util.mod.iris": "Iris",
+  "tweakerplus.util.mod.itemscroller": "Item Scroller",
+  "tweakerplus.util.mod.litematica": "Litematica",
+  "tweakerplus.util.mod.minecraft": "Minecraft",
+  "tweakerplus.util.mod.optifabric": "Optifine",
+  "tweakerplus.util.mod.raise-chat-limit": "Raise Chat Limit",
+  "tweakerplus.util.mod.replaymod": "Replay mod",
+  "tweakerplus.util.mod.tweakeroo": "Tweakeroo",
+  "tweakerplus.util.mod.xaeroworldmap": "Xaero's World Map",
+  "tweakerplus.util.mod.xaerominimap": "Xaero's Minimap",
+
+  "tweakerplus.gui.label.schematic_info.origin": "原点: §f%d§r",
+  "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "移动至原点",
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "若勾选，含有原点信息的原理图将被放置在其原点，而不是玩家位置"
+}
