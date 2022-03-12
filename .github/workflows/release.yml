@@ -112,10 +112,10 @@ jobs:
       - name: Publish Minecraft Mods
         uses: Kir-Antipov/mc-publish@v2.1
         with:
-          modrinth-id: GBeCx05I  # https://modrinth.com/mod/tweakerplus
+          modrinth-id: bDilvR8M  # https://modrinth.com/mod/tweakerplus
           modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
 
-          curseforge-id: 531235  # https://www.curseforge.com/minecraft/mc-mods/tweakerplus
+          curseforge-id: 592100  # https://www.curseforge.com/minecraft/mc-mods/tweakerplus
           curseforge-token: ${{ secrets.CF_API_TOKEN }}
 
           github-tag: ${{ steps.release_info.outputs.tag_name }}
