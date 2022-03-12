@@ -75,7 +75,7 @@ public class TweakerPlusConfigs {
     public static final TweakerPlusConfigBoolean HIDE_DISABLE_OPTIONS = ConfigFactory.newConfigBoolean("hideDisabledOptions", false);
 
     @Config(value = Config.Type.HOTKEY, category = Config.Category.SETTING)
-    public static final TweakerPlusConfigHotkey OPEN_TWEAKERPLUS_CONFIG_GUI = ConfigFactory.newConfigHotKey("openTweakerPlusConfigGui", "K,C");
+    public static final TweakerPlusConfigHotkey OPEN_TWEAKERPLUS_CONFIG_GUI = ConfigFactory.newConfigHotKey("openTweakerPlusConfigGui", "P,C");
 
     @Config(value = Config.Type.TWEAK, category = Config.Category.SETTING)
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKERPLUS_DEBUG_MODE = ConfigFactory.newConfigBooleanHotkeyed("tweakerPlusDebugMode");
