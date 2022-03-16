@@ -1,10 +1,10 @@
 ## TweakerPlus
 
-[![License](https://img.shields.io/github/license/Ivan-1F/treakerplus.svg)](http://www.gnu.org/licenses/lgpl-3.0.html)
-[![Issues](https://img.shields.io/github/issues/Ivan-1F/treakerplus.svg)](https://github.com/Ivan-1F/treakerplus/issues)
+[![License](https://img.shields.io/github/license/Ivan-1F/tweakerplus.svg)](http://www.gnu.org/licenses/lgpl-3.0.html)
+[![Issues](https://img.shields.io/github/issues/Ivan-1F/tweakerplus.svg)](https://github.com/Ivan-1F/tweakerplus/issues)
 [![MC Versions](http://cf.way2muchnoise.eu/versions/For%20MC_tweakerplus_all.svg)](https://www.curseforge.com/minecraft/mc-mods/tweakerplus)
 [![CurseForge](http://cf.way2muchnoise.eu/full_tweakerplus_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/tweakerplus)
-[![Modrinth](https://img.shields.io/modrinth/dt/GBeCx05I?label=Modrinth%20Downloads)](https://modrinth.com/mod/tweakerplus)
+[![Modrinth](https://img.shields.io/modrinth/dt/bDilvR8M?label=Modrinth%20Downloads)](https://modrinth.com/mod/tweakerplus)
 
 A collection of client-side tweak kits for enhance your Minecraft game experience
 
