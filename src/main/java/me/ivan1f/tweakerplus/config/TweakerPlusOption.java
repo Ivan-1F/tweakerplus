@@ -3,10 +3,10 @@ package me.ivan1f.tweakerplus.config;
 import com.google.common.collect.Lists;
 import fi.dy.masa.malilib.gui.GuiBase;
 import fi.dy.masa.malilib.util.StringUtils;
-import me.fallenbreath.conditionalmixin.util.ModPredicate;
-import me.fallenbreath.conditionalmixin.util.ModRestriction;
 import me.ivan1f.tweakerplus.config.options.TweakerPlusIConfigBase;
 import me.ivan1f.tweakerplus.util.ModIds;
+import me.ivan1f.tweakerplus.util.condition.ModPredicate;
+import me.ivan1f.tweakerplus.util.condition.ModRestriction;
 
 import java.util.Arrays;
 import java.util.Collection;
