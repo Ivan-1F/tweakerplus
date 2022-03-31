@@ -32,7 +32,7 @@ public class LitematicaSchematicMixin implements ILitematicaSchematic {
     @Inject(method = "writeToNBT", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void writeOriginToNBT(CallbackInfoReturnable<NbtCompound> cir, NbtCompound nbt) {
         // if bundleOriginInSchematic is disabled, the origin will be null since GuiSchematicSaveButtonListenerMixin will not be triggered
-        if (((ILitematicaSchematic) this).hasOrigin()) return;
+        if (!((ILitematicaSchematic) this).hasOrigin()) return;
         BlockPos origin = ((ILitematicaSchematic) this).getOrigin();
         nbt.put("Origin", NBTUtils.createBlockPosTag(origin));
     }
