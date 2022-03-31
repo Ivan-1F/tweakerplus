@@ -24,7 +24,7 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
             at = @At(
                     value = "INVOKE",
                     target = "Lfi/dy/masa/malilib/gui/widgets/WidgetBase;postRenderHovered(IIZ)V",
-                    remap = true
+                    remap = false
             ),
             remap = false
     )
