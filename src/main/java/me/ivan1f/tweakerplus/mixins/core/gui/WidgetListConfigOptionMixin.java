@@ -29,7 +29,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 import java.util.Objects;
 import java.util.function.Function;
 
-@Mixin(WidgetConfigOption.class)
+@Mixin(value = WidgetConfigOption.class)
 public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase<GuiConfigsBase.ConfigOptionWrapper> {
     @Shadow(remap = false)
     @Final
@@ -93,7 +93,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             int height = args.get(3);
             int textColor = args.get(4);
             String[] lines = args.get(5);
-            if (lines.length != 1) {
+            if (lines == null || lines.length != 1) {
                 return;
             }
 

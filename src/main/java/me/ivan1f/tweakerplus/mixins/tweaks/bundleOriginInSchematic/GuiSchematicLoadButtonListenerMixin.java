@@ -4,7 +4,6 @@ import fi.dy.masa.litematica.schematic.LitematicaSchematic;
 import fi.dy.masa.litematica.util.FileType;
 import fi.dy.masa.malilib.gui.button.ButtonBase;
 import fi.dy.masa.malilib.gui.widgets.WidgetFileBrowserBase;
-import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.BundleOriginInSchematicHelper;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -49,7 +48,7 @@ public class GuiSchematicLoadButtonListenerMixin {
 
     private boolean shouldMoveToOrigin() {
         // bundleOriginInSchematic is enabled, moveToOrigin checkbox is checked, schematic fetched and origin is not null
-        return TweakerPlusConfigs.BUNDLE_ORIGIN_IN_SCHEMATIC.getBooleanValue() && BundleOriginInSchematicHelper.moveToOrigin &&
-                this.loadingSchematic != null && ((ILitematicaSchematic) this.loadingSchematic).hasOrigin();
+        return BundleOriginInSchematicHelper.shouldMoveToOrigin() && this.loadingSchematic != null &&
+                ((ILitematicaSchematic) this.loadingSchematic).hasOrigin();
     }
 }

@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigBoolean;
 import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigDouble;
 import static me.ivan1f.tweakerplus.util.ModIds.*;
 
@@ -49,6 +50,9 @@ public class TweakerPlusConfigs {
 
     @Config(Config.Type.DISABLE)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PORTAL_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePortalOverlay", false, "");
+
+    @Config(Config.Type.GENERIC)
+    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
 
     // List
 
