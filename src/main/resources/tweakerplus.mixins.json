@@ -23,6 +23,7 @@
     "tweaks.disablePumpkinOverlay.InGameHudMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
+    "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
     "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
   ],
   "client": [
