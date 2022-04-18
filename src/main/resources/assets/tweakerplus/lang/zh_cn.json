@@ -20,6 +20,9 @@
   "tweakerplus.config.disablePortalOverlay.comment": "禁用玩家在地狱门中时的覆盖渲染",
   "tweakerplus.config.disablePortalOverlay.pretty_name": "禁用地狱门覆盖渲染",
 
+  "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
+  "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",

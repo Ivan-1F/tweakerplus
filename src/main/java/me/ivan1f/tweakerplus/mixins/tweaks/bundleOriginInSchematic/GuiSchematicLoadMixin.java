@@ -27,9 +27,9 @@ public class GuiSchematicLoadMixin extends GuiBase {
         WidgetCheckBox checkbox = new WidgetCheckBox(x, y, Icons.CHECKBOX_UNSELECTED, Icons.CHECKBOX_SELECTED, label, hover);
         checkbox.setListener(widgetCheckBox -> {
             assert widgetCheckBox != null;
-            BundleOriginInSchematicHelper.moveToOrigin = widgetCheckBox.isChecked();
+            BundleOriginInSchematicHelper.moveToOriginChecked = widgetCheckBox.isChecked();
         });
-        checkbox.setChecked(BundleOriginInSchematicHelper.moveToOrigin, false);
+        checkbox.setChecked(BundleOriginInSchematicHelper.moveToOriginChecked, false);
         this.addWidget(checkbox);
     }
 }
