@@ -20,6 +20,10 @@
   "tweakerplus.config.disablePortalOverlay.comment": "禁用玩家在地狱门中时的覆盖渲染",
   "tweakerplus.config.disablePortalOverlay.pretty_name": "禁用地狱门覆盖渲染",
 
+  "tweakerplus.config.disableWitherSpawnSound": "禁用凋灵生成音效",
+  "tweakerplus.config.disableWitherSpawnSound.comment": "禁用凋灵在召唤后生命值回满时发出的世界中所有玩家都能听到的音效",
+  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "禁用凋灵生成音效",
+
   "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
 

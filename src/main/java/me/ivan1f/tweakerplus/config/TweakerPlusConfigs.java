@@ -51,6 +51,9 @@ public class TweakerPlusConfigs {
     @Config(Config.Type.DISABLE)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PORTAL_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePortalOverlay", false, "");
 
+    @Config(Config.Type.DISABLE)
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_WITHER_SPAWN_SOUND = ConfigFactory.newConfigBooleanHotkeyed("disableWitherSpawnSound", false, "");
+
     @Config(Config.Type.GENERIC)
     public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
 

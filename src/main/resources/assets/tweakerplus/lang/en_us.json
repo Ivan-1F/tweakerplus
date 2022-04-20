@@ -20,6 +20,10 @@
   "tweakerplus.config.disablePortalOverlay.comment": "Disable the overlay rendered when the player is in the nether portal",
   "tweakerplus.config.disablePortalOverlay.pretty_name": "Disable Portal Overlay",
 
+  "tweakerplus.config.disableWitherSpawnSound": "disableWitherSpawnSound",
+  "tweakerplus.config.disableWitherSpawnSound.comment": "Disable the wither spawned sound emitted when a wither fully reset its health after summoned",
+  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "Disable Wither Spawn Sound",
+
   "tweakerplus.config.resourcePackIncompatibleIgnored": "resourcePackIncompatibleIgnored",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "Ignore the warning on the resource pack screen when the resource pack is incompatible",
 
