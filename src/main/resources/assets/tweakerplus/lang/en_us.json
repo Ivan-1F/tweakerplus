@@ -89,5 +89,31 @@
 
   "tweakerplus.gui.label.schematic_info.origin": "Origin: §f%d§r",
   "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "Move to origin",
-  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "If checked, if origin info is present in the schematic, the placement will be moved to its origin instead of the player"
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "If checked, if origin info is present in the schematic, the placement will be moved to its origin instead of the player",
+
+  "// Document generator": "================================================",
+
+  "tweakerplus.doc_gen.document": "Document",
+  "tweakerplus.doc_gen.index": "Index",
+
+  "tweakerplus.doc_gen.text.type": "Type",
+  "tweakerplus.doc_gen.text.category": "Category",
+  "tweakerplus.doc_gen.text.default_value": "Default value",
+  "tweakerplus.doc_gen.text.minimum_value": "Minimum value",
+  "tweakerplus.doc_gen.text.maximum_value": "Maximum value",
+  "tweakerplus.doc_gen.text.options": "Available options",
+  "tweakerplus.doc_gen.text.mod_restrictions": "Mod restrictions",
+  "tweakerplus.doc_gen.text.requirements": "Required mods",
+  "tweakerplus.doc_gen.text.conflictions": "Conflicted mods",
+
+  "tweakerplus.doc_gen.value.no_hotkey": "no hotkey",
+
+  "tweakerplus.doc_gen.type.boolean": "boolean",
+  "tweakerplus.doc_gen.type.integer": "integer",
+  "tweakerplus.doc_gen.type.double": "double",
+  "tweakerplus.doc_gen.type.string": "string",
+  "tweakerplus.doc_gen.type.string_list": "string list",
+  "tweakerplus.doc_gen.type.option_list": "option list",
+  "tweakerplus.doc_gen.type.hotkey": "hotkey",
+  "tweakerplus.doc_gen.type.hotkey_togglable": "togglable hotkey"
 }

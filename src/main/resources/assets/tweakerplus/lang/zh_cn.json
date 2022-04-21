@@ -88,5 +88,31 @@
 
   "tweakerplus.gui.label.schematic_info.origin": "原点: §f%d§r",
   "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "移动至原点",
-  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "若勾选，含有原点信息的原理图将被放置在其原点，而不是玩家位置"
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "若勾选，含有原点信息的原理图将被放置在其原点，而不是玩家位置",
+
+  "// Document generator": "================================================",
+
+  "tweakerplus.doc_gen.document": "文档",
+  "tweakerplus.doc_gen.index": "索引",
+
+  "tweakerplus.doc_gen.text.type": "类型",
+  "tweakerplus.doc_gen.text.category": "分类",
+  "tweakerplus.doc_gen.text.default_value": "默认值",
+  "tweakerplus.doc_gen.text.minimum_value": "最小值",
+  "tweakerplus.doc_gen.text.maximum_value": "最大值",
+  "tweakerplus.doc_gen.text.options": "可用选项",
+  "tweakerplus.doc_gen.text.mod_restrictions": "模组约束",
+  "tweakerplus.doc_gen.text.requirements": "依赖模组",
+  "tweakerplus.doc_gen.text.conflictions": "冲突模组",
+
+  "tweakerplus.doc_gen.value.no_hotkey": "无快捷键",
+
+  "tweakerplus.doc_gen.type.boolean": "布尔值",
+  "tweakerplus.doc_gen.type.integer": "整数",
+  "tweakerplus.doc_gen.type.double": "实数",
+  "tweakerplus.doc_gen.type.string": "字符串",
+  "tweakerplus.doc_gen.type.string_list": "字符串列表",
+  "tweakerplus.doc_gen.type.option_list": "选项列表",
+  "tweakerplus.doc_gen.type.hotkey": "热键",
+  "tweakerplus.doc_gen.type.hotkey_togglable": "可开关型热键"
 }
