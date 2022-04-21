@@ -12,9 +12,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Config {
-    Type value();
+    Type type();
 
-    Category category() default Category.MC_TWEAKS;
+    Category category();
 
     /**
      * Any of these restrictions satisfied => enable
@@ -35,10 +35,14 @@ public @interface Config {
     }
 
     enum Category {
-        MC_TWEAKS, MOD_TWEAKS, SETTING;
+        ALL, FEATURES, MC_TWEAKS, MOD_TWEAKS, SETTING;
 
         public String getDisplayName() {
             return StringUtils.translate("tweakerplus.gui.config_category." + this.name().toLowerCase());
+        }
+
+        public String getDescription() {
+            return StringUtils.translate("tweakerplus.gui.config_category." + this.name().toLowerCase() + ".description");
         }
     }
 }
