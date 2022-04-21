@@ -25,6 +25,8 @@ public class ConfigDocumentGenerator extends AbstractDocumentGenerator {
                 this.writeln.accept(String.format(" - %s: %s", this.tr("text.type"), inlineCode(formatter.getType())));
                 this.writeln.accept(String.format(" - %s: %s", this.tr("text.default_value"), formatter.getDefaultValue()));
                 this.writeln.accept(String.format(" - %s: %s", this.tr("text.category"), inlineCode(formatter.getCategory())));
+                formatter.getMinValue().ifPresent(min -> writeln.accept(String.format(" - %s: `%s`", tr("text.minimum_value"), min)));
+                formatter.getMaxValue().ifPresent(max -> writeln.accept(String.format(" - %s: `%s`", tr("text.maximum_value"), max)));
                 this.writeln.accept("");
                 DocumentGeneration.getIndexGenerator().accept(String.format("[%s](%s)", formatter.getNameSimple(), formatter.getLink(this.getLanguage())));
             }

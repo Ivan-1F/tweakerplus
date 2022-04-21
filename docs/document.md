@@ -27,6 +27,8 @@ Scale the player list hud with given factor
  - Type: `double`
  - Default value: `1.0`
  - Category: `Tweaks`
+- Minimum value: `0.001`
+- Maximum value: `2.0`
 
 ### disablePumpkinOverlay
 
@@ -124,6 +126,8 @@ A integer parameter for TweakerPlus debugging
  - Type: `integer`
  - Default value: `0`
  - Category: `Setting`
+- Minimum value: `-1000`
+- Maximum value: `1000`
 
 ### tweakerPlusDebugDouble
 
@@ -132,4 +136,6 @@ A double parameter for TweakerPlus debugging
  - Type: `integer`
  - Default value: `0`
  - Category: `Setting`
+- Minimum value: `-1`
+- Maximum value: `1`
 

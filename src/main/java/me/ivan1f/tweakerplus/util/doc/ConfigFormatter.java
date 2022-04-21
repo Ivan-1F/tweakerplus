@@ -1,9 +1,6 @@
 package me.ivan1f.tweakerplus.util.doc;
 
-import fi.dy.masa.malilib.config.IConfigOptionList;
-import fi.dy.masa.malilib.config.IConfigStringList;
-import fi.dy.masa.malilib.config.IHotkeyTogglable;
-import fi.dy.masa.malilib.config.IStringRepresentable;
+import fi.dy.masa.malilib.config.*;
 import fi.dy.masa.malilib.hotkeys.IHotkey;
 import fi.dy.masa.malilib.util.StringUtils;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
@@ -11,6 +8,8 @@ import me.ivan1f.tweakerplus.config.TweakerPlusOption;
 import me.ivan1f.tweakerplus.config.options.TweakerPlusIConfigBase;
 import me.ivan1f.tweakerplus.mixins.core.doc.ConfigBaseAccessor;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 import static me.ivan1f.tweakerplus.util.doc.MarkdownUtil.inlineCode;
 import static me.ivan1f.tweakerplus.util.doc.MarkdownUtil.italic;
@@ -93,6 +92,24 @@ public class ConfigFormatter {
         }
         TweakerPlusMod.LOGGER.warn("Unknown type found in getDefaultValue: {}", this.getConfig().getClass());
         return italic("unknown type: " + this.getConfig().getClass().getName());
+    }
+
+    public Optional<Number> getMinValue() {
+        if (this.getConfig() instanceof IConfigInteger) {
+            return Optional.of(((IConfigInteger) this.getConfig()).getMinIntegerValue());
+        } else if (this.getConfig() instanceof IConfigDouble) {
+            return Optional.of(((IConfigDouble) this.getConfig()).getMinDoubleValue());
+        }
+        return Optional.empty();
+    }
+
+    public Optional<Number> getMaxValue() {
+        if (this.getConfig() instanceof IConfigInteger) {
+            return Optional.of(((IConfigInteger) this.getConfig()).getMaxIntegerValue());
+        } else if (this.getConfig() instanceof IConfigDouble) {
+            return Optional.of(((IConfigDouble) this.getConfig()).getMaxDoubleValue());
+        }
+        return Optional.empty();
     }
 
     public String getCategory() {
