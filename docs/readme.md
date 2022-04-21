@@ -2,7 +2,7 @@
 
 **English** | [中文](readme-zh_cn.md)
 
-## [Tweaks](document.md#Tweaks)
+## [Tweaks](document.md#tweaks)
 
  - [limitWorldModification](document.md#limitWorldModification)
  - [immediatelyRespawn](document.md#immediatelyRespawn)
@@ -12,13 +12,13 @@
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)
  - [resourcePackIncompatibleIgnored](document.md#resourcePackIncompatibleIgnored)
 
-## [Mods Tweaks](document.md#Mods Tweaks)
+## [Mods Tweaks](document.md#mods-tweaks)
 
  - [xmapNoDeathWaypointForCreative](document.md#xmapNoDeathWaypointForCreative)
  - [leftAlignTitleGlobally](document.md#leftAlignTitleGlobally)
  - [bundleOriginInSchematic](document.md#bundleOriginInSchematic)
 
-## [Setting](document.md#Setting)
+## [Setting](document.md#setting)
 
  - [hideDisabledOptions](document.md#hideDisabledOptions)
  - [openTweakerPlusConfigGui](document.md#openTweakerPlusConfigGui)

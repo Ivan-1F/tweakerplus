@@ -12,7 +12,7 @@ import static me.ivan1f.tweakerplus.util.doc.MarkdownUtil.inlineCode;
 public class ConfigDocumentGenerator extends AbstractDocumentGenerator {
     public void generate() {
         for (Config.Category category: Config.Category.values()) {
-            DocumentGeneration.getIndexGenerator().startNewSection(String.format("[%s](%s)", category.getDisplayName(), this.getFileName() + "#" + category.getDisplayName()));
+            DocumentGeneration.getIndexGenerator().startNewSection(String.format("[%s](%s)", category.getDisplayName(), this.getFileName() + "#" + category.getDisplayName().replace(" ", "-").toLowerCase()));
             this.writeln.accept("## " + category.getDisplayName());
             this.writeln.accept("");
             List<TweakerPlusOption> options = Lists.newArrayList(TweakerPlusConfigs.getOptions(category));
