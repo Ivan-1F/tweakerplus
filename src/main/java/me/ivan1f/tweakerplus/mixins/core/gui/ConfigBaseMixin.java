@@ -27,7 +27,7 @@ public abstract class ConfigBaseMixin {
             index = 0,
             remap = false
     )
-    private String tweakerMoreConfigCommentIsTheTranslationKey(String key) {
+    private String tweakerPlusConfigCommentIsTheTranslationKey(String key) {
         if (TweakerPlusConfigs.hasConfig((IConfigBase) this)) {
             key = this.comment;
         }
