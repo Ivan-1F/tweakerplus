@@ -40,5 +40,9 @@ public @interface Config {
         public String getDisplayName() {
             return StringUtils.translate("tweakerplus.gui.config_category." + this.name().toLowerCase());
         }
+
+        public String getDescription() {
+            return StringUtils.translate("tweakerplus.gui.config_category." + this.name().toLowerCase() + ".description");
+        }
     }
 }

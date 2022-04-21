@@ -85,6 +85,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
     private int createNavigationButton(int x, int y, Config.Category category) {
         ButtonGeneric button = new ButtonGeneric(x, y, -1, 20, category.getDisplayName());
         button.setEnabled(TweakerPlusConfigGui.category != category);
+        button.setHoverStrings(category.getDescription());
         this.addButton(button, (b, mouseButton) -> {
             TweakerPlusConfigGui.category = category;
             this.reDraw();
