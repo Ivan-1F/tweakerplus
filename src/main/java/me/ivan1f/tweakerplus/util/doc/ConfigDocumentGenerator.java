@@ -18,6 +18,8 @@ public class ConfigDocumentGenerator extends AbstractDocumentGenerator {
             DocumentGeneration.getIndexGenerator().startNewSection(String.format("[%s](%s)", category.getDisplayName(), this.getFileName() + "#" + category.getDisplayName().replace(" ", "-").toLowerCase()));
             this.writeln.accept("## " + category.getDisplayName());
             this.writeln.accept("");
+            this.writeln.accept(category.getDescription());
+            this.writeln.accept("");
             List<TweakerPlusOption> options = Lists.newArrayList(TweakerPlusConfigs.getOptions(category));
             for (TweakerPlusOption option : options) {
                 ConfigFormatter formatter = new ConfigFormatter(option);
