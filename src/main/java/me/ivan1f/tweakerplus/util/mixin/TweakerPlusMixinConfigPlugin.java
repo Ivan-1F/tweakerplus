@@ -1,12 +1,9 @@
 package me.ivan1f.tweakerplus.util.mixin;
 
 import me.fallenbreath.conditionalmixin.api.mixin.RestrictiveMixinConfigPlugin;
-import me.ivan1f.tweakerplus.util.FabricUtil;
-import me.ivan1f.tweakerplus.util.ModIds;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.objectweb.asm.tree.ClassNode;
-import org.spongepowered.asm.mixin.Mixins;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 import java.util.List;

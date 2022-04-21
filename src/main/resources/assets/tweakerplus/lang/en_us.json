@@ -20,6 +20,10 @@
   "tweakerplus.config.disablePortalOverlay.comment": "Disable the overlay rendered when the player is in the nether portal",
   "tweakerplus.config.disablePortalOverlay.pretty_name": "Disable Portal Overlay",
 
+  "tweakerplus.config.disableWitherSpawnSound": "disableWitherSpawnSound",
+  "tweakerplus.config.disableWitherSpawnSound.comment": "Disable the wither spawned sound emitted when a wither fully reset its health after summoned",
+  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "Disable Wither Spawn Sound",
+
   "tweakerplus.config.resourcePackIncompatibleIgnored": "resourcePackIncompatibleIgnored",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "Ignore the warning on the resource pack screen when the resource pack is incompatible",
 
@@ -33,7 +37,6 @@
 
   "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
   "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle the origin in the schematic when saving it\nWhen loading the schematic, if the origin info is present in the file, the placement will be moved to its origin\n(Using 'Create placement' button after loading will still place the placement at the player)\nThe origin info will be appended at the right panel of the schematic browser",
-  "tweakerplus.config.bundleOriginInSchematic.pretty_name": "Bundle Origin in Schematic",
 
   "// Setting": "================================================",
 
@@ -51,14 +54,24 @@
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "A double parameter for TweakerPlus debugging",
 
   "// GUI and Misc": "================================================",
+
   "tweakerplus.hotkeys.category.main": "TweakerPlus",
   "tweakerplus.gui.title": "TweakerPlus v%1$s Config GUI",
   "tweakerplus.gui.selector_drop_down_list.all": "All",
   "tweakerplus.gui.trigger_button.text": "Trigger",
   "tweakerplus.gui.trigger_button.hover": "Click to trigger %1$s once\n§7§oThis will simulate hotkey pressed and released in order§r",
-  "tweakerplus.gui.config_category.mc_tweaks": "Tweaks",
+
+  "tweakerplus.gui.config_category.all": "All",
+  "tweakerplus.gui.config_category.all.description": "All options provided by TweakerPlus",
+  "tweakerplus.gui.config_category.features": "Feature",
+  "tweakerplus.gui.config_category.features.description": "New features provided by TweakerPlus",
+  "tweakerplus.gui.config_category.mc_tweaks": "MC Tweaks",
+  "tweakerplus.gui.config_category.mc_tweaks.description": "Tweaks on Minecraft",
   "tweakerplus.gui.config_category.mod_tweaks": "Mods Tweaks",
+  "tweakerplus.gui.config_category.mod_tweaks.description": "Tweaks on mods",
   "tweakerplus.gui.config_category.setting": "Setting",
+  "tweakerplus.gui.config_category.setting.description": "Settings of TweakPlus itself",
+
   "tweakerplus.gui.config_type.label_text": "Type filter",
   "tweakerplus.gui.config_type.generic": "Generic",
   "tweakerplus.gui.config_type.hotkey": "Hotkey",
@@ -85,5 +98,32 @@
 
   "tweakerplus.gui.label.schematic_info.origin": "Origin: §f%d§r",
   "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "Move to origin",
-  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "If checked, if origin info is present in the schematic, the placement will be moved to its origin instead of the player"
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "If checked, if origin info is present in the schematic, the placement will be moved to its origin instead of the player",
+
+  "// Document generator": "================================================",
+
+  "tweakerplus.doc_gen.text.document": "Document",
+  "tweakerplus.doc_gen.text.index": "Index",
+
+  "tweakerplus.doc_gen.text.type": "Type",
+  "tweakerplus.doc_gen.text.category": "Category",
+  "tweakerplus.doc_gen.text.config_type": "Config Type",
+  "tweakerplus.doc_gen.text.default_value": "Default value",
+  "tweakerplus.doc_gen.text.minimum_value": "Minimum value",
+  "tweakerplus.doc_gen.text.maximum_value": "Maximum value",
+  "tweakerplus.doc_gen.text.options": "Available options",
+  "tweakerplus.doc_gen.text.mod_restrictions": "Mod restrictions",
+  "tweakerplus.doc_gen.text.requirements": "Required mods",
+  "tweakerplus.doc_gen.text.conflictions": "Conflicted mods",
+
+  "tweakerplus.doc_gen.value.no_hotkey": "no hotkey",
+
+  "tweakerplus.doc_gen.type.boolean": "boolean",
+  "tweakerplus.doc_gen.type.integer": "integer",
+  "tweakerplus.doc_gen.type.double": "double",
+  "tweakerplus.doc_gen.type.string": "string",
+  "tweakerplus.doc_gen.type.string_list": "string list",
+  "tweakerplus.doc_gen.type.option_list": "option list",
+  "tweakerplus.doc_gen.type.hotkey": "hotkey",
+  "tweakerplus.doc_gen.type.hotkey_togglable": "togglable hotkey"
 }

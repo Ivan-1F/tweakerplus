@@ -27,7 +27,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.10.4",
-    "conditional-mixin": "*",
-    "malilib": ">=0.11.4"
+    "conditional-mixin": ">=0.2.0",
+    "malilib": "*"
   }
 }
