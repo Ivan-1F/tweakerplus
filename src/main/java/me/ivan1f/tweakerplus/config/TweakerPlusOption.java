@@ -28,7 +28,7 @@ public class TweakerPlusOption {
     }
 
     public Config.Type getType() {
-        return this.annotation.value();
+        return this.annotation.type();
     }
 
     public Config.Category getCategory() {

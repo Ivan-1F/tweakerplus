@@ -20,6 +20,10 @@
   "tweakerplus.config.disablePortalOverlay.comment": "禁用玩家在地狱门中时的覆盖渲染",
   "tweakerplus.config.disablePortalOverlay.pretty_name": "禁用地狱门覆盖渲染",
 
+  "tweakerplus.config.disableWitherSpawnSound": "禁用凋灵生成音效",
+  "tweakerplus.config.disableWitherSpawnSound.comment": "禁用凋灵在召唤后生命值回满时发出的世界中所有玩家都能听到的音效",
+  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "禁用凋灵生成音效",
+
   "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
 
@@ -50,14 +54,24 @@
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "用于调试TweakerPlus的Double",
 
   "// GUI and Misc": "================================================",
+
   "tweakerplus.hotkeys.category.main": "TweakerPlus",
   "tweakerplus.gui.title": "TweakerPlus v%1$s 配置界面",
   "tweakerplus.gui.selector_drop_down_list.all": "全部",
   "tweakerplus.gui.trigger_button.text": "触发",
   "tweakerplus.gui.trigger_button.hover": "点击以触发一次 %1$s\n§7§o这将依次模拟热键按下与松开操作§r",
-  "tweakerplus.gui.config_category.mc_tweaks": "功能",
+
+  "tweakerplus.gui.config_category.all": "全部",
+  "tweakerplus.gui.config_category.all.description": "TweakerPlus提供的全部功能",
+  "tweakerplus.gui.config_category.features": "功能",
+  "tweakerplus.gui.config_category.features.description": "TweakerPlus提供的新功能",
+  "tweakerplus.gui.config_category.mc_tweaks": "MC修改",
+  "tweakerplus.gui.config_category.mc_tweaks.description": "对Minecraft已有内容修改",
   "tweakerplus.gui.config_category.mod_tweaks": "模组修改",
+  "tweakerplus.gui.config_category.mod_tweaks.description": "对模组已有内容修改",
   "tweakerplus.gui.config_category.setting": "配置",
+  "tweakerplus.gui.config_category.setting.description": "与TweakerPlus相关的配置",
+
   "tweakerplus.gui.config_type.label_text": "类型筛选",
   "tweakerplus.gui.config_type.generic": "通用 Generic",
   "tweakerplus.gui.config_type.hotkey": "热键 Hotkey",
@@ -84,5 +98,32 @@
 
   "tweakerplus.gui.label.schematic_info.origin": "原点: §f%d§r",
   "tweakerplus.gui.label.schematic_load.checkbox.move_to_origin": "移动至原点",
-  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "若勾选，含有原点信息的原理图将被放置在其原点，而不是玩家位置"
+  "tweakerplus.gui.label.schematic_load.hoverinfo.move_to_origin": "若勾选，含有原点信息的原理图将被放置在其原点，而不是玩家位置",
+
+  "// Document generator": "================================================",
+
+  "tweakerplus.doc_gen.text.document": "文档",
+  "tweakerplus.doc_gen.text.index": "索引",
+
+  "tweakerplus.doc_gen.text.type": "类型",
+  "tweakerplus.doc_gen.text.category": "分类",
+  "tweakerplus.doc_gen.text.config_type": "配置类型",
+  "tweakerplus.doc_gen.text.default_value": "默认值",
+  "tweakerplus.doc_gen.text.minimum_value": "最小值",
+  "tweakerplus.doc_gen.text.maximum_value": "最大值",
+  "tweakerplus.doc_gen.text.options": "可用选项",
+  "tweakerplus.doc_gen.text.mod_restrictions": "模组约束",
+  "tweakerplus.doc_gen.text.requirements": "依赖模组",
+  "tweakerplus.doc_gen.text.conflictions": "冲突模组",
+
+  "tweakerplus.doc_gen.value.no_hotkey": "无快捷键",
+
+  "tweakerplus.doc_gen.type.boolean": "布尔值",
+  "tweakerplus.doc_gen.type.integer": "整数",
+  "tweakerplus.doc_gen.type.double": "实数",
+  "tweakerplus.doc_gen.type.string": "字符串",
+  "tweakerplus.doc_gen.type.string_list": "字符串列表",
+  "tweakerplus.doc_gen.type.option_list": "选项列表",
+  "tweakerplus.doc_gen.type.hotkey": "热键",
+  "tweakerplus.doc_gen.type.hotkey_togglable": "可开关型热键"
 }

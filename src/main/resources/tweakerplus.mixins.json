@@ -5,6 +5,8 @@
   "plugin": "me.ivan1f.tweakerplus.util.mixin.TweakerPlusMixinConfigPlugin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "core.doc.ConfigBaseAccessor",
+    "core.doc.MinecraftClientMixin",
     "core.gui.ConfigBaseMixin",
     "core.gui.GuiBaseMixin",
     "core.gui.KeybindMultiAccessor",
@@ -21,6 +23,7 @@
     "tweaks.bundleOriginInSchematic.WidgetSchematicBrowserMixin",
     "tweaks.disablePortalOverlay.InGameHudMixin",
     "tweaks.disablePumpkinOverlay.InGameHudMixin",
+    "tweaks.disableWitherSpawnSound.WorldRendererMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
     "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
