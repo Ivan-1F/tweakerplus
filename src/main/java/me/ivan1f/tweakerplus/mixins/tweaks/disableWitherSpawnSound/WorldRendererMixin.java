@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(WorldRenderer.class)
 public class WorldRendererMixin {
-    @Inject(method = "playGlobalEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/world/ClientWorld;playSound(DDDLnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FFZ)V", ordinal = 0), cancellable = true)
+    @Inject(method = "processGlobalEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/world/ClientWorld;playSound(DDDLnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FFZ)V", ordinal = 0), cancellable = true)
     private void stopPlayingWitherSpawnSound(int eventId, BlockPos pos, int i, CallbackInfo ci) {
         if (TweakerPlusConfigs.DISABLE_WITHER_SPAWN_SOUND.getBooleanValue()) {
             ci.cancel();
