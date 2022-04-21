@@ -2,15 +2,18 @@
 
 **English** | [中文](readme-zh_cn.md)
 
-## [Tweaks](document.md#tweaks)
+## [Feature](document.md#feature)
 
  - [limitWorldModification](document.md#limitWorldModification)
  - [immediatelyRespawn](document.md#immediatelyRespawn)
+ - [resourcePackIncompatibleIgnored](document.md#resourcePackIncompatibleIgnored)
+
+## [MC Tweaks](document.md#mc-tweaks)
+
  - [playerListScale](document.md#playerListScale)
  - [disablePumpkinOverlay](document.md#disablePumpkinOverlay)
  - [disablePortalOverlay](document.md#disablePortalOverlay)
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)
- - [resourcePackIncompatibleIgnored](document.md#resourcePackIncompatibleIgnored)
 
 ## [Mods Tweaks](document.md#mods-tweaks)
 

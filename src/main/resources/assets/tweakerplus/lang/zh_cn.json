@@ -54,6 +54,7 @@
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "用于调试TweakerPlus的Double",
 
   "// GUI and Misc": "================================================",
+
   "tweakerplus.hotkeys.category.main": "TweakerPlus",
   "tweakerplus.gui.title": "TweakerPlus v%1$s 配置界面",
   "tweakerplus.gui.selector_drop_down_list.all": "全部",
@@ -106,6 +107,7 @@
 
   "tweakerplus.doc_gen.text.type": "类型",
   "tweakerplus.doc_gen.text.category": "分类",
+  "tweakerplus.doc_gen.text.config_type": "配置类型",
   "tweakerplus.doc_gen.text.default_value": "默认值",
   "tweakerplus.doc_gen.text.minimum_value": "最小值",
   "tweakerplus.doc_gen.text.maximum_value": "最大值",

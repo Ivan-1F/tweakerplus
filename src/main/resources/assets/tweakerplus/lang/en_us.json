@@ -37,7 +37,6 @@
 
   "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
   "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle the origin in the schematic when saving it\nWhen loading the schematic, if the origin info is present in the file, the placement will be moved to its origin\n(Using 'Create placement' button after loading will still place the placement at the player)\nThe origin info will be appended at the right panel of the schematic browser",
-  "tweakerplus.config.bundleOriginInSchematic.pretty_name": "Bundle Origin in Schematic",
 
   "// Setting": "================================================",
 
@@ -55,6 +54,7 @@
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "A double parameter for TweakerPlus debugging",
 
   "// GUI and Misc": "================================================",
+
   "tweakerplus.hotkeys.category.main": "TweakerPlus",
   "tweakerplus.gui.title": "TweakerPlus v%1$s Config GUI",
   "tweakerplus.gui.selector_drop_down_list.all": "All",
@@ -107,6 +107,7 @@
 
   "tweakerplus.doc_gen.text.type": "Type",
   "tweakerplus.doc_gen.text.category": "Category",
+  "tweakerplus.doc_gen.text.config_type": "Config Type",
   "tweakerplus.doc_gen.text.default_value": "Default value",
   "tweakerplus.doc_gen.text.minimum_value": "Minimum value",
   "tweakerplus.doc_gen.text.maximum_value": "Maximum value",

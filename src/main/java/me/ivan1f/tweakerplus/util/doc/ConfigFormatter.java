@@ -112,6 +112,10 @@ public class ConfigFormatter {
         return Optional.empty();
     }
 
+    public String getConfigType() {
+        return this.option.getType().getStringValue();
+    }
+
     public String getCategory() {
         return this.option.getCategory().getDisplayName();
     }

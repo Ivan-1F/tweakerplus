@@ -15,6 +15,9 @@ import static me.ivan1f.tweakerplus.util.doc.MarkdownUtil.inlineCode;
 public class ConfigDocumentGenerator extends AbstractDocumentGenerator {
     public void generate() {
         for (Config.Category category : Config.Category.values()) {
+            if (category == Config.Category.ALL) {
+                continue;
+            }
             DocumentGeneration.getIndexGenerator().startNewSection(String.format("[%s](%s)", category.getDisplayName(), this.getFileName() + "#" + category.getDisplayName().replace(" ", "-").toLowerCase()));
             this.writeln.accept("## " + category.getDisplayName());
             this.writeln.accept("");
@@ -30,27 +33,28 @@ public class ConfigDocumentGenerator extends AbstractDocumentGenerator {
                 this.writeln.accept(String.format(" - %s: %s", this.tr("type"), inlineCode(formatter.getType())));
                 this.writeln.accept(String.format(" - %s: %s", this.tr("default_value"), formatter.getDefaultValue()));
                 this.writeln.accept(String.format(" - %s: %s", this.tr("category"), inlineCode(formatter.getCategory())));
+                this.writeln.accept(String.format(" - %s: %s", this.tr("config_type"), inlineCode(formatter.getConfigType())));
                 formatter.getMinValue().ifPresent(min -> writeln.accept(String.format(" - %s: `%s`", tr("minimum_value"), min)));
                 formatter.getMaxValue().ifPresent(max -> writeln.accept(String.format(" - %s: `%s`", tr("maximum_value"), max)));
 
                 List<ModRestriction> modRestrictions = option.getModRestrictions();
                 if (!modRestrictions.isEmpty()) {
-                    writeln.accept(String.format("- %s:", tr("mod_restrictions")));
+                    writeln.accept(String.format(" - %s:", tr("mod_restrictions")));
                     boolean first = true;
                     for (ModRestriction modRestriction : modRestrictions) {
                         if (!first) {
                             writeln.accept("");
-                            writeln.accept(String.format("  *%s*", StringUtils.translate("tweakerplus.gui.mod_relation_footer.or")));
+                            writeln.accept(String.format("   *%s*", StringUtils.translate("tweakerplus.gui.mod_relation_footer.or")));
                             writeln.accept("");
                         }
                         first = false;
                         if (!modRestriction.getRequirements().isEmpty()) {
-                            writeln.accept(String.format("  - %s:", tr("requirements")));
-                            modRestriction.getRequirements().forEach(req -> writeln.accept(String.format("    - %s", prettyPredicate(req))));
+                            writeln.accept(String.format("   - %s:", tr("requirements")));
+                            modRestriction.getRequirements().forEach(req -> writeln.accept(String.format("     - %s", prettyPredicate(req))));
                         }
                         if (!modRestriction.getConflictions().isEmpty()) {
-                            writeln.accept(String.format("  - %s:", tr("conflictions")));
-                            modRestriction.getConflictions().forEach(cfl -> writeln.accept(String.format("    - %s", prettyPredicate(cfl))));
+                            writeln.accept(String.format("   - %s:", tr("conflictions")));
+                            modRestriction.getConflictions().forEach(cfl -> writeln.accept(String.format("     - %s", prettyPredicate(cfl))));
                         }
                     }
                 }

@@ -4,6 +4,8 @@
 
 ## 功能
 
+TweakerPlus提供的新功能
+
 ### 限制世界修改 (limitWorldModification)
 
 阻止任何形式的玩家交互
@@ -11,6 +13,7 @@
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `功能`
+ - 配置类型: `通用 Generic`
 
 ### 立即重生 (immediatelyRespawn)
 
@@ -19,6 +22,20 @@
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `功能`
+ - 配置类型: `通用 Generic`
+
+### 忽略资源包不兼容 (resourcePackIncompatibleIgnored)
+
+忽略资源包界面资源包不兼容时的警告信息
+
+ - 类型: `布尔值`
+ - 默认值: `false`
+ - 分类: `功能`
+ - 配置类型: `通用 Generic`
+
+## MC修改
+
+对Minecraft已有内容修改
 
 ### 玩家列表缩放 (playerListScale)
 
@@ -26,7 +43,8 @@
 
  - 类型: `实数`
  - 默认值: `1.0`
- - 分类: `功能`
+ - 分类: `MC修改`
+ - 配置类型: `通用 Generic`
  - 最小值: `0.001`
  - 最大值: `2.0`
 
@@ -36,7 +54,8 @@
 
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
- - 分类: `功能`
+ - 分类: `MC修改`
+ - 配置类型: `禁用 Disable`
 
 ### 禁用地狱门覆盖渲染 (disablePortalOverlay)
 
@@ -44,7 +63,8 @@
 
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
- - 分类: `功能`
+ - 分类: `MC修改`
+ - 配置类型: `禁用 Disable`
 
 ### 禁用凋灵生成音效 (disableWitherSpawnSound)
 
@@ -52,17 +72,12 @@
 
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
- - 分类: `功能`
-
-### 忽略资源包不兼容 (resourcePackIncompatibleIgnored)
-
-忽略资源包界面资源包不兼容时的警告信息
-
- - 类型: `布尔值`
- - 默认值: `false`
- - 分类: `功能`
+ - 分类: `MC修改`
+ - 配置类型: `禁用 Disable`
 
 ## 模组修改
+
+对模组已有内容修改
 
 ### xaero地图创造玩家无死亡标记 (xmapNoDeathWaypointForCreative)
 
@@ -71,9 +86,10 @@
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `模组修改`
-- 模组约束:
-  - 依赖模组:
-    - Xaero's Minimap (`xaerominimap`)
+ - 配置类型: `通用 Generic`
+ - 模组约束:
+   - 依赖模组:
+     - Xaero's Minimap (`xaerominimap`)
 
 ### 全局左对齐标题 (leftAlignTitleGlobally)
 
@@ -82,6 +98,7 @@
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `模组修改`
+ - 配置类型: `通用 Generic`
 
 ### 将原点打包入原理图 (bundleOriginInSchematic)
 
@@ -93,11 +110,14 @@
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `模组修改`
-- 模组约束:
-  - 依赖模组:
-    - Litematica (`litematica`)
+ - 配置类型: `通用 Generic`
+ - 模组约束:
+   - 依赖模组:
+     - Litematica (`litematica`)
 
 ## 配置
+
+与TweakerPlus相关的配置
 
 ### 隐藏禁用的选项 (hideDisabledOptions)
 
@@ -106,6 +126,7 @@
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `配置`
+ - 配置类型: `通用 Generic`
 
 ### 打开TweakerPlus配置界面 (openTweakerPlusConfigGui)
 
@@ -114,6 +135,7 @@
  - 类型: `热键`
  - 默认值: `P,C`
  - 分类: `配置`
+ - 配置类型: `热键 Hotkey`
 
 ### TweakerPlus调试模式 (tweakerPlusDebugMode)
 
@@ -124,6 +146,7 @@ TweakerPlus的调试模式
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `配置`
+ - 配置类型: `工具 Tweak`
 
 ### TweakerPlus调试用Int (tweakerPlusDebugInt)
 
@@ -132,6 +155,7 @@ TweakerPlus的调试模式
  - 类型: `整数`
  - 默认值: `0`
  - 分类: `配置`
+ - 配置类型: `通用 Generic`
  - 最小值: `-1000`
  - 最大值: `1000`
 
@@ -142,6 +166,7 @@ TweakerPlus的调试模式
  - 类型: `整数`
  - 默认值: `0`
  - 分类: `配置`
+ - 配置类型: `通用 Generic`
  - 最小值: `-1`
  - 最大值: `1`
 

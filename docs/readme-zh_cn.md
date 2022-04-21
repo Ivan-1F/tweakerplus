@@ -6,11 +6,14 @@
 
  - [限制世界修改](document-zh_cn.md#限制世界修改-limitWorldModification)
  - [立即重生](document-zh_cn.md#立即重生-immediatelyRespawn)
+ - [忽略资源包不兼容](document-zh_cn.md#忽略资源包不兼容-resourcePackIncompatibleIgnored)
+
+## [MC修改](document-zh_cn.md#mc修改)
+
  - [玩家列表缩放](document-zh_cn.md#玩家列表缩放-playerListScale)
  - [禁用南瓜头覆盖渲染](document-zh_cn.md#禁用南瓜头覆盖渲染-disablePumpkinOverlay)
  - [禁用地狱门覆盖渲染](document-zh_cn.md#禁用地狱门覆盖渲染-disablePortalOverlay)
  - [禁用凋灵生成音效](document-zh_cn.md#禁用凋灵生成音效-disableWitherSpawnSound)
- - [忽略资源包不兼容](document-zh_cn.md#忽略资源包不兼容-resourcePackIncompatibleIgnored)
 
 ## [模组修改](document-zh_cn.md#模组修改)
 
