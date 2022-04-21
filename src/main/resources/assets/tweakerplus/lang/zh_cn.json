@@ -92,8 +92,8 @@
 
   "// Document generator": "================================================",
 
-  "tweakerplus.doc_gen.document": "文档",
-  "tweakerplus.doc_gen.index": "索引",
+  "tweakerplus.doc_gen.text.document": "文档",
+  "tweakerplus.doc_gen.text.index": "索引",
 
   "tweakerplus.doc_gen.text.type": "类型",
   "tweakerplus.doc_gen.text.category": "分类",

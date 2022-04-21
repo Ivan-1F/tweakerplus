@@ -27,8 +27,8 @@ Scale the player list hud with given factor
  - Type: `double`
  - Default value: `1.0`
  - Category: `Tweaks`
-- Minimum value: `0.001`
-- Maximum value: `2.0`
+ - Minimum value: `0.001`
+ - Maximum value: `2.0`
 
 ### disablePumpkinOverlay
 
@@ -71,6 +71,9 @@ Stop creating death waypoints for creative players
  - Type: `boolean`
  - Default value: `false`
  - Category: `Mods Tweaks`
+- Mod restrictions:
+  - Required mods:
+    - Xaero's Minimap (`xaerominimap`)
 
 ### leftAlignTitleGlobally
 
@@ -90,6 +93,9 @@ The origin info will be appended at the right panel of the schematic browser
  - Type: `boolean`
  - Default value: `false`
  - Category: `Mods Tweaks`
+- Mod restrictions:
+  - Required mods:
+    - Litematica (`litematica`)
 
 ## Setting
 
@@ -126,8 +132,8 @@ A integer parameter for TweakerPlus debugging
  - Type: `integer`
  - Default value: `0`
  - Category: `Setting`
-- Minimum value: `-1000`
-- Maximum value: `1000`
+ - Minimum value: `-1000`
+ - Maximum value: `1000`
 
 ### tweakerPlusDebugDouble
 
@@ -136,6 +142,6 @@ A double parameter for TweakerPlus debugging
  - Type: `integer`
  - Default value: `0`
  - Category: `Setting`
-- Minimum value: `-1`
-- Maximum value: `1`
+ - Minimum value: `-1`
+ - Maximum value: `1`
 

@@ -93,8 +93,8 @@
 
   "// Document generator": "================================================",
 
-  "tweakerplus.doc_gen.document": "Document",
-  "tweakerplus.doc_gen.index": "Index",
+  "tweakerplus.doc_gen.text.document": "Document",
+  "tweakerplus.doc_gen.text.index": "Index",
 
   "tweakerplus.doc_gen.text.type": "Type",
   "tweakerplus.doc_gen.text.category": "Category",

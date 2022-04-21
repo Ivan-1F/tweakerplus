@@ -19,7 +19,7 @@ public abstract class AbstractDocumentGenerator {
     }
 
     public String tr(String key, Object... args) {
-        return StringUtils.translate("tweakerplus.doc_gen." + key, args);
+        return StringUtils.translate("tweakerplus.doc_gen.text." + key, args);
     }
 
     public void setLanguage(String language) {
