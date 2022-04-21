@@ -59,6 +59,7 @@
   "tweakerplus.gui.selector_drop_down_list.all": "全部",
   "tweakerplus.gui.trigger_button.text": "触发",
   "tweakerplus.gui.trigger_button.hover": "点击以触发一次 %1$s\n§7§o这将依次模拟热键按下与松开操作§r",
+  "tweakerplus.gui.config_category.all": "全部",
   "tweakerplus.gui.config_category.mc_tweaks": "功能",
   "tweakerplus.gui.config_category.mod_tweaks": "模组修改",
   "tweakerplus.gui.config_category.setting": "配置",

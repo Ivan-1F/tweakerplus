@@ -35,7 +35,7 @@ public @interface Config {
     }
 
     enum Category {
-        MC_TWEAKS, MOD_TWEAKS, SETTING;
+        ALL, MC_TWEAKS, MOD_TWEAKS, SETTING;
 
         public String getDisplayName() {
             return StringUtils.translate("tweakerplus.gui.config_category." + this.name().toLowerCase());

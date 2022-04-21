@@ -146,6 +146,9 @@ public class TweakerPlusConfigs {
     }
 
     public static List<TweakerPlusOption> getOptions(Config.Category categoryType) {
+        if (categoryType == Config.Category.ALL) {
+            return OPTIONS;
+        }
         return CATEGORY_TO_OPTION.getOrDefault(categoryType, Collections.emptyList());
     }
 

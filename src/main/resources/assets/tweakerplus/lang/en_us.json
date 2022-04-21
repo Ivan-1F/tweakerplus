@@ -60,6 +60,7 @@
   "tweakerplus.gui.selector_drop_down_list.all": "All",
   "tweakerplus.gui.trigger_button.text": "Trigger",
   "tweakerplus.gui.trigger_button.hover": "Click to trigger %1$s once\n§7§oThis will simulate hotkey pressed and released in order§r",
+  "tweakerplus.gui.config_category.all": "All",
   "tweakerplus.gui.config_category.mc_tweaks": "Tweaks",
   "tweakerplus.gui.config_category.mod_tweaks": "Mods Tweaks",
   "tweakerplus.gui.config_category.setting": "Setting",
