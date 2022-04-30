@@ -78,6 +78,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
     public static final TweakerPlusConfigBoolean BUNDLE_ORIGIN_IN_SCHEMATIC = ConfigFactory.newConfigBoolean("bundleOriginInSchematic", false);
 
+    @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_EASY_PLACE_MODE_CACHE = ConfigFactory.newConfigBooleanHotkeyed("disableEasyPlaceModeCache", false, "");
+
     //////////////////////////
     //  TweakerPlus Setting //
     //////////////////////////

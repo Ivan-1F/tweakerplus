@@ -38,6 +38,10 @@
   "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
   "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle the origin in the schematic when saving it\nWhen loading the schematic, if the origin info is present in the file, the placement will be moved to its origin\n(Using 'Create placement' button after loading will still place the placement at the player)\nThe origin info will be appended at the right panel of the schematic browser",
 
+  "tweakerplus.config.disableEasyPlaceModeCache": "disableEasyPlaceModeCache",
+  "tweakerplus.config.disableEasyPlaceModeCache.comment": "litematica easyPlaceMode will not cache block placements",
+  "tweakerplus.config.disableEasyPlaceModeCache.pretty_name": "Disable Easy Place Mode Cache",
+
   "// Setting": "================================================",
 
   "tweakerplus.config.hideDisabledOptions": "hideDisabledOptions",

@@ -115,6 +115,18 @@ TweakerPlus提供的新功能
    - 依赖模组:
      - Litematica (`litematica`)
 
+### 禁用轻松放置缓存 (disableEasyPlaceModeCache)
+
+litematica轻松放置功能将不会缓存方块放置
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `模组修改`
+ - 配置类型: `通用 Generic`
+ - 模组约束:
+   - 依赖模组:
+     - Litematica (`litematica`)
+
 ## 配置
 
 与TweakerPlus相关的配置

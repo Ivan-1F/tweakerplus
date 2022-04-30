@@ -20,6 +20,7 @@
  - [xmapNoDeathWaypointForCreative](document.md#xmapNoDeathWaypointForCreative)
  - [leftAlignTitleGlobally](document.md#leftAlignTitleGlobally)
  - [bundleOriginInSchematic](document.md#bundleOriginInSchematic)
+ - [disableEasyPlaceModeCache](document.md#disableEasyPlaceModeCache)
 
 ## [Setting](document.md#setting)
 

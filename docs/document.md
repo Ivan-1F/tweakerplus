@@ -115,6 +115,18 @@ The origin info will be appended at the right panel of the schematic browser
    - Required mods:
      - Litematica (`litematica`)
 
+### disableEasyPlaceModeCache
+
+litematica easyPlaceMode will not cache block placements
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `Mods Tweaks`
+ - Config Type: `Generic`
+ - Mod restrictions:
+   - Required mods:
+     - Litematica (`litematica`)
+
 ## Setting
 
 Settings of TweakPlus itself

@@ -21,6 +21,7 @@
     "tweaks.bundleOriginInSchematic.GuiSchematicSaveButtonListenerMixin",
     "tweaks.bundleOriginInSchematic.LitematicaSchematicMixin",
     "tweaks.bundleOriginInSchematic.WidgetSchematicBrowserMixin",
+    "tweaks.disableEasyPlaceModeCache.WorldUtilsMixin",
     "tweaks.disablePortalOverlay.InGameHudMixin",
     "tweaks.disablePumpkinOverlay.InGameHudMixin",
     "tweaks.disableWitherSpawnSound.WorldRendererMixin",
