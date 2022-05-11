@@ -14,6 +14,7 @@
  - [disablePumpkinOverlay](document.md#disablePumpkinOverlay)
  - [disablePortalOverlay](document.md#disablePortalOverlay)
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)
+ - [disableBubbleColumnRendering](document.md#disableBubbleColumnRendering)
 
 ## [Mods Tweaks](document.md#mods-tweaks)
 

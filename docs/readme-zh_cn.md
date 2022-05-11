@@ -14,6 +14,7 @@
  - [禁用南瓜头覆盖渲染](document-zh_cn.md#禁用南瓜头覆盖渲染-disablePumpkinOverlay)
  - [禁用地狱门覆盖渲染](document-zh_cn.md#禁用地狱门覆盖渲染-disablePortalOverlay)
  - [禁用凋灵生成音效](document-zh_cn.md#禁用凋灵生成音效-disableWitherSpawnSound)
+ - [禁用气泡柱渲染](document-zh_cn.md#禁用气泡柱渲染-disableBubbleColumnRendering)
 
 ## [模组修改](document-zh_cn.md#模组修改)
 

@@ -13,7 +13,7 @@ Prevent any player interaction
  - Type: `togglable hotkey`
  - Default value: *no hotkey*, `false`
  - Category: `Feature`
- - Config Type: `Generic`
+ - Config Type: `Tweak`
 
 ### immediatelyRespawn
 
@@ -22,7 +22,7 @@ Respawn immediately after death without showing the death screen
  - Type: `togglable hotkey`
  - Default value: *no hotkey*, `false`
  - Category: `Feature`
- - Config Type: `Generic`
+ - Config Type: `Tweak`
 
 ### resourcePackIncompatibleIgnored
 
@@ -69,6 +69,15 @@ Disable the overlay rendered when the player is in the nether portal
 ### disableWitherSpawnSound
 
 Disable the wither spawned sound emitted when a wither fully reset its health after summoned
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `MC Tweaks`
+ - Config Type: `Disable`
+
+### disableBubbleColumnRendering
+
+Prevents rendering bubble column particles
 
  - Type: `togglable hotkey`
  - Default value: *no hotkey*, `false`
@@ -122,7 +131,7 @@ litematica easyPlaceMode will not cache block placements
  - Type: `togglable hotkey`
  - Default value: *no hotkey*, `false`
  - Category: `Mods Tweaks`
- - Config Type: `Generic`
+ - Config Type: `Disable`
  - Mod restrictions:
    - Required mods:
      - Litematica (`litematica`)
