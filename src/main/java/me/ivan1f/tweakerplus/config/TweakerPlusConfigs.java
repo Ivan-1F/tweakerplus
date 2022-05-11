@@ -34,10 +34,10 @@ public class TweakerPlusConfigs {
     //    Features    //
     ////////////////////
 
-    @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBooleanHotkeyed LIMIT_WORLD_MODIFICATION = ConfigFactory.newConfigBooleanHotkeyed("limitWorldModification", false, "");
 
-    @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBooleanHotkeyed IMMEDIATELY_RESPAWN = ConfigFactory.newConfigBooleanHotkeyed("immediatelyRespawn", false, "");
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
@@ -75,10 +75,10 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS)
     public static final TweakerPlusConfigBoolean LEFT_ALIGN_TITLE_GLOBALLY = ConfigFactory.newConfigBoolean("leftAlignTitleGlobally", false);
 
-    @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
+    @Config(type = Config.Type.TWEAK, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
     public static final TweakerPlusConfigBoolean BUNDLE_ORIGIN_IN_SCHEMATIC = ConfigFactory.newConfigBoolean("bundleOriginInSchematic", false);
 
-    @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
+    @Config(type = Config.Type.DISABLE, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_EASY_PLACE_MODE_CACHE = ConfigFactory.newConfigBooleanHotkeyed("disableEasyPlaceModeCache", false, "");
 
     //////////////////////////
