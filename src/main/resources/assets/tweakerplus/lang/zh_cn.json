@@ -27,6 +27,10 @@
   "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
 
+  "tweakerplus.config.disableBubbleColumnRendering": "禁用气泡柱渲染",
+  "tweakerplus.config.disableBubbleColumnRendering.comment": "阻止气泡柱粒子效果的渲染",
+  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "禁用气泡柱渲染",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",

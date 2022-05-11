@@ -27,6 +27,10 @@
   "tweakerplus.config.resourcePackIncompatibleIgnored": "resourcePackIncompatibleIgnored",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "Ignore the warning on the resource pack screen when the resource pack is incompatible",
 
+  "tweakerplus.config.disableBubbleColumnRendering": "disableBubbleColumnRendering",
+  "tweakerplus.config.disableBubbleColumnRendering.comment": "Prevents rendering bubble column particles",
+  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "Disable Bubble Column Rendering",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",

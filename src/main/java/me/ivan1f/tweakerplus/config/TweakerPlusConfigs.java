@@ -61,6 +61,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_WITHER_SPAWN_SOUND = ConfigFactory.newConfigBooleanHotkeyed("disableWitherSpawnSound", false, "");
 
+    @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_BUBBLE_COLUMN_RENDERING = ConfigFactory.newConfigBooleanHotkeyed("disableBubbleColumnRendering", false, "");
+
     // List
 
     // Tweak
@@ -75,7 +78,7 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS)
     public static final TweakerPlusConfigBoolean LEFT_ALIGN_TITLE_GLOBALLY = ConfigFactory.newConfigBoolean("leftAlignTitleGlobally", false);
 
-    @Config(type = Config.Type.TWEAK, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
+    @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
     public static final TweakerPlusConfigBoolean BUNDLE_ORIGIN_IN_SCHEMATIC = ConfigFactory.newConfigBoolean("bundleOriginInSchematic", false);
 
     @Config(type = Config.Type.DISABLE, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
