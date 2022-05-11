@@ -6,7 +6,6 @@ import fi.dy.masa.malilib.gui.GuiConfigsBase;
 import fi.dy.masa.malilib.gui.widgets.WidgetConfigOption;
 import fi.dy.masa.malilib.gui.widgets.WidgetListConfigOptions;
 import fi.dy.masa.malilib.gui.widgets.WidgetListConfigOptionsBase;
-import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
 import me.ivan1f.tweakerplus.gui.TweakerPlusOptionLabel;
 import org.spongepowered.asm.mixin.Final;
@@ -42,9 +41,22 @@ public abstract class WidgetListConfigOptionsMixin extends WidgetListConfigOptio
     )
     private int tweakerPlusSearchBarWidth(int width) {
         if (this.parent instanceof TweakerPlusConfigGui) {
-            width -= 120;
+            // a default value.
+            // a more precise width control wil be applied during the initGui of TweakerPlusConfigGui
+            width -= 150;
         }
         return width;
+    }
+
+    @Inject(
+            method = "<init>",
+            at = @At("TAIL"),
+            remap = false
+    )
+    private void tweakerPlusRecordSearchBar(CallbackInfo ci) {
+        if (this.parent instanceof TweakerPlusConfigGui) {
+            ((TweakerPlusConfigGui) this.parent).setSearchBar(this.widgetSearchBar);
+        }
     }
 
     @ModifyVariable(

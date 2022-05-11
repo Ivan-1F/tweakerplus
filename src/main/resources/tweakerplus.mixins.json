@@ -16,6 +16,7 @@
     "core.gui.WidgetListConfigOptionMixin",
     "core.gui.WidgetListConfigOptionsAccessor",
     "core.gui.WidgetListConfigOptionsMixin",
+    "core.gui.WidgetSearchBarAccessor",
     "tweaks.bundleOriginInSchematic.GuiSchematicLoadButtonListenerMixin",
     "tweaks.bundleOriginInSchematic.GuiSchematicLoadMixin",
     "tweaks.bundleOriginInSchematic.GuiSchematicSaveButtonListenerMixin",

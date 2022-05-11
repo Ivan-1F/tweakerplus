@@ -2,10 +2,12 @@ package me.ivan1f.tweakerplus.gui;
 
 import fi.dy.masa.malilib.gui.widgets.WidgetDropDownList;
 import fi.dy.masa.malilib.interfaces.IStringValue;
+import fi.dy.masa.malilib.render.RenderUtils;
 import fi.dy.masa.malilib.util.StringUtils;
 import me.ivan1f.tweakerplus.mixins.core.gui.WidgetDropDownListMixin;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -21,6 +23,10 @@ import java.util.function.Consumer;
 public class SelectorDropDownList<T extends IStringValue> extends WidgetDropDownList<T> {
     @Nullable
     protected Consumer<T> entryChangeListener = null;
+    @Nullable
+    private IStringValue hoverText = null;
+    @Nullable
+    private IStringValue nullEntry = null;
 
     public SelectorDropDownList(int x, int y, int width, int height, int maxHeight, int maxVisibleEntries, List<T> entries) {
         super(x, y, width, height, maxHeight, maxVisibleEntries, entries, IStringValue::getStringValue);
@@ -34,6 +40,18 @@ public class SelectorDropDownList<T extends IStringValue> extends WidgetDropDown
     protected void setSelectedEntry(int index) {
         super.setSelectedEntry(index);
         this.onEntryChanged();
+    }
+
+    public void setHoverText(@Nullable IStringValue hoverText) {
+        this.hoverText = hoverText;
+    }
+
+    public void setHoverText(String translationKey, Object... args) {
+        this.setHoverText(() -> StringUtils.translate(translationKey, args));
+    }
+
+    public void setNullEntry(@Nullable IStringValue nullEntry) {
+        this.nullEntry = nullEntry;
     }
 
     @Override
@@ -61,9 +79,22 @@ public class SelectorDropDownList<T extends IStringValue> extends WidgetDropDown
 
     @Override
     protected String getDisplayString(T entry) {
-        if (entry == null) {
-            return StringUtils.translate("tweakerplus.gui.selector_drop_down_list.all");
+        if (entry == null && this.nullEntry != null) {
+            return this.nullEntry.getStringValue();
         }
         return super.getDisplayString(entry);
+    }
+
+    /**
+     * Hover text rendering logic reference: {@link fi.dy.masa.malilib.gui.button.ButtonBase#postRenderHovered}
+     */
+    @Override
+    public void postRenderHovered(int mouseX, int mouseY, boolean selected) {
+        super.postRenderHovered(mouseX, mouseY, selected);
+
+        if (this.hoverText != null && this.isMouseOver(mouseX, mouseY) && !this.isOpen) {
+            RenderUtils.drawHoverText(mouseX, mouseY, Collections.singletonList(this.hoverText.getStringValue()));
+            RenderUtils.disableDiffuseLighting();
+        }
     }
 }
