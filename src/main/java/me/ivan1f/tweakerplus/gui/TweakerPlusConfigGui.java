@@ -1,6 +1,5 @@
 package me.ivan1f.tweakerplus.gui;
 
-import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.gui.GuiBase;
@@ -45,6 +44,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
         return Optional.ofNullable(currentInstance);
     }
 
+    @SuppressWarnings("unused")
     public static boolean onOpenGuiHotkey(KeyAction keyAction, IKeybind iKeybind) {
         GuiBase.openGui(new TweakerPlusConfigGui());
         return true;
@@ -124,33 +124,39 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
         return Pair.of(labelWidth, panelWidth);
     }
 
+    @SuppressWarnings({"SingleStatementInBlock", "RedundantIfStatement"})
+    private boolean showDisplayOption(TweakerPlusOption option) {
+        // drop down list filtering logic
+        if (this.filteredType != null && option.getType() != this.filteredType) {
+            return false;
+        }
+        // hide disable options if config hideDisabledOptions is enabled
+        if (TweakerPlusConfigs.HIDE_DISABLE_OPTIONS.getBooleanValue() && !option.isEnabled()) {
+            return false;
+        }
+        // hide options that don't work with current Minecraft versions, unless debug mode on
+        if (!option.worksForCurrentMCVersion() && !TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue()) {
+            return false;
+        }
+        // hide debug options unless debug mode on
+        if (option.isDebug() && !TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue()) {
+            return false;
+        }
+        // hide dev only options unless debug mode on and is dev env
+        if (option.isDevOnly() && !(TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue() && FabricUtil.isDevelopmentEnvironment())) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public List<ConfigOptionWrapper> getConfigs() {
-        List<IConfigBase> configs = Lists.newArrayList();
-        for (TweakerPlusOption tweakerPlusOption : TweakerPlusConfigs.getOptions(TweakerPlusConfigGui.category)) {
-            // drop down list filtering logic
-            if (this.filteredType != null && tweakerPlusOption.getType() != this.filteredType) {
-                continue;
-            }
-            // hide disable options if config hideDisabledOptions is enabled
-            if (TweakerPlusConfigs.HIDE_DISABLE_OPTIONS.getBooleanValue() && !tweakerPlusOption.isEnabled()) {
-                continue;
-            }
-            // hide options that don't work with current Minecraft versions, unless debug mode on
-            if (!tweakerPlusOption.worksForCurrentMCVersion() && !TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue()) {
-                continue;
-            }
-            // hide debug options unless debug mode on
-            if (tweakerPlusOption.isDebug() && !TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue()) {
-                continue;
-            }
-            // hide dev only options unless debug mode on and is dev env
-            if (tweakerPlusOption.isDevOnly() && !(TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue() && FabricUtil.isDevelopmentEnvironment())) {
-                continue;
-            }
-            configs.add(tweakerPlusOption.getConfig());
-        }
-        configs.sort((a, b) -> a.getName().compareToIgnoreCase(b.getName()));
+        List<IConfigBase> configs = TweakerPlusConfigs.getOptions(TweakerPlusConfigGui.category)
+                .stream()
+                .filter(this::showDisplayOption)
+                .map(TweakerPlusOption::getConfig)
+                .sorted((a, b) -> a.getName().compareToIgnoreCase(b.getName()))
+                .collect(Collectors.toList());
         return ConfigOptionWrapper.createFor(configs);
     }
 }
