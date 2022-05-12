@@ -1,8 +1,11 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.bundleOriginInSchematic;
 
 import fi.dy.masa.litematica.schematic.LitematicaSchematic;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
+import me.ivan1f.tweakerplus.util.ModIds;
 import net.minecraft.nbt.CompoundTag;
 import fi.dy.masa.malilib.util.NBTUtils;
 import net.minecraft.util.math.BlockPos;
@@ -13,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(LitematicaSchematic.class)
+@Restriction(require = @Condition(ModIds.litematica))
 public class LitematicaSchematicMixin implements ILitematicaSchematic {
     // handles ILitematicaSchematic, will be used when:
     //  - saving the schematic with bundleOriginInSchematic enabled, will be used at LitematicaSchematicMixin#writeOriginToNBT (GuiSchematicSaveButtonListenerMixin#appendOriginOnSave)
