@@ -67,6 +67,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
         super.initGui();
         this.clearOptions();
 
+        this.hoveringWidgets.clear();
         int x = 10;
         int y = 26;
 
