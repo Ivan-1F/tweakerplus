@@ -88,10 +88,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
         ButtonGeneric button = new ButtonGeneric(x, y, -1, 20, category.getDisplayName());
         button.setEnabled(TweakerPlusConfigGui.category != category);
         button.setHoverStrings(category.getDescription());
-        this.addButton(button, (b, mouseButton) -> {
-            TweakerPlusConfigGui.category = category;
-            this.reDraw();
-        });
+        this.addButton(button, (b, mb) -> this.setDisplayParameter(TweakerPlusConfigGui.category, category, () -> TweakerPlusConfigGui.category = category));
         return button.getWidth() + 2;
     }
 
@@ -167,7 +164,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
     }
 
     @SuppressWarnings({"SingleStatementInBlock", "RedundantIfStatement"})
-    private boolean showDisplayOption(TweakerPlusOption option) {
+    private boolean shouldDisplayOption(TweakerPlusOption option) {
         // drop down list filtering logic
         if (this.filteredType != null && option.getType() != this.filteredType) {
             return false;
@@ -195,7 +192,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
     public List<ConfigOptionWrapper> getConfigs() {
         List<IConfigBase> configs = TweakerPlusConfigs.getOptions(TweakerPlusConfigGui.category)
                 .stream()
-                .filter(this::showDisplayOption)
+                .filter(this::shouldDisplayOption)
                 .map(TweakerPlusOption::getConfig)
                 .sorted((a, b) -> a.getName().compareToIgnoreCase(b.getName()))
                 .collect(Collectors.toList());
