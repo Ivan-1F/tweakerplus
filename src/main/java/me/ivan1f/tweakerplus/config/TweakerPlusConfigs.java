@@ -103,6 +103,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.GENERIC, category = Config.Category.SETTING, debug = true)
     public static final TweakerPlusConfigInteger TWEAKERPLUS_DEBUG_DOUBLE = ConfigFactory.newConfigInteger("tweakerPlusDebugDouble", 0, -1, 1);
 
+    @Config(type = Config.Type.GENERIC, category = Config.Category.SETTING, debug = true)
+    public static final TweakerPlusConfigBoolean SCREEN_DEBUG = ConfigFactory.newConfigBoolean("screenDebug", false);
+
     /**
      * ============================
      * Implementation Details

@@ -17,6 +17,7 @@
     "core.gui.WidgetListConfigOptionsAccessor",
     "core.gui.WidgetListConfigOptionsMixin",
     "core.gui.WidgetSearchBarAccessor",
+    "debug.screenDebug.MinecraftClientMixin",
     "tweaks.bundleOriginInSchematic.GuiSchematicLoadButtonListenerMixin",
     "tweaks.bundleOriginInSchematic.GuiSchematicLoadMixin",
     "tweaks.bundleOriginInSchematic.GuiSchematicSaveButtonListenerMixin",

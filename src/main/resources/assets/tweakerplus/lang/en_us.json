@@ -60,6 +60,8 @@
   "tweakerplus.config.tweakerPlusDebugInt.comment": "A integer parameter for TweakerPlus debugging",
   "tweakerplus.config.tweakerPlusDebugDouble": "tweakerPlusDebugDouble",
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "A double parameter for TweakerPlus debugging",
+  "tweakerplus.config.screenDebug": "screenDebug",
+  "tweakerplus.config.screenDebug.comment": "When enabled, the title and the class of the gui will be logged when it is opened",
 
   "// GUI and Misc": "================================================",
 

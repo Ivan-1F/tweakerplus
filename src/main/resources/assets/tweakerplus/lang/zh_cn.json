@@ -60,6 +60,8 @@
   "tweakerplus.config.tweakerPlusDebugInt.comment": "用于调试TweakerPlus的Int",
   "tweakerplus.config.tweakerPlusDebugDouble": "TweakerPlus调试用Double",
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "用于调试TweakerPlus的Double",
+  "tweakerplus.config.screenDebug": "GUI调试",
+  "tweakerplus.config.screenDebug.comment": "启用时，GUI开启时将输出其标题与类名至日志",
 
   "// GUI and Misc": "================================================",
 
