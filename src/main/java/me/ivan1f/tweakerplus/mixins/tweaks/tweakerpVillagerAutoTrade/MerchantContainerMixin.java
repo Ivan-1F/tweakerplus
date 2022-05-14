@@ -17,11 +17,16 @@ public class MerchantContainerMixin {
     @Inject(method = "setOffers", at = @At("TAIL"))
     private void setOffers(TraderOfferList traderOfferList, CallbackInfo ci) {
         if (!TweakerPlusConfigs.TWEAKP_AUTO_TRADE.getBooleanValue()) return;
-        int count = VillagerTrader.doTradeEverything();
+        VillagerTrader.TradeResult result = VillagerTrader.doTradeEverything();
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         if (player != null) {
             player.closeContainer();
         }
-        InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTrade.traded_successfully", count);
+        if (result.isSuccess()) {
+            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTrade.traded_successfully", result.getCount());
+        } else {
+            assert result.getReason() != null;
+            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTrade.traded_failed", result.getReason().getStringValue());
+        }
     }
 }

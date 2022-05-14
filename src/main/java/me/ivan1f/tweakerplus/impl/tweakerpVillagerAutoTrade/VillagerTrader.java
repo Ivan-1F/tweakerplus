@@ -14,6 +14,7 @@ import net.minecraft.container.Slot;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.TradeOffer;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,15 +29,11 @@ public class VillagerTrader {
         this.container = screen.getContainer();
     }
 
-    public static int doTradeEverything() {
+    public static TradeResult doTradeEverything() {
         Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-        if (currentScreen instanceof MerchantScreen) {
-            VillagerTrader trader = new VillagerTrader((MerchantScreen) currentScreen);
-            return trader.tradeEverything();
-        } else {
-            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpTradeEverything.not_merchant_screen");
-        }
-        return -1;
+        assert currentScreen != null;
+        VillagerTrader trader = new VillagerTrader((MerchantScreen) currentScreen);
+        return trader.tradeEverything();
     }
 
     @SuppressWarnings("unused")
@@ -56,9 +53,10 @@ public class VillagerTrader {
                 InventoryUtils.areStacksEqual(this.container.getSlot(2).getStack(), stack);
     }
 
-    public int tradeEverything() {
+    public TradeResult tradeEverything() {
         TradeOffer offer = this.container.getRecipes().get(selectedIndex);
-        if (offer == null || offer.isDisabled()) return -1;
+        if (offer == null) return TradeResult.createFailedResult(TradeFailReason.OFFER_NOT_FOUND);
+        if (offer.isDisabled()) return TradeResult.createFailedResult(TradeFailReason.LOCKED);
         ItemStack sellItem = offer.getSellItem();
         int count = 0;
         this.prepareBuySlots();
@@ -67,7 +65,10 @@ public class VillagerTrader {
             this.prepareBuySlots();
             count++;
         }
-        return count;
+        if (count == 0) {
+            return TradeResult.createFailedResult(TradeFailReason.LACK_OF_BUY_ITEMS);
+        }
+        return TradeResult.createSuccessResult(count);
     }
 
     public void processOutputSlot() {
@@ -102,5 +103,43 @@ public class VillagerTrader {
         List<Slot> playerInvSlots = this.container.slots.stream().filter(slot -> slot.inventory instanceof PlayerInventory).collect(Collectors.toList());
         InventoryUtil.pickItemsInCursor(this.screen, playerInvSlots, stack);
         InventoryUtils.leftClickSlot(this.screen, targetSlot);
+    }
+
+    public static class TradeResult {
+        private final boolean success;
+        private final int count;
+        @Nullable final private TradeFailReason reason;
+
+        public TradeResult(boolean success, @Nullable TradeFailReason reason) {
+            this.success = success;
+            this.count = -1;
+            this.reason = reason;
+        }
+
+        public boolean isSuccess() {
+            return this.success;
+        }
+
+        public int getCount() {
+            return this.count;
+        }
+
+        public @Nullable TradeFailReason getReason() {
+            return this.reason;
+        }
+
+        public TradeResult(boolean success, int count) {
+            this.success = success;
+            this.count = count;
+            this.reason = null;
+        }
+
+        public static TradeResult createSuccessResult(int count) {
+            return new TradeResult(true, count);
+        }
+
+        public static TradeResult createFailedResult(TradeFailReason reason) {
+            return new TradeResult(false, reason);
+        }
     }
 }

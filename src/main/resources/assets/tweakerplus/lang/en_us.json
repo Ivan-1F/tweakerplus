@@ -43,6 +43,10 @@
   "tweakerplus.config.tweakpAutoTrade.comment": "Automatically trade everything in the opened merchant screen\nand close the screen",
   "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
   "tweakerplus.config.tweakpAutoTrade.traded_successfully": "§aTraded %1$d times successfully",
+  "tweakerplus.config.tweakpAutoTrade.traded_failed": "§cTrade failed: %1$s",
+  "tweakerplus.config.tweakpAutoTrade.failed_reason.locked": "trade locked",
+  "tweakerplus.config.tweakpAutoTrade.failed_reason.lack_of_buy_items": "lack of buy items",
+  "tweakerplus.config.tweakpAutoTrade.failed_reason.offer_not_found": "offer not found",
 
   "// Mod Tweaks": "================================================",
 
