@@ -47,6 +47,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.HOTKEY, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigHotkey TWEAKP_TRADE_EVERYTHING = ConfigFactory.newConfigHotKey("tweakpTradeEverything", "", KEYBIND_SETTINGS_ANY);
 
+    @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_THROW_OUTPUT = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeThrowOutput", false, "");
+
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
 

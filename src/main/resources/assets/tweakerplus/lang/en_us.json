@@ -35,6 +35,10 @@
   "tweakerplus.config.tweakpTradeEverything.comment": "Use all items in the inventory to trade",
   "tweakerplus.config.tweakpTradeEverything.not_merchant_screen": "§cMerchant screen is not opened",
 
+  "tweakerplus.config.tweakpAutoTradeThrowOutput": "tweakpAutoTradeThrowOutput",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading instead of moving them to the inventory",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "Auto Trade Throw Output",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",

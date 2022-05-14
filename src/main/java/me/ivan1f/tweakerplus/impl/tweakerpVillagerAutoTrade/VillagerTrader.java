@@ -4,6 +4,7 @@ import fi.dy.masa.itemscroller.util.InventoryUtils;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
 import fi.dy.masa.malilib.util.InfoUtils;
+import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.util.InventoryUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
@@ -56,7 +57,14 @@ public class VillagerTrader {
     }
 
     public void processOutputSlot() {
-        InventoryUtils.dropStacksUntilEmpty(this.screen, 2);
+        if (TweakerPlusConfigs.TWEAKP_AUTO_TRADE_THROW_OUTPUT.getBooleanValue()) {
+            InventoryUtils.dropStacksUntilEmpty(this.screen, 2);
+        } else {
+            InventoryUtils.shiftClickSlot(this.screen, 2);
+            if (this.container.getSlot(2).hasStack()) {
+                InventoryUtils.dropStacksUntilEmpty(this.screen, 2);
+            }
+        }
     }
 
     private void prepareBuySlots() {

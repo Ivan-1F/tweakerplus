@@ -35,6 +35,10 @@
   "tweakerplus.config.tweakpTradeEverything.comment": "将背包中的所有物品用于村民交易",
   "tweakerplus.config.tweakpTradeEverything.not_merchant_screen": "§c当前不在交易界面",
 
+  "tweakerplus.config.tweakpAutoTradeThrowOutput": "自动交易扔出输出",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "强制将自动交易得到的输出扔出背包，而不是放入背包",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "自动交易扔出输出",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
