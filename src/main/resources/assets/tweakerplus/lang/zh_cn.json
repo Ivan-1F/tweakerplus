@@ -31,6 +31,10 @@
   "tweakerplus.config.disableBubbleColumnRendering.comment": "阻止气泡柱粒子效果的渲染",
   "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "禁用气泡柱渲染",
 
+  "tweakerplus.config.tweakpTradeEverything": "交易全部物品",
+  "tweakerplus.config.tweakpTradeEverything.comment": "将背包中的所有物品用于村民交易",
+  "tweakerplus.config.tweakpTradeEverything.not_merchant_screen": "§c当前不在交易界面",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",

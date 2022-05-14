@@ -4,12 +4,14 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
+import fi.dy.masa.malilib.hotkeys.KeybindSettings;
 import fi.dy.masa.malilib.interfaces.IValueChangeCallback;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
+import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.VillagerTrader;
 import net.minecraft.client.MinecraftClient;
 
 import java.lang.reflect.Field;
@@ -30,6 +32,8 @@ public class TweakerPlusConfigs {
      * ============================
      */
 
+    private static final KeybindSettings KEYBIND_SETTINGS_ANY = KeybindSettings.create(KeybindSettings.Context.ANY, KeybindSettings.DEFAULT.getActivateOn(), KeybindSettings.DEFAULT.getAllowExtraKeys(), KeybindSettings.DEFAULT.isOrderSensitive(), KeybindSettings.DEFAULT.isExclusive(), KeybindSettings.DEFAULT.shouldCancel());
+
     ////////////////////
     //    Features    //
     ////////////////////
@@ -39,6 +43,9 @@ public class TweakerPlusConfigs {
 
     @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBooleanHotkeyed IMMEDIATELY_RESPAWN = ConfigFactory.newConfigBooleanHotkeyed("immediatelyRespawn", false, "");
+
+    @Config(type = Config.Type.HOTKEY, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigHotkey TWEAKP_TRADE_EVERYTHING = ConfigFactory.newConfigHotKey("tweakpTradeEverything", "", KEYBIND_SETTINGS_ANY);
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
@@ -126,6 +133,7 @@ public class TweakerPlusConfigs {
                 MinecraftClient.getInstance().player.setShowsDeathScreen(!newValue.getBooleanValue());
             }
         });
+        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::tradeEverything);
 
         // debugs
         TWEAKERPLUS_DEBUG_MODE.setValueChangeCallback(redrawConfigGui);

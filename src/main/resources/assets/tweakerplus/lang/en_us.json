@@ -31,6 +31,10 @@
   "tweakerplus.config.disableBubbleColumnRendering.comment": "Prevents rendering bubble column particles",
   "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "Disable Bubble Column Rendering",
 
+  "tweakerplus.config.tweakpTradeEverything": "tweakpTradeEverything",
+  "tweakerplus.config.tweakpTradeEverything.comment": "Use all items in the inventory to trade",
+  "tweakerplus.config.tweakpTradeEverything.not_merchant_screen": "§cMerchant screen is not opened",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",
