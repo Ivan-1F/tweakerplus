@@ -55,8 +55,8 @@ public class VillagerTrader {
 
     public TradeResult tradeEverything() {
         TradeOffer offer = this.container.getRecipes().get(selectedIndex);
-        if (offer == null) return TradeResult.createFailedResult(TradeFailReason.OFFER_NOT_FOUND);
-        if (offer.isDisabled()) return TradeResult.createFailedResult(TradeFailReason.LOCKED);
+        if (offer == null) return TradeResult.createFailedResult(TradeFailedReason.OFFER_NOT_FOUND);
+        if (offer.isDisabled()) return TradeResult.createFailedResult(TradeFailedReason.LOCKED);
         ItemStack sellItem = offer.getSellItem();
         int count = 0;
         this.prepareBuySlots();
@@ -66,7 +66,7 @@ public class VillagerTrader {
             count++;
         }
         if (count == 0) {
-            return TradeResult.createFailedResult(TradeFailReason.LACK_OF_BUY_ITEMS);
+            return TradeResult.createFailedResult(TradeFailedReason.LACK_OF_BUY_ITEMS);
         }
         return TradeResult.createSuccessResult(count);
     }
@@ -108,9 +108,9 @@ public class VillagerTrader {
     public static class TradeResult {
         private final boolean success;
         private final int count;
-        @Nullable final private TradeFailReason reason;
+        @Nullable final private TradeFailedReason reason;
 
-        public TradeResult(boolean success, @Nullable TradeFailReason reason) {
+        public TradeResult(boolean success, @Nullable TradeFailedReason reason) {
             this.success = success;
             this.count = -1;
             this.reason = reason;
@@ -124,7 +124,7 @@ public class VillagerTrader {
             return this.count;
         }
 
-        public @Nullable TradeFailReason getReason() {
+        public @Nullable TradeFailedReason getReason() {
             return this.reason;
         }
 
@@ -138,7 +138,7 @@ public class VillagerTrader {
             return new TradeResult(true, count);
         }
 
-        public static TradeResult createFailedResult(TradeFailReason reason) {
+        public static TradeResult createFailedResult(TradeFailedReason reason) {
             return new TradeResult(false, reason);
         }
     }
