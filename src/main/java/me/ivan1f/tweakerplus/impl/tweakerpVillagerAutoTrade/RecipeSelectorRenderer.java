@@ -2,6 +2,7 @@ package me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade;
 
 import fi.dy.masa.itemscroller.util.AccessorUtils;
 import fi.dy.masa.itemscroller.util.InventoryUtils;
+import fi.dy.masa.malilib.render.InventoryOverlay;
 import fi.dy.masa.malilib.render.RenderUtils;
 import fi.dy.masa.malilib.util.GuiUtils;
 import me.ivan1f.tweakerplus.util.render.RenderContext;
@@ -9,7 +10,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
 import net.minecraft.client.render.DiffuseLighting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 
 public class RecipeSelectorRenderer {
     private static final RecipeSelectorRenderer INSTANCE = new RecipeSelectorRenderer();
@@ -27,13 +27,56 @@ public class RecipeSelectorRenderer {
             RenderContext renderContext = new RenderContext();
             renderContext.pushMatrix();
 
-            int x = AccessorUtils.getGuiLeft(screen) - 16 - 3 - 16 - 3 - 16 - 10;
+            int x = AccessorUtils.getGuiLeft(screen) - 16 - 1 - 16 - 1 - 16 - 10;
             int y = AccessorUtils.getGuiTop(screen) - 1;
             for (int i = 0; i < storage.get().size(); i++) {
                 y = renderRecipe(storage.get(i), x, y, i == storage.getSelectedIndex());
             }
 
             renderContext.popMatrix();
+        }
+    }
+
+    public void onDrawScreenPost() {
+        if (GuiUtils.getCurrentScreen() instanceof MerchantScreen) {
+            final int mouseX = fi.dy.masa.malilib.util.InputUtils.getMouseX();
+            final int mouseY = fi.dy.masa.malilib.util.InputUtils.getMouseY();
+
+            RenderContext renderContext = new RenderContext();
+            renderContext.pushMatrix();
+            renderContext.translate(0F, 0F, 300F);  // render tooltips at top
+
+            this.renderHoverTooltip(mouseX, mouseY, (MerchantScreen) GuiUtils.getCurrentScreen());
+
+            renderContext.popMatrix();
+        }
+    }
+
+    private void renderHoverTooltip(int mouseX, int mouseY, MerchantScreen screen) {
+        ItemStack stack = null;
+        RecipeStorage storage = RecipeStorage.getInstance();
+
+        if (mouseY <= (AccessorUtils.getGuiTop(screen) - 1) || mouseY >= (AccessorUtils.getGuiTop(screen) - 1 + (16 + 1) * 10)) {
+            return;
+        }
+
+        int index = (mouseY - (AccessorUtils.getGuiTop(screen) - 1)) / (16 + 1);
+        RecipeStorage.TradeRecipe recipe = storage.get(index);
+
+        if (mouseX >= AccessorUtils.getGuiLeft(screen) - 16 - 1 - 16 - 1 - 16 - 10 && mouseX <= AccessorUtils.getGuiLeft(screen) - 1 - 16 - 1 - 16 - 10) {
+            stack = recipe.firstBuyItem;
+        } else if (mouseX >= AccessorUtils.getGuiLeft(screen) - 16 - 1 - 16 - 10 && mouseX <= AccessorUtils.getGuiLeft(screen) - 1 - 16 - 10) {
+            stack = recipe.secondBuyItem;
+        } else if (mouseX >= AccessorUtils.getGuiLeft(screen) - 16 - 1 && mouseX <= AccessorUtils.getGuiLeft(screen) - 1) {
+            stack = recipe.sellItem;
+        }
+
+        if (stack == null) {
+            return;
+        }
+
+        if (!InventoryUtils.isStackEmpty(stack)) {
+            InventoryOverlay.renderStackToolTip(mouseX, mouseY, stack, this.client);
         }
     }
 
