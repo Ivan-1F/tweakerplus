@@ -33,6 +33,7 @@
     "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
     "tweaks.tweakerpVillagerAutoTrade.MerchantContainerMixin",
     "tweaks.tweakerpVillagerAutoTrade.MerchantScreenMixin",
+    "tweaks.tweakerpVillagerAutoTrade.render.ScreenMixin",
     "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
   ],
   "client": [
