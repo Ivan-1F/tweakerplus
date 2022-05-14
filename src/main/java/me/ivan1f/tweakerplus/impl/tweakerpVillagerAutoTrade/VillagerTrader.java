@@ -28,8 +28,19 @@ public class VillagerTrader {
         this.container = screen.getContainer();
     }
 
+    public static int doTradeEverything() {
+        Screen currentScreen = MinecraftClient.getInstance().currentScreen;
+        if (currentScreen instanceof MerchantScreen) {
+            VillagerTrader trader = new VillagerTrader((MerchantScreen) currentScreen);
+            return trader.tradeEverything();
+        } else {
+            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpTradeEverything.not_merchant_screen");
+        }
+        return -1;
+    }
+
     @SuppressWarnings("unused")
-    public static boolean tradeEverything(KeyAction keyAction, IKeybind iKeybind) {
+    public static boolean doTradeEverything(KeyAction keyAction, IKeybind iKeybind) {
         Screen currentScreen = MinecraftClient.getInstance().currentScreen;
         if (currentScreen instanceof MerchantScreen) {
             VillagerTrader trader = new VillagerTrader((MerchantScreen) currentScreen);
@@ -45,15 +56,18 @@ public class VillagerTrader {
                 InventoryUtils.areStacksEqual(this.container.getSlot(2).getStack(), stack);
     }
 
-    public void tradeEverything() {
+    public int tradeEverything() {
         TradeOffer offer = this.container.getRecipes().get(selectedIndex);
-        if (offer.isDisabled()) return;
+        if (offer == null || offer.isDisabled()) return -1;
         ItemStack sellItem = offer.getSellItem();
+        int count = 0;
         this.prepareBuySlots();
         for (int failSafe = 1024; failSafe >= 0 && isResultSatisfied(sellItem); --failSafe) {
             this.processOutputSlot();
             this.prepareBuySlots();
+            count++;
         }
+        return count;
     }
 
     public void processOutputSlot() {
@@ -72,7 +86,6 @@ public class VillagerTrader {
         if (offer.isDisabled()) return;
         ItemStack firstBuyItem = offer.getAdjustedFirstBuyItem();
         ItemStack secondBuyItem = offer.getSecondBuyItem();
-        ItemStack sellItem = offer.getSellItem();
         clearVillagerTradingSlots();
         pickItemsAndPutToVillagerTradingSlot(firstBuyItem, 0);
         pickItemsAndPutToVillagerTradingSlot(secondBuyItem, 1);

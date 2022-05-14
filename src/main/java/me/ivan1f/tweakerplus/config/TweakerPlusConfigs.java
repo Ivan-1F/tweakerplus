@@ -50,6 +50,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_THROW_OUTPUT = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeThrowOutput", false, "");
 
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
+
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
 
@@ -136,7 +139,7 @@ public class TweakerPlusConfigs {
                 MinecraftClient.getInstance().player.setShowsDeathScreen(!newValue.getBooleanValue());
             }
         });
-        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::tradeEverything);
+        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
 
         // debugs
         TWEAKERPLUS_DEBUG_MODE.setValueChangeCallback(redrawConfigGui);

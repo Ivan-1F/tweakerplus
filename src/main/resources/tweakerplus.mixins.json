@@ -31,6 +31,7 @@
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
     "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
+    "tweaks.tweakerpVillagerAutoTrade.MerchantContainerMixin",
     "tweaks.tweakerpVillagerAutoTrade.MerchantScreenMixin",
     "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
   ],

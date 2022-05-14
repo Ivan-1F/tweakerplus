@@ -39,6 +39,11 @@
   "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "强制将自动交易得到的输出扔出背包，而不是放入背包",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "自动交易扔出输出",
 
+  "tweakerplus.config.tweakpAutoTrade": "自动交易",
+  "tweakerplus.config.tweakpAutoTrade.comment": "打开交易界面后，自动交易全部物品\n然后关闭界面",
+  "tweakerplus.config.tweakpAutoTrade.pretty_name": "自动交易",
+  "tweakerplus.config.tweakpAutoTrade.traded_successfully": "§a已成功交易%1$d次",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",

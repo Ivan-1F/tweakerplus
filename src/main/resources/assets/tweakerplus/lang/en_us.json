@@ -39,6 +39,11 @@
   "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading instead of moving them to the inventory",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "Auto Trade Throw Output",
 
+  "tweakerplus.config.tweakpAutoTrade": "tweakpAutoTrade",
+  "tweakerplus.config.tweakpAutoTrade.comment": "Automatically trade everything in the opened merchant screen\nand close the screen",
+  "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
+  "tweakerplus.config.tweakpAutoTrade.traded_successfully": "§aTraded %1$d times successfully",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",
