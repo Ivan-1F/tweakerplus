@@ -5,6 +5,7 @@ import fi.dy.masa.itemscroller.util.InventoryUtils;
 import fi.dy.masa.malilib.render.InventoryOverlay;
 import fi.dy.masa.malilib.render.RenderUtils;
 import fi.dy.masa.malilib.util.GuiUtils;
+import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.util.render.RenderContext;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
@@ -20,7 +21,7 @@ public class RecipeSelectorRenderer {
     }
 
     public void onDrawBackgroundPost() {
-        if (GuiUtils.getCurrentScreen() instanceof MerchantScreen) {
+        if (GuiUtils.getCurrentScreen() instanceof MerchantScreen && TweakerPlusConfigs.TWEAKP_AUTO_TRADE.getBooleanValue()) {
             MerchantScreen screen = (MerchantScreen) GuiUtils.getCurrentScreen();
             RecipeStorage storage = RecipeStorage.getInstance();
 
@@ -38,7 +39,7 @@ public class RecipeSelectorRenderer {
     }
 
     public void onDrawScreenPost() {
-        if (GuiUtils.getCurrentScreen() instanceof MerchantScreen) {
+        if (GuiUtils.getCurrentScreen() instanceof MerchantScreen && TweakerPlusConfigs.TWEAKP_AUTO_TRADE.getBooleanValue()) {
             final int mouseX = fi.dy.masa.malilib.util.InputUtils.getMouseX();
             final int mouseY = fi.dy.masa.malilib.util.InputUtils.getMouseY();
 

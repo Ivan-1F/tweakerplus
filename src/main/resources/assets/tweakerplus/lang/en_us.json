@@ -38,15 +38,19 @@
   "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading instead of moving them to the inventory",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "Auto Trade Throw Output",
 
+  "tweakerplus.config.tweakpAutoTradeEverything": "tweakpAutoTradeEverything",
+  "tweakerplus.config.tweakpAutoTradeEverything.comment": "Automatically trade everything in the opened merchant screen\nand close the screen",
+  "tweakerplus.config.tweakpAutoTradeEverything.pretty_name": "Auto Trade Everything",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§aTraded %1$d times successfully",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_failed": "§cTrade failed: %1$s",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.locked": "trade locked",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.lack_of_buy_items": "lack of buy items",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.offer_not_found": "offer not found",
+  "tweakerplus.config.tweakpAutoTradeEverything.not_merchant_screen": "§cMerchant screen is not opened",
+
   "tweakerplus.config.tweakpAutoTrade": "tweakpAutoTrade",
-  "tweakerplus.config.tweakpAutoTrade.comment": "Automatically trade everything in the opened merchant screen\nand close the screen",
+  "tweakerplus.config.tweakpAutoTrade.comment": "The main switch of auto trade functionalities including\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r the recipe selector in the merchant screen",
   "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
-  "tweakerplus.config.tweakpAutoTrade.traded_successfully": "§aTraded %1$d times successfully",
-  "tweakerplus.config.tweakpAutoTrade.traded_failed": "§cTrade failed: %1$s",
-  "tweakerplus.config.tweakpAutoTrade.failed_reason.locked": "trade locked",
-  "tweakerplus.config.tweakpAutoTrade.failed_reason.lack_of_buy_items": "lack of buy items",
-  "tweakerplus.config.tweakpAutoTrade.failed_reason.offer_not_found": "offer not found",
-  "tweakerplus.config.tweakpAutoTrade.not_merchant_screen": "§cMerchant screen is not opened",
 
   "// Mod Tweaks": "================================================",
 

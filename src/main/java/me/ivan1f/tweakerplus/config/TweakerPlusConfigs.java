@@ -51,6 +51,9 @@ public class TweakerPlusConfigs {
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_THROW_OUTPUT = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeThrowOutput", false, "");
 
     @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_EVERYTHING = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeEverything", false, "");
+
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)

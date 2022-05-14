@@ -11,6 +11,6 @@ public enum TradeFailedReason implements IStringValue {
 
     @Override
     public String getStringValue() {
-        return StringUtils.translate("tweakerplus.config.tweakpAutoTrade.failed_reason." + this.name().toLowerCase());
+        return StringUtils.translate("tweakerplus.config.tweakpAutoTradeEverything.failed_reason." + this.name().toLowerCase());
     }
 }
