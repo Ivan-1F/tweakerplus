@@ -2,10 +2,8 @@ package me.ivan1f.tweakerplus.mixins.tweaks.tweakerpVillagerAutoTrade;
 
 import fi.dy.masa.malilib.util.KeyCodes;
 import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.RecipeStorage;
-import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.VillagerTrader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 import net.minecraft.village.TradeOffer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,11 +20,6 @@ public abstract class MerchantScreenMixin extends Screen {
         super(title);
     }
 
-    @Inject(method = "method_19896", at = @At("TAIL"))
-    private void onSelectedIndexUpdated(ButtonWidget buttonWidget, CallbackInfo ci) {
-        VillagerTrader.selectedIndex = this.selectedIndex;
-    }
-
     @Inject(method = "syncRecipeIndex", at = @At("TAIL"))
     private void onSelectedIndexSynced(CallbackInfo ci) {
         TradeOffer offer = ((MerchantScreen) (Object) this).getContainer().getRecipes().get(this.selectedIndex);
@@ -41,7 +34,6 @@ public abstract class MerchantScreenMixin extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        super.keyPressed(keyCode, scanCode, modifiers);
         if (keyCode == KeyCodes.KEY_UP) {
             RecipeStorage.getInstance().previous();
             return true;
@@ -49,6 +41,6 @@ public abstract class MerchantScreenMixin extends Screen {
             RecipeStorage.getInstance().next();
             return true;
         }
-        return false;
+        return super.keyPressed(keyCode, scanCode, modifiers);
     }
 }

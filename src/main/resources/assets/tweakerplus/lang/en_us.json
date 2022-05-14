@@ -33,7 +33,6 @@
 
   "tweakerplus.config.tweakpTradeEverything": "tweakpTradeEverything",
   "tweakerplus.config.tweakpTradeEverything.comment": "Use all items in the inventory to trade",
-  "tweakerplus.config.tweakpTradeEverything.not_merchant_screen": "§cMerchant screen is not opened",
 
   "tweakerplus.config.tweakpAutoTradeThrowOutput": "tweakpAutoTradeThrowOutput",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading instead of moving them to the inventory",
@@ -47,6 +46,7 @@
   "tweakerplus.config.tweakpAutoTrade.failed_reason.locked": "trade locked",
   "tweakerplus.config.tweakpAutoTrade.failed_reason.lack_of_buy_items": "lack of buy items",
   "tweakerplus.config.tweakpAutoTrade.failed_reason.offer_not_found": "offer not found",
+  "tweakerplus.config.tweakpAutoTrade.not_merchant_screen": "§cMerchant screen is not opened",
 
   "// Mod Tweaks": "================================================",
 

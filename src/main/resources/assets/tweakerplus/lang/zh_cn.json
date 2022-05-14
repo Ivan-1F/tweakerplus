@@ -33,7 +33,6 @@
 
   "tweakerplus.config.tweakpTradeEverything": "交易全部物品",
   "tweakerplus.config.tweakpTradeEverything.comment": "将背包中的所有物品用于村民交易",
-  "tweakerplus.config.tweakpTradeEverything.not_merchant_screen": "§c当前不在交易界面",
 
   "tweakerplus.config.tweakpAutoTradeThrowOutput": "自动交易扔出输出",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "强制将自动交易得到的输出扔出背包，而不是放入背包",
@@ -47,6 +46,7 @@
   "tweakerplus.config.tweakpAutoTrade.failed_reason.locked": "交易已锁定",
   "tweakerplus.config.tweakpAutoTrade.failed_reason.lack_of_buy_items": "缺少物品",
   "tweakerplus.config.tweakpAutoTrade.failed_reason.offer_not_found": "找不到交易",
+  "tweakerplus.config.tweakpAutoTrade.not_merchant_screen": "§c当前不在交易界面",
 
   "// Mod Tweaks": "================================================",
 

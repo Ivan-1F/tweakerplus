@@ -6,7 +6,8 @@ import fi.dy.masa.malilib.util.StringUtils;
 public enum TradeFailedReason implements IStringValue {
     LOCKED,
     OFFER_NOT_FOUND,
-    LACK_OF_BUY_ITEMS;
+    LACK_OF_BUY_ITEMS,
+    NOT_MERCHANT_SCREEN;
 
     @Override
     public String getStringValue() {

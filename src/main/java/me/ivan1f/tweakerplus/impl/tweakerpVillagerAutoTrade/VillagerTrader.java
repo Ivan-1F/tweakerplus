@@ -3,7 +3,6 @@ package me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade;
 import fi.dy.masa.itemscroller.util.InventoryUtils;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
-import fi.dy.masa.malilib.util.InfoUtils;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.util.InventoryUtil;
 import net.minecraft.client.MinecraftClient;
@@ -20,31 +19,40 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class VillagerTrader {
-    public static int selectedIndex = 0;
     private final MerchantScreen screen;
     private final MerchantContainer container;
+    private final RecipeStorage storage = RecipeStorage.getInstance();
 
     public VillagerTrader(MerchantScreen screen) {
         this.screen = screen;
         this.container = screen.getContainer();
     }
 
+    public int getOfferIndex() {
+        RecipeStorage.TradeRecipe recipe = this.storage.get(this.storage.getSelectedIndex());
+        for (int i = 0; i < this.container.getRecipes().size(); i++) {
+            TradeOffer offer = this.container.getRecipes().get(i);
+            if (offer.getOriginalFirstBuyItem().getItem() == recipe.firstBuyItem.getItem() &&
+                    offer.getSecondBuyItem().getItem() == recipe.secondBuyItem.getItem() &&
+                    offer.getSellItem().getItem() == recipe.sellItem.getItem()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public static TradeResult doTradeEverything() {
         Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-        assert currentScreen != null;
-        VillagerTrader trader = new VillagerTrader((MerchantScreen) currentScreen);
-        return trader.tradeEverything();
+        if (currentScreen instanceof MerchantScreen) {
+            VillagerTrader trader = new VillagerTrader((MerchantScreen) currentScreen);
+            return trader.tradeEverything();
+        }
+        return TradeResult.createFailedResult(TradeFailedReason.NOT_MERCHANT_SCREEN);
     }
 
     @SuppressWarnings("unused")
     public static boolean doTradeEverything(KeyAction keyAction, IKeybind iKeybind) {
-        Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-        if (currentScreen instanceof MerchantScreen) {
-            VillagerTrader trader = new VillagerTrader((MerchantScreen) currentScreen);
-            trader.tradeEverything();
-        } else {
-            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpTradeEverything.not_merchant_screen");
-        }
+        doTradeEverything();
         return true;
     }
 
@@ -54,7 +62,8 @@ public class VillagerTrader {
     }
 
     public TradeResult tradeEverything() {
-        TradeOffer offer = this.container.getRecipes().get(selectedIndex);
+        if (this.getOfferIndex() == -1) return TradeResult.createFailedResult(TradeFailedReason.OFFER_NOT_FOUND);
+        TradeOffer offer = this.container.getRecipes().get(this.getOfferIndex());
         if (offer == null) return TradeResult.createFailedResult(TradeFailedReason.OFFER_NOT_FOUND);
         if (offer.isDisabled()) return TradeResult.createFailedResult(TradeFailedReason.LOCKED);
         ItemStack sellItem = offer.getSellItem();
@@ -83,7 +92,7 @@ public class VillagerTrader {
     }
 
     private void prepareBuySlots() {
-        TradeOffer offer = this.container.getRecipes().get(selectedIndex);
+        TradeOffer offer = this.container.getRecipes().get(this.getOfferIndex());
         if (offer.isDisabled()) return;
         ItemStack firstBuyItem = offer.getAdjustedFirstBuyItem();
         ItemStack secondBuyItem = offer.getSecondBuyItem();
