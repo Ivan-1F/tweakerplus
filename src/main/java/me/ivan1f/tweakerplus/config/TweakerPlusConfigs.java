@@ -12,7 +12,6 @@ import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
 import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.VillagerTrader;
-import net.minecraft.client.MinecraftClient;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -129,11 +128,6 @@ public class TweakerPlusConfigs {
 
         // value listeners
         HIDE_DISABLE_OPTIONS.setValueChangeCallback(redrawConfigGui);
-        IMMEDIATELY_RESPAWN.setValueChangeCallback(newValue -> {
-            if (MinecraftClient.getInstance().player != null) {
-                MinecraftClient.getInstance().player.setShowsDeathScreen(!newValue.getBooleanValue());
-            }
-        });
         TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
 
         // debugs
