@@ -34,13 +34,16 @@
   "tweakerplus.config.tweakpTradeEverything": "交易全部物品",
   "tweakerplus.config.tweakpTradeEverything.comment": "将背包中的所有物品用于村民交易",
 
-  "tweakerplus.config.tweakpAutoTradeThrowOutput": "自动交易扔出输出",
+  "tweakerplus.config.tweakpAutoTradeStoreRecipe": "自动交易-储存配方",
+  "tweakerplus.config.tweakpAutoTradeStoreRecipe.comment": "将鼠标悬停在交易输出槽位上时存储交易配方\n悬停在空槽位上将清空选中的以储存配方",
+
+  "tweakerplus.config.tweakpAutoTradeThrowOutput": "自动交易-扔出输出",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "强制将自动交易得到的输出扔出背包，而不是放入背包",
-  "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "自动交易扔出输出",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "自动交易-扔出输出",
 
   "tweakerplus.config.tweakpAutoTradeEverything": "自动交易全部物品",
   "tweakerplus.config.tweakpAutoTradeEverything.comment": "打开交易界面后，自动交易全部物品\n然后关闭界面",
-  "tweakerplus.config.tweakpAutoTradeEverything.pretty_name": "自动交易",
+  "tweakerplus.config.tweakpAutoTradeEverything.pretty_name": "自动交易全部物品",
   "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§a已成功交易%1$d次",
   "tweakerplus.config.tweakpAutoTradeEverything.traded_failed": "§c交易失败: %1$s",
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.locked": "交易已锁定",
@@ -48,9 +51,9 @@
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.offer_not_found": "找不到交易",
   "tweakerplus.config.tweakpAutoTradeEverything.not_merchant_screen": "§c当前不在交易界面",
 
-  "tweakerplus.config.tweakpAutoTrade": "自动交易总开关",
+  "tweakerplus.config.tweakpAutoTrade": "自动交易-总开关",
   "tweakerplus.config.tweakpAutoTrade.comment": "自动交易相关功能的总开关，影响：\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r 交易界面的配方选择器",
-  "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
+  "tweakerplus.config.tweakpAutoTrade.pretty_name": "自动交易-总开关",
 
   "// Mod Tweaks": "================================================",
 

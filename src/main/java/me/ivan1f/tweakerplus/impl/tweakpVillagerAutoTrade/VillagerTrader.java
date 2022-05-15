@@ -1,5 +1,6 @@
 package me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade;
 
+import fi.dy.masa.itemscroller.util.AccessorUtils;
 import fi.dy.masa.itemscroller.util.InventoryUtils;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
@@ -10,6 +11,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
 import net.minecraft.container.MerchantContainer;
 import net.minecraft.container.Slot;
+import net.minecraft.container.TradeOutputSlot;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.TradeOffer;
@@ -39,6 +41,31 @@ public class VillagerTrader {
             }
         }
         return -1;
+    }
+
+    @SuppressWarnings("unused")
+    public static boolean storeRecipe(KeyAction keyAction, IKeybind iKeybind) {
+        Screen currentScreen = MinecraftClient.getInstance().currentScreen;
+        if (currentScreen instanceof MerchantScreen && TweakerPlusConfigs.TWEAKP_AUTO_TRADE.getBooleanValue()) {
+            Slot slotUnderMouse = AccessorUtils.getSlotUnderMouse((MerchantScreen) currentScreen);
+            if (slotUnderMouse instanceof TradeOutputSlot) {
+                if (slotUnderMouse.hasStack()) {
+                    MerchantScreen merchantScreen = (MerchantScreen) currentScreen;
+                    int selectedMerchantRecipe = AccessorUtils.getSelectedMerchantRecipe(merchantScreen);
+                    TradeOffer offer = merchantScreen.getContainer().getRecipes().get(selectedMerchantRecipe);
+                    if (offer != null) {
+                        RecipeStorage.getInstance().setSelectedSlot(new RecipeStorage.TradeRecipe(
+                                offer.getOriginalFirstBuyItem(),
+                                offer.getSecondBuyItem(),
+                                offer.getSellItem()
+                        ));
+                    }
+                } else {
+                    RecipeStorage.getInstance().setSelectedSlot(RecipeStorage.TradeRecipe.EMPTY);
+                }
+            }
+        }
+        return true;
     }
 
     public static TradeResult doTradeEverything() {
