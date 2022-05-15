@@ -1,11 +1,24 @@
 package me.ivan1f.tweakerplus.util.render;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.util.math.Matrix4f;
+import net.minecraft.client.util.math.MatrixStack;
+import org.jetbrains.annotations.NotNull;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+
+import com.mojang.blaze3d.platform.GlStateManager;
+import net.minecraft.util.math.Matrix4f;
+
+@SuppressWarnings("deprecation")
 public class RenderContext {
-    public RenderContext() {
+    @NotNull
+    private final MatrixStack matrixStack;
+
+    public RenderContext(@NotNull MatrixStack matrixStack) {
+        this.matrixStack = matrixStack;
+    }
+
+    public MatrixStack getMatrixStack() {
+        return this.matrixStack;
     }
 
     public void pushMatrix() {
@@ -40,6 +53,10 @@ public class RenderContext {
         RenderSystem.enableTexture();
     }
 
+    public void enableAlphaTest() {
+        RenderSystem.enableAlphaTest();
+    }
+
     public void depthMask(boolean mask) {
         RenderSystem.depthMask(mask);
     }
@@ -50,5 +67,9 @@ public class RenderContext {
 
     public void blendFunc(GlStateManager.SrcFactor srcFactor, GlStateManager.DstFactor dstFactor) {
         RenderSystem.blendFunc(srcFactor, dstFactor);
+    }
+
+    public void disableLighting() {
+        RenderSystem.disableLighting();
     }
 }

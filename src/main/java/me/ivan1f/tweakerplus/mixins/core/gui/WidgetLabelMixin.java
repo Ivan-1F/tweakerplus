@@ -74,7 +74,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             int x = this.x + (this.centered ? this.width / 2 : 0);
             int y = (int) (yTextStart + (this.labels.size() + i * scale + 0.2) * fontHeight);
 
-            RenderContext renderContext = new RenderContext();
+            RenderContext renderContext = new RenderContext(matrixStackd);
 
             renderContext.pushMatrix();
             renderContext.scale(scale, scale, 1);

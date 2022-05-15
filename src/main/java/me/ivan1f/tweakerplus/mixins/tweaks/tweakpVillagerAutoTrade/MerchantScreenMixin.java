@@ -22,7 +22,7 @@ public abstract class MerchantScreenMixin extends Screen {
 
     @Inject(method = "syncRecipeIndex", at = @At("TAIL"))
     private void onSelectedIndexSynced(CallbackInfo ci) {
-        TradeOffer offer = ((MerchantScreen) (Object) this).getContainer().getRecipes().get(this.selectedIndex);
+        TradeOffer offer = ((MerchantScreen) (Object) this).getScreenHandler().getRecipes().get(this.selectedIndex);
         if (offer != null) {
             RecipeStorage.getInstance().setSelectedSlot(new RecipeStorage.TradeRecipe(
                     offer.getOriginalFirstBuyItem(),

@@ -19,6 +19,7 @@ import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.config.TweakerPlusOption;
 import me.ivan1f.tweakerplus.mixins.core.gui.WidgetSearchBarAccessor;
 import me.ivan1f.tweakerplus.util.FabricUtil;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -141,8 +142,8 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
         this.initGui();
     }
 
-    public void renderHoveringWidgets(int mouseX, int mouseY) {
-        this.hoveringWidgets.forEach(widgetBase -> widgetBase.render(mouseX, mouseY, widgetBase.isMouseOver(mouseX, mouseY)));
+    public void renderHoveringWidgets(MatrixStack matrixStack, int mouseX, int mouseY) {
+        this.hoveringWidgets.forEach(widgetBase -> widgetBase.render(mouseX, mouseY, widgetBase.isMouseOver(mouseX, mouseY), matrixStack));
     }
 
     public Pair<Integer, Integer> adjustWidths(int guiWidth, int maxTextWidth) {

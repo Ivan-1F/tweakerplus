@@ -8,8 +8,8 @@ import me.ivan1f.tweakerplus.util.InventoryUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
-import net.minecraft.container.MerchantContainer;
-import net.minecraft.container.Slot;
+import net.minecraft.screen.MerchantScreenHandler;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.TradeOffer;
@@ -20,12 +20,12 @@ import java.util.stream.Collectors;
 
 public class VillagerTrader {
     private final MerchantScreen screen;
-    private final MerchantContainer container;
+    private final MerchantScreenHandler container;
     private final RecipeStorage storage = RecipeStorage.getInstance();
 
     public VillagerTrader(MerchantScreen screen) {
         this.screen = screen;
-        this.container = screen.getContainer();
+        this.container = screen.getScreenHandler();
     }
 
     public int getOfferIndex() {

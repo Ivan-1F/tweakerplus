@@ -52,7 +52,7 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
             GuiConfigsBase guiConfig = ((WidgetListConfigOptionsAccessor) this).getParent();
 
             // render it again to make sure it's on the top but below hovering widgets
-            ((TweakerPlusConfigGui) guiConfig).renderDropDownList(matrixStack, mouseX, mouseY);
+            ((TweakerPlusConfigGui) guiConfig).renderHoveringWidgets(matrixStack, mouseX, mouseY);
             this.shouldRenderTweakerPlusConfigGuiDropDownList = false;
         }
     }

@@ -5,6 +5,7 @@ import fi.dy.masa.malilib.interfaces.IStringValue;
 import fi.dy.masa.malilib.render.RenderUtils;
 import fi.dy.masa.malilib.util.StringUtils;
 import me.ivan1f.tweakerplus.mixins.core.gui.WidgetDropDownListMixin;
+import net.minecraft.client.util.math.MatrixStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
@@ -89,11 +90,11 @@ public class SelectorDropDownList<T extends IStringValue> extends WidgetDropDown
      * Hover text rendering logic reference: {@link fi.dy.masa.malilib.gui.button.ButtonBase#postRenderHovered}
      */
     @Override
-    public void postRenderHovered(int mouseX, int mouseY, boolean selected) {
-        super.postRenderHovered(mouseX, mouseY, selected);
+    public void postRenderHovered(int mouseX, int mouseY, boolean selected, MatrixStack matrixStack) {
+        super.postRenderHovered(mouseX, mouseY, selected, matrixStack);
 
         if (this.hoverText != null && this.isMouseOver(mouseX, mouseY) && !this.isOpen) {
-            RenderUtils.drawHoverText(mouseX, mouseY, Collections.singletonList(this.hoverText.getStringValue()));
+            RenderUtils.drawHoverText(mouseX, mouseY, Collections.singletonList(this.hoverText.getStringValue()), matrixStack);
             RenderUtils.disableDiffuseLighting();
         }
     }

@@ -7,8 +7,11 @@ import fi.dy.masa.malilib.gui.interfaces.IFileBrowserIconProvider;
 import fi.dy.masa.malilib.gui.interfaces.ISelectionListener;
 import fi.dy.masa.malilib.gui.widgets.WidgetFileBrowserBase;
 import fi.dy.masa.malilib.util.StringUtils;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
+import me.ivan1f.tweakerplus.util.ModIds;
 import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import java.io.File;
 
 @Mixin(WidgetSchematicBrowser.class)
+@Restriction(require = @Condition(ModIds.litematica))
 public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase {
     public WidgetSchematicBrowserMixin(int x, int y, int width, int height, IDirectoryCache cache, String browserContext, File defaultDirectory, ISelectionListener<DirectoryEntry> selectionListener, IFileBrowserIconProvider iconProvider) {
         super(x, y, width, height, cache, browserContext, defaultDirectory, selectionListener, iconProvider);

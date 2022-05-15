@@ -2,8 +2,8 @@ package me.ivan1f.tweakerplus.util;
 
 import fi.dy.masa.itemscroller.util.InventoryUtils;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ingame.ContainerScreen;
-import net.minecraft.container.Slot;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.item.ItemStack;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class InventoryUtil {
      * @param slots  slots you want to gather items from
      * @param stack  the stack you want to gather
      */
-    public static void pickItemsInCursor(ContainerScreen<?> screen, List<Slot> slots, ItemStack stack) {
+    public static void pickItemsInCursor(HandledScreen<?> screen, List<Slot> slots, ItemStack stack) {
         boolean isPickedUp = false;
         int pickedCount = 0;
         List<Slot> satisfiedSlots = slots.stream()

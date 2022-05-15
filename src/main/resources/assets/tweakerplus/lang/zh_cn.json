@@ -41,7 +41,7 @@
   "tweakerplus.config.tweakpAutoTradeEverything": "自动交易全部物品",
   "tweakerplus.config.tweakpAutoTradeEverything.comment": "打开交易界面后，自动交易全部物品\n然后关闭界面",
   "tweakerplus.config.tweakpAutoTradeEverything.pretty_name": "自动交易",
-  "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§a已成功交易%1$d次",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§a已成功交易%1$d§a次",
   "tweakerplus.config.tweakpAutoTradeEverything.traded_failed": "§c交易失败: %1$s",
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.locked": "交易已锁定",
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.lack_of_buy_items": "缺少物品",
