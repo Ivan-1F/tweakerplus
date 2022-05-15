@@ -32,10 +32,10 @@
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
     "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
-    "tweaks.tweakerpVillagerAutoTrade.MerchantContainerMixin",
-    "tweaks.tweakerpVillagerAutoTrade.MerchantScreenMixin",
-    "tweaks.tweakerpVillagerAutoTrade.render.GameRendererMixin",
-    "tweaks.tweakerpVillagerAutoTrade.render.ScreenMixin",
+    "tweaks.tweakpVillagerAutoTrade.MerchantContainerMixin",
+    "tweaks.tweakpVillagerAutoTrade.MerchantScreenMixin",
+    "tweaks.tweakpVillagerAutoTrade.render.GameRendererMixin",
+    "tweaks.tweakpVillagerAutoTrade.render.ScreenMixin",
     "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
   ],
   "client": [

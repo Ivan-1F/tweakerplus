@@ -6,10 +6,9 @@ import com.google.gson.JsonObject;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
-import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.RecipeStorage;
+import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.RecipeStorage;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 
 public class InternalSaver {

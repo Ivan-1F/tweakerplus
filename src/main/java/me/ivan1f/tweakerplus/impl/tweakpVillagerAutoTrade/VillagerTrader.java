@@ -1,4 +1,4 @@
-package me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade;
+package me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade;
 
 import fi.dy.masa.itemscroller.util.InventoryUtils;
 import fi.dy.masa.malilib.hotkeys.IKeybind;

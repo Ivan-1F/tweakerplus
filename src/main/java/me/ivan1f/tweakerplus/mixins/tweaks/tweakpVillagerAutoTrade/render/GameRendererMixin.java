@@ -1,6 +1,6 @@
-package me.ivan1f.tweakerplus.mixins.tweaks.tweakerpVillagerAutoTrade.render;
+package me.ivan1f.tweakerplus.mixins.tweaks.tweakpVillagerAutoTrade.render;
 
-import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.RecipeSelectorRenderer;
+import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.RecipeSelectorRenderer;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
