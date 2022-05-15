@@ -6,7 +6,11 @@
 
  - [限制世界修改](document-zh_cn.md#限制世界修改-limitWorldModification)
  - [立即重生](document-zh_cn.md#立即重生-immediatelyRespawn)
- - [忽略资源包不兼容](document-zh_cn.md#忽略资源包不兼容-resourcePackIncompatibleIgnored)
+ - [自动交易-总开关](document-zh_cn.md#自动交易-总开关-tweakpAutoTrade)
+ - [交易全部物品](document-zh_cn.md#交易全部物品-tweakpTradeEverything)
+ - [自动交易-储存配方](document-zh_cn.md#自动交易-储存配方-tweakpAutoTradeStoreRecipe)
+ - [自动交易-扔出输出](document-zh_cn.md#自动交易-扔出输出-tweakpAutoTradeThrowOutput)
+ - [自动交易全部物品](document-zh_cn.md#自动交易全部物品-tweakpAutoTradeEverything)
 
 ## [MC修改](document-zh_cn.md#mc修改)
 
@@ -15,6 +19,7 @@
  - [禁用地狱门覆盖渲染](document-zh_cn.md#禁用地狱门覆盖渲染-disablePortalOverlay)
  - [禁用凋灵生成音效](document-zh_cn.md#禁用凋灵生成音效-disableWitherSpawnSound)
  - [禁用气泡柱渲染](document-zh_cn.md#禁用气泡柱渲染-disableBubbleColumnRendering)
+ - [忽略资源包不兼容](document-zh_cn.md#忽略资源包不兼容-resourcePackIncompatibleIgnored)
 
 ## [模组修改](document-zh_cn.md#模组修改)
 
@@ -30,4 +35,5 @@
  - [TweakerPlus调试模式](document-zh_cn.md#TweakerPlus调试模式-tweakerPlusDebugMode)
  - [TweakerPlus调试用Int](document-zh_cn.md#TweakerPlus调试用Int-tweakerPlusDebugInt)
  - [TweakerPlus调试用Double](document-zh_cn.md#TweakerPlus调试用Double-tweakerPlusDebugDouble)
+ - [GUI调试](document-zh_cn.md#GUI调试-screenDebug)
 
