@@ -6,7 +6,11 @@
 
  - [limitWorldModification](document.md#limitWorldModification)
  - [immediatelyRespawn](document.md#immediatelyRespawn)
- - [resourcePackIncompatibleIgnored](document.md#resourcePackIncompatibleIgnored)
+ - [tweakpAutoTrade](document.md#tweakpAutoTrade)
+ - [tweakpTradeEverything](document.md#tweakpTradeEverything)
+ - [tweakpAutoTradeStoreRecipe](document.md#tweakpAutoTradeStoreRecipe)
+ - [tweakpAutoTradeThrowOutput](document.md#tweakpAutoTradeThrowOutput)
+ - [tweakpAutoTradeEverything](document.md#tweakpAutoTradeEverything)
 
 ## [MC Tweaks](document.md#mc-tweaks)
 
@@ -15,6 +19,7 @@
  - [disablePortalOverlay](document.md#disablePortalOverlay)
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)
  - [disableBubbleColumnRendering](document.md#disableBubbleColumnRendering)
+ - [resourcePackIncompatibleIgnored](document.md#resourcePackIncompatibleIgnored)
 
 ## [Mods Tweaks](document.md#mods-tweaks)
 
@@ -30,4 +35,5 @@
  - [tweakerPlusDebugMode](document.md#tweakerPlusDebugMode)
  - [tweakerPlusDebugInt](document.md#tweakerPlusDebugInt)
  - [tweakerPlusDebugDouble](document.md#tweakerPlusDebugDouble)
+ - [screenDebug](document.md#screenDebug)
 
