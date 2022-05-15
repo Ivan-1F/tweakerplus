@@ -1,7 +1,7 @@
 package me.ivan1f.tweakerplus.util.render;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.minecraft.client.util.math.Matrix4f;
 
 public class RenderContext {
@@ -9,46 +9,58 @@ public class RenderContext {
     }
 
     public void pushMatrix() {
-        RenderSystem.pushMatrix();
+        GlStateManager.pushMatrix();
     }
 
     public void popMatrix() {
-        RenderSystem.popMatrix();
+        GlStateManager.popMatrix();
     }
 
     public void translate(double x, double y, double z) {
-        RenderSystem.translated(x, y, z);
+        GlStateManager.translated(x, y, z);
     }
 
     public void scale(double x, double y, double z) {
-        RenderSystem.scaled(x, y, z);
+        GlStateManager.scaled(x, y, z);
     }
 
     public void multMatrix(Matrix4f matrix4f) {
-        RenderSystem.multMatrix(matrix4f);
+        GlStateManager.multMatrix(matrix4f);
     }
 
     public void enableDepthTest() {
-        RenderSystem.enableDepthTest();
+        GlStateManager.enableDepthTest();
     }
 
     public void disableDepthTest() {
-        RenderSystem.disableDepthTest();
+        GlStateManager.disableDepthTest();
     }
 
     public void enableTexture() {
-        RenderSystem.enableTexture();
+        GlStateManager.enableTexture();
+    }
+
+    public void enableAlphaTest() {
+        GlStateManager.enableAlphaTest();
     }
 
     public void depthMask(boolean mask) {
-        RenderSystem.depthMask(mask);
+        GlStateManager.depthMask(mask);
+    }
+
+    public void color4f(float red, float green, float blue, float alpha) {
+        GlStateManager.color4f(red, green, blue, alpha);
     }
 
     public void enableBlend() {
-        RenderSystem.enableBlend();
+        GlStateManager.enableBlend();
     }
 
-    public void blendFunc(GlStateManager.SrcFactor srcFactor, GlStateManager.DstFactor dstFactor) {
-        RenderSystem.blendFunc(srcFactor, dstFactor);
+    public void blendFunc(GlStateManager.SourceFactor srcFactor, GlStateManager.DestFactor dstFactor) {
+        GlStateManager.blendFunc(srcFactor, dstFactor);
+    }
+
+    public void disableLighting() {
+        GlStateManager.disableLighting();
     }
 }

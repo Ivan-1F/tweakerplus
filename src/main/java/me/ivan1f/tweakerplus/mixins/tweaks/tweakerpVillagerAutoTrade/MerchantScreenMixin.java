@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MerchantScreen.class)
 public abstract class MerchantScreenMixin extends Screen {
-    @Shadow private int selectedIndex;
+    @Shadow private int field_19161;
 
     protected MerchantScreenMixin(Text title) {
         super(title);
@@ -22,7 +22,7 @@ public abstract class MerchantScreenMixin extends Screen {
 
     @Inject(method = "syncRecipeIndex", at = @At("TAIL"))
     private void onSelectedIndexSynced(CallbackInfo ci) {
-        TradeOffer offer = ((MerchantScreen) (Object) this).getContainer().getRecipes().get(this.selectedIndex);
+        TradeOffer offer = ((MerchantScreen) (Object) this).getContainer().getRecipes().get(this.field_19161);
         if (offer != null) {
             RecipeStorage.getInstance().setSelectedSlot(new RecipeStorage.TradeRecipe(
                     offer.getOriginalFirstBuyItem(),

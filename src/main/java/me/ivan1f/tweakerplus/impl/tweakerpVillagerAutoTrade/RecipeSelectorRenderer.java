@@ -110,7 +110,7 @@ public class RecipeSelectorRenderer {
         }
 
         if (!InventoryUtils.isStackEmpty(stack)) {
-            DiffuseLighting.enableGuiDepthLighting();
+            DiffuseLighting.enable();
 
             stack = stack.copy();
             InventoryUtils.setStackSize(stack, 1);
