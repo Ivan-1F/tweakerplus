@@ -12,7 +12,6 @@ import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
 import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.VillagerTrader;
-import net.minecraft.client.MinecraftClient;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -21,8 +20,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigBoolean;
-import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigDouble;
 import static me.ivan1f.tweakerplus.util.ModIds.*;
 
 public class TweakerPlusConfigs {
@@ -57,16 +54,14 @@ public class TweakerPlusConfigs {
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
-    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
+    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = ConfigFactory.newConfigBoolean("resourcePackIncompatibleIgnored", false);
 
     ////////////////////
     //    MC Tweaks   //
     ////////////////////
 
-    // Generic
-
     @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
-    public static final TweakerPlusConfigDouble PLAYER_LIST_SCALE = newConfigDouble("playerListScale", 1, 0.001, 2);
+    public static final TweakerPlusConfigDouble PLAYER_LIST_SCALE = ConfigFactory.newConfigDouble("playerListScale", 1, 0.001, 2);
 
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PUMPKIN_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePumpkinOverlay", false, "");
@@ -79,10 +74,6 @@ public class TweakerPlusConfigs {
 
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_BUBBLE_COLUMN_RENDERING = ConfigFactory.newConfigBooleanHotkeyed("disableBubbleColumnRendering", false, "");
-
-    // List
-
-    // Tweak
 
     ////////////////////
     //   Mod Tweaks   //
@@ -134,15 +125,10 @@ public class TweakerPlusConfigs {
 
         // hotkeys
         OPEN_TWEAKERPLUS_CONFIG_GUI.getKeybind().setCallback(TweakerPlusConfigGui::onOpenGuiHotkey);
+        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
 
         // value listeners
         HIDE_DISABLE_OPTIONS.setValueChangeCallback(redrawConfigGui);
-        IMMEDIATELY_RESPAWN.setValueChangeCallback(newValue -> {
-            if (MinecraftClient.getInstance().player != null) {
-                MinecraftClient.getInstance().player.setShowsDeathScreen(!newValue.getBooleanValue());
-            }
-        });
-        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
 
         // debugs
         TWEAKERPLUS_DEBUG_MODE.setValueChangeCallback(redrawConfigGui);

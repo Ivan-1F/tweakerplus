@@ -28,6 +28,7 @@
     "tweaks.disablePortalOverlay.InGameHudMixin",
     "tweaks.disablePumpkinOverlay.InGameHudMixin",
     "tweaks.disableWitherSpawnSound.WorldRendererMixin",
+    "tweaks.immediatelyRespawn.ClientPlayNetworkHandlerMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
     "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
