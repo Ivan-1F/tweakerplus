@@ -27,6 +27,31 @@
   "tweakerplus.config.resourcePackIncompatibleIgnored": "resourcePackIncompatibleIgnored",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "Ignore the warning on the resource pack screen when the resource pack is incompatible",
 
+  "tweakerplus.config.disableBubbleColumnRendering": "disableBubbleColumnRendering",
+  "tweakerplus.config.disableBubbleColumnRendering.comment": "Prevents rendering bubble column particles",
+  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "Disable Bubble Column Rendering",
+
+  "tweakerplus.config.tweakpTradeEverything": "tweakpTradeEverything",
+  "tweakerplus.config.tweakpTradeEverything.comment": "Use all items in the inventory to trade",
+
+  "tweakerplus.config.tweakpAutoTradeThrowOutput": "tweakpAutoTradeThrowOutput",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading\ninstead of moving them to the inventory",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "Auto Trade Throw Output",
+
+  "tweakerplus.config.tweakpAutoTradeEverything": "tweakpAutoTradeEverything",
+  "tweakerplus.config.tweakpAutoTradeEverything.comment": "Automatically trade everything in the opened merchant screen\nand close the screen",
+  "tweakerplus.config.tweakpAutoTradeEverything.pretty_name": "Auto Trade Everything",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§aTraded %1$d§a times successfully",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_failed": "§cTrade failed: %1$s",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.locked": "trade locked",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.lack_of_buy_items": "lack of buy items",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.offer_not_found": "offer not found",
+  "tweakerplus.config.tweakpAutoTradeEverything.not_merchant_screen": "§cMerchant screen is not opened",
+
+  "tweakerplus.config.tweakpAutoTrade": "tweakpAutoTrade",
+  "tweakerplus.config.tweakpAutoTrade.comment": "The main switch of auto trade functionalities including\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r the recipe selector in the merchant screen",
+  "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",
@@ -37,6 +62,10 @@
 
   "tweakerplus.config.bundleOriginInSchematic": "bundleOriginInSchematic",
   "tweakerplus.config.bundleOriginInSchematic.comment": "Bundle the origin in the schematic when saving it\nWhen loading the schematic, if the origin info is present in the file, the placement will be moved to its origin\n(Using 'Create placement' button after loading will still place the placement at the player)\nThe origin info will be appended at the right panel of the schematic browser",
+
+  "tweakerplus.config.disableEasyPlaceModeCache": "disableEasyPlaceModeCache",
+  "tweakerplus.config.disableEasyPlaceModeCache.comment": "litematica easyPlaceMode will not cache block placements",
+  "tweakerplus.config.disableEasyPlaceModeCache.pretty_name": "Disable Easy Place Mode Cache",
 
   "// Setting": "================================================",
 
@@ -52,6 +81,8 @@
   "tweakerplus.config.tweakerPlusDebugInt.comment": "A integer parameter for TweakerPlus debugging",
   "tweakerplus.config.tweakerPlusDebugDouble": "tweakerPlusDebugDouble",
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "A double parameter for TweakerPlus debugging",
+  "tweakerplus.config.screenDebug": "screenDebug",
+  "tweakerplus.config.screenDebug.comment": "When enabled, the title and the class of the gui will be logged when it is opened",
 
   "// GUI and Misc": "================================================",
 

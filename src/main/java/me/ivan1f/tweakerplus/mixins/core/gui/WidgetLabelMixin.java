@@ -1,5 +1,6 @@
 package me.ivan1f.tweakerplus.mixins.core.gui;
 
+import me.ivan1f.tweakerplus.util.render.RenderContext;
 import fi.dy.masa.malilib.gui.widgets.WidgetBase;
 import fi.dy.masa.malilib.gui.widgets.WidgetLabel;
 import me.ivan1f.tweakerplus.gui.TweakerPlusOptionLabel;
@@ -54,7 +55,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
         return yTextStart;
     }
 
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings({"ConstantConditions", "deprecation"})
     @Inject(
             method = "render",
             at = @At(
@@ -73,8 +74,10 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             int x = this.x + (this.centered ? this.width / 2 : 0);
             int y = (int) (yTextStart + (this.labels.size() + i * scale + 0.2) * fontHeight);
 
-            matrixStackd.push();
-            matrixStackd.scale((float) scale, (float) scale, 1);
+            RenderContext renderContext = new RenderContext(matrixStackd);
+
+            renderContext.pushMatrix();
+            renderContext.scale(scale, scale, 1);
             x /= scale;
             y /= scale;
 
@@ -83,7 +86,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             } else {
                 this.drawStringWithShadow(x, y, color, originText, matrixStackd);
             }
-            matrixStackd.pop();
+            renderContext.popMatrix();
         }
     }
 
