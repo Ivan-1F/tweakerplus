@@ -22,11 +22,6 @@ public class MerchantContainerMixin {
         if (player != null) {
             player.closeContainer();
         }
-        if (result.isSuccess()) {
-            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTradeEverything.traded_successfully", result.getCount());
-        } else {
-            assert result.getReason() != null;
-            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTradeEverything.traded_failed", result.getReason().getStringValue());
-        }
+        result.printActionBarMessage();
     }
 }

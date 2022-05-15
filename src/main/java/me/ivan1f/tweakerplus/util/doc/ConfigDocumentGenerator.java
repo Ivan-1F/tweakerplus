@@ -28,7 +28,7 @@ public class ConfigDocumentGenerator extends AbstractDocumentGenerator {
                 ConfigFormatter formatter = new ConfigFormatter(option);
                 this.writeln.accept("### " + formatter.getName());
                 this.writeln.accept("");
-                this.writeln.accept(formatter.getComment());
+                this.writeln.accept(formatter.getComment().replace("\n", "\n\n"));
                 this.writeln.accept("");
                 this.writeln.accept(String.format(" - %s: %s", this.tr("type"), inlineCode(formatter.getType())));
                 this.writeln.accept(String.format(" - %s: %s", this.tr("default_value"), formatter.getDefaultValue()));
