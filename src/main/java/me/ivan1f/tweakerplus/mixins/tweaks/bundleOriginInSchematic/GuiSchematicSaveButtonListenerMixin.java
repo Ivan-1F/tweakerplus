@@ -2,13 +2,17 @@ package me.ivan1f.tweakerplus.mixins.tweaks.bundleOriginInSchematic;
 
 import fi.dy.masa.litematica.schematic.LitematicaSchematic;
 import fi.dy.masa.litematica.selection.AreaSelection;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
+import me.ivan1f.tweakerplus.util.ModIds;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(targets = "fi.dy.masa.litematica.gui.GuiSchematicSave$ButtonListener")
+@Restriction(require = @Condition(ModIds.litematica))
 public class GuiSchematicSaveButtonListenerMixin {
     @Redirect(
             method = "actionPerformedWithButton",

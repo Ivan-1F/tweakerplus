@@ -13,7 +13,7 @@ Prevent any player interaction
  - Type: `togglable hotkey`
  - Default value: *no hotkey*, `false`
  - Category: `Feature`
- - Config Type: `Generic`
+ - Config Type: `Tweak`
 
 ### immediatelyRespawn
 
@@ -22,7 +22,7 @@ Respawn immediately after death without showing the death screen
  - Type: `togglable hotkey`
  - Default value: *no hotkey*, `false`
  - Category: `Feature`
- - Config Type: `Generic`
+ - Config Type: `Tweak`
 
 ### resourcePackIncompatibleIgnored
 
@@ -75,6 +75,15 @@ Disable the wither spawned sound emitted when a wither fully reset its health af
  - Category: `MC Tweaks`
  - Config Type: `Disable`
 
+### disableBubbleColumnRendering
+
+Prevents rendering bubble column particles
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `MC Tweaks`
+ - Config Type: `Disable`
+
 ## Mods Tweaks
 
 Tweaks on mods
@@ -111,6 +120,18 @@ The origin info will be appended at the right panel of the schematic browser
  - Default value: `false`
  - Category: `Mods Tweaks`
  - Config Type: `Generic`
+ - Mod restrictions:
+   - Required mods:
+     - Litematica (`litematica`)
+
+### disableEasyPlaceModeCache
+
+litematica easyPlaceMode will not cache block placements
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `Mods Tweaks`
+ - Config Type: `Disable`
  - Mod restrictions:
    - Required mods:
      - Litematica (`litematica`)

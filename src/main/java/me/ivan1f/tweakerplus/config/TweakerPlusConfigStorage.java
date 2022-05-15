@@ -8,6 +8,7 @@ import fi.dy.masa.malilib.config.IConfigHandler;
 import fi.dy.masa.malilib.util.JsonUtils;
 import me.ivan1f.tweakerplus.util.FabricUtil;
 import me.ivan1f.tweakerplus.util.FileUtil;
+import me.ivan1f.tweakerplus.util.InternalSaver;
 
 import java.io.File;
 import java.util.List;
@@ -18,7 +19,7 @@ public class TweakerPlusConfigStorage implements IConfigHandler {
 
     public static void loadFromFile() {
         File configFile = FileUtil.getConfigFile();
-        if (configFile.exists() && configFile.isFile() && configFile.canRead()) {
+        if (FileUtil.ensureFileReadable(configFile)) {
             JsonElement element = JsonUtils.parseJsonFile(configFile);
 
             if (element != null && element.isJsonObject()) {
@@ -44,6 +45,7 @@ public class TweakerPlusConfigStorage implements IConfigHandler {
         ConfigUtils.readHotkeyToggleOptions(jsonObject, "TweakHotkeys", "TweakToggles", getConfigOptions(Config.Type.TWEAK));
         ConfigUtils.readHotkeyToggleOptions(jsonObject, "DisableHotkeys", "DisableToggles", getConfigOptions(Config.Type.DISABLE));
 
+        InternalSaver.load();
     }
 
     public static void saveToFile() {
@@ -57,6 +59,8 @@ public class TweakerPlusConfigStorage implements IConfigHandler {
         ConfigUtils.writeHotkeyToggleOptions(root, "DisableHotkeys", "DisableToggles", getConfigOptions(Config.Type.DISABLE));
 
         JsonUtils.writeJsonToFile(root, configFile);
+
+        InternalSaver.save();
     }
 
     @Override

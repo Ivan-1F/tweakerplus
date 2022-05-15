@@ -62,19 +62,19 @@ public class TweakerPlusOption {
     private static List<String> getFooter(Collection<ModPredicate> modPredicates, boolean nice, boolean good, String footerTextKey) {
         if (modPredicates.size() > 0) {
             List<String> lines = Lists.newArrayList();
-            lines.add((nice ? GuiBase.TXT_GRAY : GuiBase.TXT_RED) + GuiBase.TXT_ITALIC + StringUtils.translate(footerTextKey) + GuiBase.TXT_RST);
+            lines.add((nice ? GuiBase.TXT_GRAY : GuiBase.TXT_RED) + StringUtils.translate(footerTextKey) + GuiBase.TXT_RST);
             for (ModPredicate modPredicate : modPredicates) {
                 String element = String.format("%s (%s) %s", StringUtils.translate("tweakerplus.util.mod." + modPredicate.modId), modPredicate.modId, modPredicate.getVersionPredicatesString());
                 String color;
-                if ((good && modPredicate.isSatisfied()) || (!good && !modPredicate.isSatisfied()))  // nice
-                {
+                if ((good && modPredicate.isSatisfied()) || (!good && !modPredicate.isSatisfied())) {
+                    // nice
                     color = GuiBase.TXT_GRAY;
-                } else  // oh no the restriction check might fail due to this
-                {
+                } else {
+                    // oh no the restriction check might fail due to this
                     color = GuiBase.TXT_RED;
                 }
-                String lineItem = color + GuiBase.TXT_ITALIC + element + GuiBase.TXT_GRAY + GuiBase.TXT_ITALIC;
-                lines.add(GuiBase.TXT_DARK_GRAY + GuiBase.TXT_ITALIC + "- " + lineItem);
+                String lineItem = color + element + GuiBase.TXT_GRAY;
+                lines.add(GuiBase.TXT_DARK_GRAY + "- " + lineItem);
             }
             return lines;
         }
@@ -86,7 +86,7 @@ public class TweakerPlusOption {
         boolean first = true;
         for (ModRestriction modRestriction : this.modRestrictions) {
             if (!first) {
-                result.add(GuiBase.TXT_DARK_GRAY + GuiBase.TXT_ITALIC + String.format("--- %s ---", StringUtils.translate("tweakerplus.gui.mod_relation_footer.or")));
+                result.add(GuiBase.TXT_DARK_GRAY + String.format("--- %s ---", StringUtils.translate("tweakerplus.gui.mod_relation_footer.or")));
             }
             first = false;
             result.addAll(getFooter(modRestriction.getRequirements(), modRestriction.isRequirementsSatisfied(), true, "tweakerplus.gui.mod_relation_footer.requirement"));
