@@ -35,7 +35,7 @@
   "tweakerplus.config.tweakpTradeEverything.comment": "Use all items in the inventory to trade",
 
   "tweakerplus.config.tweakpAutoTradeThrowOutput": "tweakpAutoTradeThrowOutput",
-  "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading instead of moving them to the inventory",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading\ninstead of moving them to the inventory",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "Auto Trade Throw Output",
 
   "tweakerplus.config.tweakpAutoTradeEverything": "tweakpAutoTradeEverything",
