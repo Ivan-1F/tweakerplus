@@ -1,6 +1,5 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.tweakpVillagerAutoTrade;
 
-import fi.dy.masa.malilib.gui.GuiBase;
 import fi.dy.masa.malilib.util.InfoUtils;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.VillagerTrader;
@@ -23,11 +22,6 @@ public class MerchantContainerMixin {
         if (player != null) {
             player.closeHandledScreen();
         }
-        if (result.isSuccess()) {
-            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTradeEverything.traded_successfully", GuiBase.TXT_GREEN + result.getCount());
-        } else {
-            assert result.getReason() != null;
-            InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTradeEverything.traded_failed", GuiBase.TXT_RED + result.getReason().getStringValue());
-        }
+        result.printActionBarMessage();
     }
 }

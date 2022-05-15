@@ -7,6 +7,7 @@ import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.TweakerPlusOption;
 import me.ivan1f.tweakerplus.config.options.TweakerPlusIConfigBase;
 import me.ivan1f.tweakerplus.mixins.core.doc.ConfigBaseAccessor;
+import me.ivan1f.tweakerplus.util.StringUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -59,7 +60,8 @@ public class ConfigFormatter {
     }
 
     public String getComment() {
-        return this.getConfig() instanceof ConfigBaseAccessor ? StringUtils.translate(((ConfigBaseAccessor) this.getConfig()).getCommentKey()) : this.getConfig().getComment();
+        String comment = this.getConfig() instanceof ConfigBaseAccessor ? StringUtils.translate(((ConfigBaseAccessor) this.getConfig()).getCommentKey()) : this.getConfig().getComment();
+        return StringUtil.removeFormattingCode(comment);
     }
 
     public String getType() {

@@ -27,10 +27,14 @@ TweakerPlus提供的新功能
 ### 自动交易-总开关 (tweakpAutoTrade)
 
 自动交易相关功能的总开关，影响：
-§8-§r tweakpTradeEverything
-§8-§r tweakpAutoTradeThrowOutput
-§8-§r tweakpAutoTradeEverything
-§8-§r 交易界面的配方选择器
+
+- tweakpTradeEverything
+
+- tweakpAutoTradeThrowOutput
+
+- tweakpAutoTradeEverything
+
+- 交易界面的配方选择器
 
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
@@ -55,6 +59,7 @@ TweakerPlus提供的新功能
 ### 自动交易-储存配方 (tweakpAutoTradeStoreRecipe)
 
 将鼠标悬停在交易输出槽位上时存储交易配方
+
 悬停在空槽位上将清空选中的以储存配方
 
  - 类型: `热键`
@@ -80,6 +85,7 @@ TweakerPlus提供的新功能
 ### 自动交易全部物品 (tweakpAutoTradeEverything)
 
 打开交易界面后，自动交易全部物品
+
 然后关闭界面
 
  - 类型: `可开关型热键`
@@ -178,8 +184,11 @@ TweakerPlus提供的新功能
 ### 将原点打包入原理图 (bundleOriginInSchematic)
 
 在保存原理图时将原点信息打包入文件
+
 在加载原理图时，若文件中含有原点信息，则将放置移动至原点
+
 （加载后使用 '创建放置' 按钮仍会将放置创建在玩家处）
+
 原理图浏览器右侧面板中会追加显示原点信息
 
  - 类型: `布尔值`
@@ -227,7 +236,9 @@ litematica轻松放置功能将不会缓存方块放置
 ### TweakerPlus调试模式 (tweakerPlusDebugMode)
 
 TweakerPlus的调试模式
+
 当启用时，调试用参数选项以及当前游戏版本不支持的选项会被显示
+
 以及调试相关的功能会被启用
 
  - 类型: `可开关型热键`

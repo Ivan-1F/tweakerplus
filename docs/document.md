@@ -27,10 +27,14 @@ Respawn immediately after death without showing the death screen
 ### tweakpAutoTrade
 
 The main switch of auto trade functionalities including
-§8-§r tweakpTradeEverything
-§8-§r tweakpAutoTradeThrowOutput
-§8-§r tweakpAutoTradeEverything
-§8-§r the recipe selector in the merchant screen
+
+- tweakpTradeEverything
+
+- tweakpAutoTradeThrowOutput
+
+- tweakpAutoTradeEverything
+
+- the recipe selector in the merchant screen
 
  - Type: `togglable hotkey`
  - Default value: *no hotkey*, `false`
@@ -55,6 +59,7 @@ Use all items in the inventory to trade
 ### tweakpAutoTradeStoreRecipe
 
 Store a recipe while hovering over a trade output item
+
 Hovering over an empty slot will clear the selected stored recipe
 
  - Type: `hotkey`
@@ -68,6 +73,7 @@ Hovering over an empty slot will clear the selected stored recipe
 ### tweakpAutoTradeThrowOutput
 
 Forced throw out the output after auto trading
+
 instead of moving them to the inventory
 
  - Type: `togglable hotkey`
@@ -81,6 +87,7 @@ instead of moving them to the inventory
 ### tweakpAutoTradeEverything
 
 Automatically trade everything in the opened merchant screen
+
 and close the screen
 
  - Type: `togglable hotkey`
@@ -179,8 +186,11 @@ Apply the left aligned title to all config GUIs using malilib
 ### bundleOriginInSchematic
 
 Bundle the origin in the schematic when saving it
+
 When loading the schematic, if the origin info is present in the file, the placement will be moved to its origin
+
 (Using 'Create placement' button after loading will still place the placement at the player)
+
 The origin info will be appended at the right panel of the schematic browser
 
  - Type: `boolean`
@@ -228,7 +238,9 @@ Open the config GUI of TweakerPlus
 ### tweakerPlusDebugMode
 
 Debug mode of TweakerPlus
+
 When enabled, debug parameter options and options not supported by the current Minecraft version will be displayed
+
 and debugging related functions will be enabled
 
  - Type: `togglable hotkey`
