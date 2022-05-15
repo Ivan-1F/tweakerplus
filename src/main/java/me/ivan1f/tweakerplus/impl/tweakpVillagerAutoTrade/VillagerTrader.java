@@ -4,6 +4,7 @@ import fi.dy.masa.itemscroller.util.AccessorUtils;
 import fi.dy.masa.itemscroller.util.InventoryUtils;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
+import fi.dy.masa.malilib.util.InfoUtils;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.util.InventoryUtil;
 import net.minecraft.client.MinecraftClient;
@@ -79,7 +80,8 @@ public class VillagerTrader {
 
     @SuppressWarnings("unused")
     public static boolean doTradeEverything(KeyAction keyAction, IKeybind iKeybind) {
-        doTradeEverything();
+        TradeResult result = doTradeEverything();
+        result.printActionBarMessage();
         return true;
     }
 
@@ -176,6 +178,15 @@ public class VillagerTrader {
 
         public static TradeResult createFailedResult(TradeFailedReason reason) {
             return new TradeResult(false, reason);
+        }
+
+        public void printActionBarMessage() {
+            if (this.isSuccess()) {
+                InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTradeEverything.traded_successfully", this.getCount());
+            } else {
+                assert this.getReason() != null;
+                InfoUtils.printActionbarMessage("tweakerplus.config.tweakpAutoTradeEverything.traded_failed", this.getReason().getStringValue());
+            }
         }
     }
 }
