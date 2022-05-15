@@ -103,9 +103,9 @@ public class VillagerTrader {
 
     private void clearVillagerTradingSlots() {
         InventoryUtils.leftClickSlot(this.screen, 0);
-        InventoryUtils.tryClearCursor(this.screen, MinecraftClient.getInstance());
+        InventoryUtils.tryClearCursor(this.screen);
         InventoryUtils.leftClickSlot(this.screen, 1);
-        InventoryUtils.tryClearCursor(this.screen, MinecraftClient.getInstance());
+        InventoryUtils.tryClearCursor(this.screen);
     }
 
     public void pickItemsAndPutToVillagerTradingSlot(ItemStack stack, int targetSlot) {

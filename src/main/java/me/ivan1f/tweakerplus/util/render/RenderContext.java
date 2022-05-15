@@ -37,7 +37,7 @@ public class RenderContext {
     }
 
     public void multMatrix(Matrix4f matrix4f) {
-        matrixStack.method_34425(matrix4f);
+        matrixStack.multiplyPositionMatrix(matrix4f);
     }
 
     public void enableDepthTest() {

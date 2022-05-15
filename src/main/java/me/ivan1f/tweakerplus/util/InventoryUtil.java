@@ -1,7 +1,6 @@
 package me.ivan1f.tweakerplus.util;
 
 import fi.dy.masa.itemscroller.util.InventoryUtils;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.item.ItemStack;
@@ -43,7 +42,7 @@ public class InventoryUtil {
             if (pickedCount + slot.getStack().getCount() >= STACK_MAX_ITEM_COUNT) {
                 // this should only be triggered after a slot has been picked up
                 InventoryUtils.leftClickSlot(screen, slot.id);  // click the slot, this picks up the stack with a smaller number of items and leaves the full stack in place
-                InventoryUtils.tryClearCursor(screen, MinecraftClient.getInstance());  // clear the cursor, in an empty slot
+                InventoryUtils.tryClearCursor(screen);  // clear the cursor, in an empty slot
                 InventoryUtils.leftClickSlot(screen, slot.id);  // pick up the full stack
                 return;
             }
