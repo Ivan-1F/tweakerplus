@@ -21,8 +21,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigBoolean;
-import static me.ivan1f.tweakerplus.config.ConfigFactory.newConfigDouble;
 import static me.ivan1f.tweakerplus.util.ModIds.*;
 
 public class TweakerPlusConfigs {
@@ -57,7 +55,7 @@ public class TweakerPlusConfigs {
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
-    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
+    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = ConfigFactory.newConfigBoolean("resourcePackIncompatibleIgnored", false);
 
     ////////////////////
     //    MC Tweaks   //
@@ -66,7 +64,7 @@ public class TweakerPlusConfigs {
     // Generic
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
-    public static final TweakerPlusConfigDouble PLAYER_LIST_SCALE = newConfigDouble("playerListScale", 1, 0.001, 2);
+    public static final TweakerPlusConfigDouble PLAYER_LIST_SCALE = ConfigFactory.newConfigDouble("playerListScale", 1, 0.001, 2);
 
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PUMPKIN_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePumpkinOverlay", false, "");
