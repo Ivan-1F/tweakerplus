@@ -56,9 +56,6 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
 
-    @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
-    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = ConfigFactory.newConfigBoolean("resourcePackIncompatibleIgnored", false);
-
     ////////////////////
     //    MC Tweaks   //
     ////////////////////
@@ -77,6 +74,9 @@ public class TweakerPlusConfigs {
 
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_BUBBLE_COLUMN_RENDERING = ConfigFactory.newConfigBooleanHotkeyed("disableBubbleColumnRendering", false, "");
+
+    @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = ConfigFactory.newConfigBoolean("T", false);
 
     ////////////////////
     //   Mod Tweaks   //
