@@ -14,12 +14,14 @@
  - [disablePumpkinOverlay](document.md#disablePumpkinOverlay)
  - [disablePortalOverlay](document.md#disablePortalOverlay)
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)
+ - [disableBubbleColumnRendering](document.md#disableBubbleColumnRendering)
 
 ## [Mods Tweaks](document.md#mods-tweaks)
 
  - [xmapNoDeathWaypointForCreative](document.md#xmapNoDeathWaypointForCreative)
  - [leftAlignTitleGlobally](document.md#leftAlignTitleGlobally)
  - [bundleOriginInSchematic](document.md#bundleOriginInSchematic)
+ - [disableEasyPlaceModeCache](document.md#disableEasyPlaceModeCache)
 
 ## [Setting](document.md#setting)
 

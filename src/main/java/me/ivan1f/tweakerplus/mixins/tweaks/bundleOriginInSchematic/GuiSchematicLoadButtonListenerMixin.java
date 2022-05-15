@@ -4,8 +4,11 @@ import fi.dy.masa.litematica.schematic.LitematicaSchematic;
 import fi.dy.masa.litematica.util.FileType;
 import fi.dy.masa.malilib.gui.button.ButtonBase;
 import fi.dy.masa.malilib.gui.widgets.WidgetFileBrowserBase;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.BundleOriginInSchematicHelper;
 import me.ivan1f.tweakerplus.impl.bundleOriginInSchematic.ILitematicaSchematic;
+import me.ivan1f.tweakerplus.util.ModIds;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import java.io.File;
 
 @Mixin(targets = "fi.dy.masa.litematica.gui.GuiSchematicLoad$ButtonListener")
+@Restriction(require = @Condition(ModIds.litematica))
 public class GuiSchematicLoadButtonListenerMixin {
     private LitematicaSchematic loadingSchematic;
 
