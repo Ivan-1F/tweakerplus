@@ -16,7 +16,7 @@ public class RenderContext {
         this.matrixStack = matrixStack;
     }
 
-    public MatrixStack getMatrixStack() {
+    public @NotNull MatrixStack getMatrixStack() {
         return this.matrixStack;
     }
 
