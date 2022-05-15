@@ -27,7 +27,6 @@
     "tweaks.disableEasyPlaceModeCache.WorldUtilsMixin",
     "tweaks.disablePortalOverlay.InGameHudMixin",
     "tweaks.disablePumpkinOverlay.InGameHudMixin",
-    "tweaks.immediatelyRespawn.MinecraftClientMixin",
     "tweaks.disableWitherSpawnSound.WorldRendererMixin",
     "tweaks.immediatelyRespawn.ClientPlayNetworkHandlerMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
