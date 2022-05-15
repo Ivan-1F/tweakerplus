@@ -61,8 +61,6 @@ public class TweakerPlusConfigs {
     //    MC Tweaks   //
     ////////////////////
 
-    // Generic
-
     @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigDouble PLAYER_LIST_SCALE = ConfigFactory.newConfigDouble("playerListScale", 1, 0.001, 2);
 
@@ -77,10 +75,6 @@ public class TweakerPlusConfigs {
 
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_BUBBLE_COLUMN_RENDERING = ConfigFactory.newConfigBooleanHotkeyed("disableBubbleColumnRendering", false, "");
-
-    // List
-
-    // Tweak
 
     ////////////////////
     //   Mod Tweaks   //
