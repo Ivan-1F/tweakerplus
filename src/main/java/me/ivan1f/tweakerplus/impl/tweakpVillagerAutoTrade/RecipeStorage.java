@@ -1,4 +1,4 @@
-package me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade;
+package me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade;
 
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;

@@ -11,7 +11,7 @@ import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
-import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.VillagerTrader;
+import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.VillagerTrader;
 import net.minecraft.client.MinecraftClient;
 
 import java.lang.reflect.Field;

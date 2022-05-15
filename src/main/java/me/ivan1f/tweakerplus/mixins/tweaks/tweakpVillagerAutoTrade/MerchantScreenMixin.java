@@ -1,7 +1,7 @@
-package me.ivan1f.tweakerplus.mixins.tweaks.tweakerpVillagerAutoTrade;
+package me.ivan1f.tweakerplus.mixins.tweaks.tweakpVillagerAutoTrade;
 
 import fi.dy.masa.malilib.util.KeyCodes;
-import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.RecipeStorage;
+import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.RecipeStorage;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
 import net.minecraft.text.Text;
