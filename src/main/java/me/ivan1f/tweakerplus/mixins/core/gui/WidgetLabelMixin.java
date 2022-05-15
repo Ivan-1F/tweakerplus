@@ -55,7 +55,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
         return yTextStart;
     }
 
-    @SuppressWarnings({"ConstantConditions", "deprecation"})
+    @SuppressWarnings({"ConstantConditions"})
     @Inject(
             method = "render",
             at = @At(

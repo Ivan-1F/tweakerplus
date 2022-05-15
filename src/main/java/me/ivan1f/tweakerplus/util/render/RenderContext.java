@@ -8,7 +8,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.util.math.Matrix4f;
 
-@SuppressWarnings("deprecation")
 public class RenderContext {
     @NotNull
     private final MatrixStack matrixStack;
@@ -22,23 +21,23 @@ public class RenderContext {
     }
 
     public void pushMatrix() {
-        RenderSystem.pushMatrix();
+        this.matrixStack.push();
     }
 
     public void popMatrix() {
-        RenderSystem.popMatrix();
+        this.matrixStack.pop();
     }
 
     public void translate(double x, double y, double z) {
-        RenderSystem.translated(x, y, z);
+        matrixStack.translate(x, y, z);
     }
 
     public void scale(double x, double y, double z) {
-        RenderSystem.scaled(x, y, z);
+        matrixStack.scale((float) x, (float) y, (float) z);
     }
 
     public void multMatrix(Matrix4f matrix4f) {
-        RenderSystem.multMatrix(matrix4f);
+        matrixStack.method_34425(matrix4f);
     }
 
     public void enableDepthTest() {
@@ -53,10 +52,6 @@ public class RenderContext {
         RenderSystem.enableTexture();
     }
 
-    public void enableAlphaTest() {
-        RenderSystem.enableAlphaTest();
-    }
-
     public void depthMask(boolean mask) {
         RenderSystem.depthMask(mask);
     }
@@ -67,9 +62,5 @@ public class RenderContext {
 
     public void blendFunc(GlStateManager.SrcFactor srcFactor, GlStateManager.DstFactor dstFactor) {
         RenderSystem.blendFunc(srcFactor, dstFactor);
-    }
-
-    public void disableLighting() {
-        RenderSystem.disableLighting();
     }
 }
