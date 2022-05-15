@@ -24,14 +24,72 @@ Respawn immediately after death without showing the death screen
  - Category: `Feature`
  - Config Type: `Tweak`
 
-### resourcePackIncompatibleIgnored
+### tweakpAutoTrade
 
-Ignore the warning on the resource pack screen when the resource pack is incompatible
+The main switch of auto trade functionalities including
+§8-§r tweakpTradeEverything
+§8-§r tweakpAutoTradeThrowOutput
+§8-§r tweakpAutoTradeEverything
+§8-§r the recipe selector in the merchant screen
 
- - Type: `boolean`
- - Default value: `false`
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `Feature`
+ - Config Type: `Tweak`
+ - Mod restrictions:
+   - Required mods:
+     - Item Scroller (`itemscroller`)
+
+### tweakpTradeEverything
+
+Use all items in the inventory to trade
+
+ - Type: `hotkey`
+ - Default value: *no hotkey*
+ - Category: `Feature`
+ - Config Type: `Hotkey`
+ - Mod restrictions:
+   - Required mods:
+     - Item Scroller (`itemscroller`)
+
+### tweakpAutoTradeStoreRecipe
+
+Store a recipe while hovering over a trade output item
+Hovering over an empty slot will clear the selected stored recipe
+
+ - Type: `hotkey`
+ - Default value: `BUTTON_3`
+ - Category: `Feature`
+ - Config Type: `Hotkey`
+ - Mod restrictions:
+   - Required mods:
+     - Item Scroller (`itemscroller`)
+
+### tweakpAutoTradeThrowOutput
+
+Forced throw out the output after auto trading
+instead of moving them to the inventory
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
  - Category: `Feature`
  - Config Type: `Generic`
+ - Mod restrictions:
+   - Required mods:
+     - Item Scroller (`itemscroller`)
+
+### tweakpAutoTradeEverything
+
+Automatically trade everything in the opened merchant screen
+and close the screen
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `Feature`
+ - Config Type: `Tweak`
+ - Mod restrictions:
+   - Required mods:
+     - Item Scroller (`itemscroller`)
 
 ## MC Tweaks
 
@@ -83,6 +141,15 @@ Prevents rendering bubble column particles
  - Default value: *no hotkey*, `false`
  - Category: `MC Tweaks`
  - Config Type: `Disable`
+
+### resourcePackIncompatibleIgnored
+
+Ignore the warning on the resource pack screen when the resource pack is incompatible
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Category: `MC Tweaks`
+ - Config Type: `Generic`
 
 ## Mods Tweaks
 
@@ -190,4 +257,13 @@ A double parameter for TweakerPlus debugging
  - Config Type: `Generic`
  - Minimum value: `-1`
  - Maximum value: `1`
+
+### screenDebug
+
+When enabled, the title and the class of the gui will be logged when it is opened
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Category: `Setting`
+ - Config Type: `Generic`
 

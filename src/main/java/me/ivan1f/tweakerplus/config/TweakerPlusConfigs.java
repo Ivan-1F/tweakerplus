@@ -41,6 +41,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBooleanHotkeyed IMMEDIATELY_RESPAWN = ConfigFactory.newConfigBooleanHotkeyed("immediatelyRespawn", false, "");
 
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
+
     @Config(type = Config.Type.HOTKEY, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigHotkey TWEAKP_TRADE_EVERYTHING = ConfigFactory.newConfigHotKey("tweakpTradeEverything", "", KEYBIND_SETTINGS_ANY);
 
@@ -52,9 +55,6 @@ public class TweakerPlusConfigs {
 
     @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_EVERYTHING = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeEverything", false, "");
-
-    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
-    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
 
     ////////////////////
     //    MC Tweaks   //
@@ -76,7 +76,7 @@ public class TweakerPlusConfigs {
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_BUBBLE_COLUMN_RENDERING = ConfigFactory.newConfigBooleanHotkeyed("disableBubbleColumnRendering", false, "");
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
-    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = ConfigFactory.newConfigBoolean("T", false);
+    public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = ConfigFactory.newConfigBoolean("resourcePackIncompatibleIgnored", false);
 
     ////////////////////
     //   Mod Tweaks   //
