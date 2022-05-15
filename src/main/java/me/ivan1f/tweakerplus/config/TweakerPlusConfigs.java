@@ -44,6 +44,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.HOTKEY, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigHotkey TWEAKP_TRADE_EVERYTHING = ConfigFactory.newConfigHotKey("tweakpTradeEverything", "", KEYBIND_SETTINGS_ANY);
 
+    @Config(type = Config.Type.HOTKEY, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigHotkey TWEAKP_AUTO_TRADE_STORE_RECIPE = ConfigFactory.newConfigHotKey("tweakpAutoTradeStoreRecipe", "BUTTON_3", KEYBIND_SETTINGS_ANY);
+
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
     public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_THROW_OUTPUT = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeThrowOutput", false, "");
 
@@ -126,6 +129,7 @@ public class TweakerPlusConfigs {
         // hotkeys
         OPEN_TWEAKERPLUS_CONFIG_GUI.getKeybind().setCallback(TweakerPlusConfigGui::onOpenGuiHotkey);
         TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
+        TWEAKP_AUTO_TRADE_STORE_RECIPE.getKeybind().setCallback(VillagerTrader::storeRecipe);
 
         // value listeners
         HIDE_DISABLE_OPTIONS.setValueChangeCallback(redrawConfigGui);
