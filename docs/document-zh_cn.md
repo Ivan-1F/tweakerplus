@@ -13,7 +13,7 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `功能`
- - 配置类型: `工具 Tweak`
+ - 配置类型: `工具`
 
 ### 立即重生 (immediatelyRespawn)
 
@@ -22,16 +22,73 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `功能`
- - 配置类型: `工具 Tweak`
+ - 配置类型: `工具`
 
-### 忽略资源包不兼容 (resourcePackIncompatibleIgnored)
+### 自动交易-总开关 (tweakpAutoTrade)
 
-忽略资源包界面资源包不兼容时的警告信息
+自动交易相关功能的总开关，影响：
+§8-§r tweakpTradeEverything
+§8-§r tweakpAutoTradeThrowOutput
+§8-§r tweakpAutoTradeEverything
+§8-§r 交易界面的配方选择器
 
- - 类型: `布尔值`
- - 默认值: `false`
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
  - 分类: `功能`
- - 配置类型: `通用 Generic`
+ - 配置类型: `工具`
+ - 模组约束:
+   - 依赖模组:
+     - Item Scroller (`itemscroller`)
+
+### 交易全部物品 (tweakpTradeEverything)
+
+将背包中的所有物品用于村民交易
+
+ - 类型: `热键`
+ - 默认值: *无快捷键*
+ - 分类: `功能`
+ - 配置类型: `热键`
+ - 模组约束:
+   - 依赖模组:
+     - Item Scroller (`itemscroller`)
+
+### 自动交易-储存配方 (tweakpAutoTradeStoreRecipe)
+
+将鼠标悬停在交易输出槽位上时存储交易配方
+悬停在空槽位上将清空选中的以储存配方
+
+ - 类型: `热键`
+ - 默认值: `BUTTON_3`
+ - 分类: `功能`
+ - 配置类型: `热键`
+ - 模组约束:
+   - 依赖模组:
+     - Item Scroller (`itemscroller`)
+
+### 自动交易-扔出输出 (tweakpAutoTradeThrowOutput)
+
+强制将自动交易得到的输出扔出背包，而不是放入背包
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `功能`
+ - 配置类型: `通用`
+ - 模组约束:
+   - 依赖模组:
+     - Item Scroller (`itemscroller`)
+
+### 自动交易全部物品 (tweakpAutoTradeEverything)
+
+打开交易界面后，自动交易全部物品
+然后关闭界面
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `功能`
+ - 配置类型: `工具`
+ - 模组约束:
+   - 依赖模组:
+     - Item Scroller (`itemscroller`)
 
 ## MC修改
 
@@ -44,7 +101,7 @@ TweakerPlus提供的新功能
  - 类型: `实数`
  - 默认值: `1.0`
  - 分类: `MC修改`
- - 配置类型: `通用 Generic`
+ - 配置类型: `通用`
  - 最小值: `0.001`
  - 最大值: `2.0`
 
@@ -55,7 +112,7 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `MC修改`
- - 配置类型: `禁用 Disable`
+ - 配置类型: `禁用`
 
 ### 禁用地狱门覆盖渲染 (disablePortalOverlay)
 
@@ -64,7 +121,7 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `MC修改`
- - 配置类型: `禁用 Disable`
+ - 配置类型: `禁用`
 
 ### 禁用凋灵生成音效 (disableWitherSpawnSound)
 
@@ -73,7 +130,7 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `MC修改`
- - 配置类型: `禁用 Disable`
+ - 配置类型: `禁用`
 
 ### 禁用气泡柱渲染 (disableBubbleColumnRendering)
 
@@ -82,7 +139,16 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `MC修改`
- - 配置类型: `禁用 Disable`
+ - 配置类型: `禁用`
+
+### 忽略资源包不兼容 (resourcePackIncompatibleIgnored)
+
+忽略资源包界面资源包不兼容时的警告信息
+
+ - 类型: `布尔值`
+ - 默认值: `false`
+ - 分类: `MC修改`
+ - 配置类型: `通用`
 
 ## 模组修改
 
@@ -95,7 +161,7 @@ TweakerPlus提供的新功能
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `模组修改`
- - 配置类型: `通用 Generic`
+ - 配置类型: `通用`
  - 模组约束:
    - 依赖模组:
      - Xaero's Minimap (`xaerominimap`)
@@ -107,7 +173,7 @@ TweakerPlus提供的新功能
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `模组修改`
- - 配置类型: `通用 Generic`
+ - 配置类型: `通用`
 
 ### 将原点打包入原理图 (bundleOriginInSchematic)
 
@@ -119,7 +185,7 @@ TweakerPlus提供的新功能
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `模组修改`
- - 配置类型: `通用 Generic`
+ - 配置类型: `通用`
  - 模组约束:
    - 依赖模组:
      - Litematica (`litematica`)
@@ -131,7 +197,7 @@ litematica轻松放置功能将不会缓存方块放置
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `模组修改`
- - 配置类型: `禁用 Disable`
+ - 配置类型: `禁用`
  - 模组约束:
    - 依赖模组:
      - Litematica (`litematica`)
@@ -147,7 +213,7 @@ litematica轻松放置功能将不会缓存方块放置
  - 类型: `布尔值`
  - 默认值: `false`
  - 分类: `配置`
- - 配置类型: `通用 Generic`
+ - 配置类型: `通用`
 
 ### 打开TweakerPlus配置界面 (openTweakerPlusConfigGui)
 
@@ -156,7 +222,7 @@ litematica轻松放置功能将不会缓存方块放置
  - 类型: `热键`
  - 默认值: `P,C`
  - 分类: `配置`
- - 配置类型: `热键 Hotkey`
+ - 配置类型: `热键`
 
 ### TweakerPlus调试模式 (tweakerPlusDebugMode)
 
@@ -167,7 +233,7 @@ TweakerPlus的调试模式
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `配置`
- - 配置类型: `工具 Tweak`
+ - 配置类型: `工具`
 
 ### TweakerPlus调试用Int (tweakerPlusDebugInt)
 
@@ -176,7 +242,7 @@ TweakerPlus的调试模式
  - 类型: `整数`
  - 默认值: `0`
  - 分类: `配置`
- - 配置类型: `通用 Generic`
+ - 配置类型: `通用`
  - 最小值: `-1000`
  - 最大值: `1000`
 
@@ -187,7 +253,16 @@ TweakerPlus的调试模式
  - 类型: `整数`
  - 默认值: `0`
  - 分类: `配置`
- - 配置类型: `通用 Generic`
+ - 配置类型: `通用`
  - 最小值: `-1`
  - 最大值: `1`
+
+### GUI调试 (screenDebug)
+
+启用时，GUI开启时将输出其标题与类名至日志
+
+ - 类型: `布尔值`
+ - 默认值: `false`
+ - 分类: `配置`
+ - 配置类型: `通用`
 
