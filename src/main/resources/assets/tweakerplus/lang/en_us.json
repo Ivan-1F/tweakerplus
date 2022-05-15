@@ -34,6 +34,9 @@
   "tweakerplus.config.tweakpTradeEverything": "tweakpTradeEverything",
   "tweakerplus.config.tweakpTradeEverything.comment": "Use all items in the inventory to trade",
 
+  "tweakerplus.config.tweakpAutoTradeStoreRecipe": "tweakpAutoTradeStoreRecipe",
+  "tweakerplus.config.tweakpAutoTradeStoreRecipe.comment": "Store a recipe while hovering over a trade output item\nHovering over an empty slot will clear the selected stored recipe",
+
   "tweakerplus.config.tweakpAutoTradeThrowOutput": "tweakpAutoTradeThrowOutput",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "Forced throw out the output after auto trading\ninstead of moving them to the inventory",
   "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "Auto Trade Throw Output",
