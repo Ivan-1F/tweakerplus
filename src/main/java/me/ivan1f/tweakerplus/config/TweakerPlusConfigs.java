@@ -125,10 +125,10 @@ public class TweakerPlusConfigs {
 
         // hotkeys
         OPEN_TWEAKERPLUS_CONFIG_GUI.getKeybind().setCallback(TweakerPlusConfigGui::onOpenGuiHotkey);
+        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
 
         // value listeners
         HIDE_DISABLE_OPTIONS.setValueChangeCallback(redrawConfigGui);
-        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
 
         // debugs
         TWEAKERPLUS_DEBUG_MODE.setValueChangeCallback(redrawConfigGui);
