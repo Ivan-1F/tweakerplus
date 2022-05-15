@@ -1,6 +1,6 @@
 package me.ivan1f.tweakerplus.mixins.core.gui;
 
-import com.mojang.blaze3d.platform.GlStateManager;
+import me.ivan1f.tweakerplus.util.render.RenderContext;
 import fi.dy.masa.malilib.gui.widgets.WidgetBase;
 import fi.dy.masa.malilib.gui.widgets.WidgetLabel;
 import me.ivan1f.tweakerplus.gui.TweakerPlusOptionLabel;
@@ -73,8 +73,10 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             int x = this.x + (this.centered ? this.width / 2 : 0);
             int y = (int) (yTextStart + (this.labels.size() + i * scale + 0.2) * fontHeight);
 
-            GlStateManager.pushMatrix();
-            GlStateManager.scaled(scale, scale, 1);
+            RenderContext renderContext = new RenderContext();
+
+            renderContext.pushMatrix();
+            renderContext.scale(scale, scale, 1);
             x /= scale;
             y /= scale;
 
@@ -83,7 +85,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             } else {
                 this.drawStringWithShadow(x, y, color, originText);
             }
-            GlStateManager.popMatrix();
+            renderContext.popMatrix();
         }
     }
 

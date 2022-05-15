@@ -27,6 +27,31 @@
   "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
 
+  "tweakerplus.config.disableBubbleColumnRendering": "禁用气泡柱渲染",
+  "tweakerplus.config.disableBubbleColumnRendering.comment": "阻止气泡柱粒子效果的渲染",
+  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "禁用气泡柱渲染",
+
+  "tweakerplus.config.tweakpTradeEverything": "交易全部物品",
+  "tweakerplus.config.tweakpTradeEverything.comment": "将背包中的所有物品用于村民交易",
+
+  "tweakerplus.config.tweakpAutoTradeThrowOutput": "自动交易扔出输出",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.comment": "强制将自动交易得到的输出扔出背包，而不是放入背包",
+  "tweakerplus.config.tweakpAutoTradeThrowOutput.pretty_name": "自动交易扔出输出",
+
+  "tweakerplus.config.tweakpAutoTradeEverything": "自动交易全部物品",
+  "tweakerplus.config.tweakpAutoTradeEverything.comment": "打开交易界面后，自动交易全部物品\n然后关闭界面",
+  "tweakerplus.config.tweakpAutoTradeEverything.pretty_name": "自动交易",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§a已成功交易%1$d次",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_failed": "§c交易失败: %1$s",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.locked": "交易已锁定",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.lack_of_buy_items": "缺少物品",
+  "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.offer_not_found": "找不到交易",
+  "tweakerplus.config.tweakpAutoTradeEverything.not_merchant_screen": "§c当前不在交易界面",
+
+  "tweakerplus.config.tweakpAutoTrade": "自动交易总开关",
+  "tweakerplus.config.tweakpAutoTrade.comment": "自动交易相关功能的总开关，影响：\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r 交易界面的配方选择器",
+  "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
@@ -37,6 +62,10 @@
 
   "tweakerplus.config.bundleOriginInSchematic": "将原点打包入原理图",
   "tweakerplus.config.bundleOriginInSchematic.comment": "在保存原理图时将原点信息打包入文件\n在加载原理图时，若文件中含有原点信息，则将放置移动至原点\n（加载后使用 '创建放置' 按钮仍会将放置创建在玩家处）\n原理图浏览器右侧面板中会追加显示原点信息",
+
+  "tweakerplus.config.disableEasyPlaceModeCache": "禁用轻松放置缓存",
+  "tweakerplus.config.disableEasyPlaceModeCache.comment": "litematica轻松放置功能将不会缓存方块放置",
+  "tweakerplus.config.disableEasyPlaceModeCache.pretty_name": "禁用轻松放置缓存",
 
   "// Setting": "================================================",
 
@@ -52,6 +81,8 @@
   "tweakerplus.config.tweakerPlusDebugInt.comment": "用于调试TweakerPlus的Int",
   "tweakerplus.config.tweakerPlusDebugDouble": "TweakerPlus调试用Double",
   "tweakerplus.config.tweakerPlusDebugDouble.comment": "用于调试TweakerPlus的Double",
+  "tweakerplus.config.screenDebug": "GUI调试",
+  "tweakerplus.config.screenDebug.comment": "启用时，GUI开启时将输出其标题与类名至日志",
 
   "// GUI and Misc": "================================================",
 
@@ -73,12 +104,12 @@
   "tweakerplus.gui.config_category.setting.description": "与TweakerPlus相关的配置",
 
   "tweakerplus.gui.config_type.label_text": "类型筛选",
-  "tweakerplus.gui.config_type.generic": "通用 Generic",
-  "tweakerplus.gui.config_type.hotkey": "热键 Hotkey",
-  "tweakerplus.gui.config_type.list": "列表 List",
-  "tweakerplus.gui.config_type.tweak": "工具 Tweak",
-  "tweakerplus.gui.config_type.disable": "禁用 Disable",
-  "tweakerplus.gui.config_type.config": "配置 Config",
+  "tweakerplus.gui.config_type.generic": "通用",
+  "tweakerplus.gui.config_type.hotkey": "热键",
+  "tweakerplus.gui.config_type.list": "列表",
+  "tweakerplus.gui.config_type.tweak": "工具",
+  "tweakerplus.gui.config_type.disable": "禁用",
+  "tweakerplus.gui.config_type.config": "配置",
   "tweakerplus.gui.mod_relation_footer.or": "或",
   "tweakerplus.gui.mod_relation_footer.requirement": "依赖模组:",
   "tweakerplus.gui.mod_relation_footer.confliction": "冲突模组:",

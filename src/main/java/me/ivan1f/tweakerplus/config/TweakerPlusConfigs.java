@@ -4,13 +4,14 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
+import fi.dy.masa.malilib.hotkeys.KeybindSettings;
 import fi.dy.masa.malilib.interfaces.IValueChangeCallback;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
-import net.minecraft.client.MinecraftClient;
+import me.ivan1f.tweakerplus.impl.tweakerpVillagerAutoTrade.VillagerTrader;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -30,15 +31,29 @@ public class TweakerPlusConfigs {
      * ============================
      */
 
+    private static final KeybindSettings KEYBIND_SETTINGS_ANY = KeybindSettings.create(KeybindSettings.Context.ANY, KeybindSettings.DEFAULT.getActivateOn(), KeybindSettings.DEFAULT.getAllowExtraKeys(), KeybindSettings.DEFAULT.isOrderSensitive(), KeybindSettings.DEFAULT.isExclusive(), KeybindSettings.DEFAULT.shouldCancel());
+
     ////////////////////
     //    Features    //
     ////////////////////
 
-    @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBooleanHotkeyed LIMIT_WORLD_MODIFICATION = ConfigFactory.newConfigBooleanHotkeyed("limitWorldModification", false, "");
 
-    @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBooleanHotkeyed IMMEDIATELY_RESPAWN = ConfigFactory.newConfigBooleanHotkeyed("immediatelyRespawn", false, "");
+
+    @Config(type = Config.Type.HOTKEY, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigHotkey TWEAKP_TRADE_EVERYTHING = ConfigFactory.newConfigHotKey("tweakpTradeEverything", "", KEYBIND_SETTINGS_ANY);
+
+    @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_THROW_OUTPUT = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeThrowOutput", false, "");
+
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE_EVERYTHING = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTradeEverything", false, "");
+
+    @Config(type = Config.Type.TWEAK, category = Config.Category.FEATURES, restriction = @Restriction(require = @Condition(itemscroller)))
+    public static final TweakerPlusConfigBooleanHotkeyed TWEAKP_AUTO_TRADE = ConfigFactory.newConfigBooleanHotkeyed("tweakpAutoTrade", false, "");
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.FEATURES)
     public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = newConfigBoolean("resourcePackIncompatibleIgnored", false);
@@ -61,6 +76,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_WITHER_SPAWN_SOUND = ConfigFactory.newConfigBooleanHotkeyed("disableWitherSpawnSound", false, "");
 
+    @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_BUBBLE_COLUMN_RENDERING = ConfigFactory.newConfigBooleanHotkeyed("disableBubbleColumnRendering", false, "");
+
     // List
 
     // Tweak
@@ -77,6 +95,9 @@ public class TweakerPlusConfigs {
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
     public static final TweakerPlusConfigBoolean BUNDLE_ORIGIN_IN_SCHEMATIC = ConfigFactory.newConfigBoolean("bundleOriginInSchematic", false);
+
+    @Config(type = Config.Type.DISABLE, category = Config.Category.MOD_TWEAKS, restriction = @Restriction(require = @Condition(litematica)))
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_EASY_PLACE_MODE_CACHE = ConfigFactory.newConfigBooleanHotkeyed("disableEasyPlaceModeCache", false, "");
 
     //////////////////////////
     //  TweakerPlus Setting //
@@ -96,6 +117,9 @@ public class TweakerPlusConfigs {
 
     @Config(type = Config.Type.GENERIC, category = Config.Category.SETTING, debug = true)
     public static final TweakerPlusConfigInteger TWEAKERPLUS_DEBUG_DOUBLE = ConfigFactory.newConfigInteger("tweakerPlusDebugDouble", 0, -1, 1);
+
+    @Config(type = Config.Type.GENERIC, category = Config.Category.SETTING, debug = true)
+    public static final TweakerPlusConfigBoolean SCREEN_DEBUG = ConfigFactory.newConfigBoolean("screenDebug", false);
 
     /**
      * ============================
@@ -117,6 +141,7 @@ public class TweakerPlusConfigs {
 //                MinecraftClient.getInstance().player.setShowsDeathScreen(!newValue.getBooleanValue());
 //            }
 //        });
+        TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
 
         // debugs
         TWEAKERPLUS_DEBUG_MODE.setValueChangeCallback(redrawConfigGui);

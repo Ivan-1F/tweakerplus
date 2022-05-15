@@ -13,7 +13,7 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `功能`
- - 配置类型: `通用 Generic`
+ - 配置类型: `工具 Tweak`
 
 ### 立即重生 (immediatelyRespawn)
 
@@ -22,7 +22,7 @@ TweakerPlus提供的新功能
  - 类型: `可开关型热键`
  - 默认值: *无快捷键*, `false`
  - 分类: `功能`
- - 配置类型: `通用 Generic`
+ - 配置类型: `工具 Tweak`
 
 ### 忽略资源包不兼容 (resourcePackIncompatibleIgnored)
 
@@ -75,6 +75,15 @@ TweakerPlus提供的新功能
  - 分类: `MC修改`
  - 配置类型: `禁用 Disable`
 
+### 禁用气泡柱渲染 (disableBubbleColumnRendering)
+
+阻止气泡柱粒子效果的渲染
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `MC修改`
+ - 配置类型: `禁用 Disable`
+
 ## 模组修改
 
 对模组已有内容修改
@@ -111,6 +120,18 @@ TweakerPlus提供的新功能
  - 默认值: `false`
  - 分类: `模组修改`
  - 配置类型: `通用 Generic`
+ - 模组约束:
+   - 依赖模组:
+     - Litematica (`litematica`)
+
+### 禁用轻松放置缓存 (disableEasyPlaceModeCache)
+
+litematica轻松放置功能将不会缓存方块放置
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `模组修改`
+ - 配置类型: `禁用 Disable`
  - 模组约束:
    - 依赖模组:
      - Litematica (`litematica`)

@@ -14,12 +14,14 @@
  - [禁用南瓜头覆盖渲染](document-zh_cn.md#禁用南瓜头覆盖渲染-disablePumpkinOverlay)
  - [禁用地狱门覆盖渲染](document-zh_cn.md#禁用地狱门覆盖渲染-disablePortalOverlay)
  - [禁用凋灵生成音效](document-zh_cn.md#禁用凋灵生成音效-disableWitherSpawnSound)
+ - [禁用气泡柱渲染](document-zh_cn.md#禁用气泡柱渲染-disableBubbleColumnRendering)
 
 ## [模组修改](document-zh_cn.md#模组修改)
 
  - [xaero地图创造玩家无死亡标记](document-zh_cn.md#xaero地图创造玩家无死亡标记-xmapNoDeathWaypointForCreative)
  - [全局左对齐标题](document-zh_cn.md#全局左对齐标题-leftAlignTitleGlobally)
  - [将原点打包入原理图](document-zh_cn.md#将原点打包入原理图-bundleOriginInSchematic)
+ - [禁用轻松放置缓存](document-zh_cn.md#禁用轻松放置缓存-disableEasyPlaceModeCache)
 
 ## [配置](document-zh_cn.md#配置)
 
