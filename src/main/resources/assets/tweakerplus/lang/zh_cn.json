@@ -57,6 +57,9 @@
   "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
 
+  "tweakerplus.config.reloadGameOptions": "重新加载游戏选项",
+  "tweakerplus.config.reloadGameOptions.comment": "重新加载options.txt",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",

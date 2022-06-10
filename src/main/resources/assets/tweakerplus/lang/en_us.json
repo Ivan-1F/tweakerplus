@@ -57,6 +57,9 @@
   "tweakerplus.config.resourcePackIncompatibleIgnored": "resourcePackIncompatibleIgnored",
   "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "Ignore the warning on the resource pack screen when the resource pack is incompatible",
 
+  "tweakerplus.config.reloadGameOptions": "reloadGameOptions",
+  "tweakerplus.config.reloadGameOptions.comment": "Reload options.txt",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",

@@ -11,6 +11,7 @@ import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.options.*;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
+import me.ivan1f.tweakerplus.impl.reloadGameOptions.GameOptionsReloader;
 import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.VillagerTrader;
 
 import java.lang.reflect.Field;
@@ -78,6 +79,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBoolean RESOURCE_PACK_INCOMPATIBLE_IGNORED = ConfigFactory.newConfigBoolean("resourcePackIncompatibleIgnored", false);
 
+    @Config(type = Config.Type.HOTKEY, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigHotkey RELOAD_GAME_OPTIONS = ConfigFactory.newConfigHotKey("reloadGameOptions", "");
+
     ////////////////////
     //   Mod Tweaks   //
     ////////////////////
@@ -130,6 +134,7 @@ public class TweakerPlusConfigs {
         OPEN_TWEAKERPLUS_CONFIG_GUI.getKeybind().setCallback(TweakerPlusConfigGui::onOpenGuiHotkey);
         TWEAKP_TRADE_EVERYTHING.getKeybind().setCallback(VillagerTrader::doTradeEverything);
         TWEAKP_AUTO_TRADE_STORE_RECIPE.getKeybind().setCallback(VillagerTrader::storeRecipe);
+        RELOAD_GAME_OPTIONS.getKeybind().setCallback(GameOptionsReloader::reloadGameOptions);
 
         // value listeners
         HIDE_DISABLE_OPTIONS.setValueChangeCallback(redrawConfigGui);
