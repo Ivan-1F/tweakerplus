@@ -1,5 +1,5 @@
 {
-  "// MC Tweaks": "================================================",
+  "// Features": "================================================",
 
   "tweakerplus.config.limitWorldModification": "限制世界修改",
   "tweakerplus.config.limitWorldModification.comment": "阻止任何形式的玩家交互",
@@ -9,27 +9,9 @@
   "tweakerplus.config.immediatelyRespawn.comment": "死亡后立刻重生，不显示死亡界面",
   "tweakerplus.config.immediatelyRespawn.pretty_name": "立即重生",
 
-  "tweakerplus.config.playerListScale": "玩家列表缩放",
-  "tweakerplus.config.playerListScale.comment": "将玩家列表按照给定参数进行缩放显示",
-
-  "tweakerplus.config.disablePumpkinOverlay": "禁用南瓜头覆盖渲染",
-  "tweakerplus.config.disablePumpkinOverlay.comment": "禁用玩家佩戴南瓜头时的覆盖渲染",
-  "tweakerplus.config.disablePumpkinOverlay.pretty_name": "禁用南瓜头覆盖渲染",
-
-  "tweakerplus.config.disablePortalOverlay": "禁用地狱门覆盖渲染",
-  "tweakerplus.config.disablePortalOverlay.comment": "禁用玩家在地狱门中时的覆盖渲染",
-  "tweakerplus.config.disablePortalOverlay.pretty_name": "禁用地狱门覆盖渲染",
-
-  "tweakerplus.config.disableWitherSpawnSound": "禁用凋灵生成音效",
-  "tweakerplus.config.disableWitherSpawnSound.comment": "禁用凋灵在召唤后生命值回满时发出的世界中所有玩家都能听到的音效",
-  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "禁用凋灵生成音效",
-
-  "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
-  "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
-
-  "tweakerplus.config.disableBubbleColumnRendering": "禁用气泡柱渲染",
-  "tweakerplus.config.disableBubbleColumnRendering.comment": "阻止气泡柱粒子效果的渲染",
-  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "禁用气泡柱渲染",
+  "tweakerplus.config.tweakpAutoTrade": "自动交易-总开关",
+  "tweakerplus.config.tweakpAutoTrade.comment": "自动交易相关功能的总开关，影响：\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r 交易界面的配方选择器",
+  "tweakerplus.config.tweakpAutoTrade.pretty_name": "自动交易-总开关",
 
   "tweakerplus.config.tweakpTradeEverything": "交易全部物品",
   "tweakerplus.config.tweakpTradeEverything.comment": "将背包中的所有物品用于村民交易",
@@ -51,9 +33,29 @@
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.offer_not_found": "找不到交易",
   "tweakerplus.config.tweakpAutoTradeEverything.not_merchant_screen": "§c当前不在交易界面",
 
-  "tweakerplus.config.tweakpAutoTrade": "自动交易-总开关",
-  "tweakerplus.config.tweakpAutoTrade.comment": "自动交易相关功能的总开关，影响：\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r 交易界面的配方选择器",
-  "tweakerplus.config.tweakpAutoTrade.pretty_name": "自动交易-总开关",
+  "// MC Tweaks": "================================================",
+
+  "tweakerplus.config.playerListScale": "玩家列表缩放",
+  "tweakerplus.config.playerListScale.comment": "将玩家列表按照给定参数进行缩放显示",
+
+  "tweakerplus.config.disablePumpkinOverlay": "禁用南瓜头覆盖渲染",
+  "tweakerplus.config.disablePumpkinOverlay.comment": "禁用玩家佩戴南瓜头时的覆盖渲染",
+  "tweakerplus.config.disablePumpkinOverlay.pretty_name": "禁用南瓜头覆盖渲染",
+
+  "tweakerplus.config.disablePortalOverlay": "禁用地狱门覆盖渲染",
+  "tweakerplus.config.disablePortalOverlay.comment": "禁用玩家在地狱门中时的覆盖渲染",
+  "tweakerplus.config.disablePortalOverlay.pretty_name": "禁用地狱门覆盖渲染",
+
+  "tweakerplus.config.disableWitherSpawnSound": "禁用凋灵生成音效",
+  "tweakerplus.config.disableWitherSpawnSound.comment": "禁用凋灵在召唤后生命值回满时发出的世界中所有玩家都能听到的音效",
+  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "禁用凋灵生成音效",
+
+  "tweakerplus.config.disableBubbleColumnRendering": "禁用气泡柱渲染",
+  "tweakerplus.config.disableBubbleColumnRendering.comment": "阻止气泡柱粒子效果的渲染",
+  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "禁用气泡柱渲染",
+
+  "tweakerplus.config.resourcePackIncompatibleIgnored": "忽略资源包不兼容",
+  "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "忽略资源包界面资源包不兼容时的警告信息",
 
   "// Mod Tweaks": "================================================",
 
