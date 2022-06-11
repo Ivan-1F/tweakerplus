@@ -59,6 +59,7 @@
 
   "tweakerplus.config.reloadGameOptions": "重新加载游戏选项",
   "tweakerplus.config.reloadGameOptions.comment": "重新加载options.txt",
+  "tweakerplus.config.reloadGameOptions.options_reloaded": "游戏选项已重载",
 
   "// Mod Tweaks": "================================================",
 

@@ -59,6 +59,7 @@
 
   "tweakerplus.config.reloadGameOptions": "reloadGameOptions",
   "tweakerplus.config.reloadGameOptions.comment": "Reload options.txt",
+  "tweakerplus.config.reloadGameOptions.options_reloaded": "Game options reloaded",
 
   "// Mod Tweaks": "================================================",
 
