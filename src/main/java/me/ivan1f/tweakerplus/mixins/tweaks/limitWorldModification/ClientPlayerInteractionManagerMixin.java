@@ -3,7 +3,6 @@ package me.ivan1f.tweakerplus.mixins.tweaks.limitWorldModification;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
-import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
@@ -11,7 +10,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,7 +26,7 @@ public class ClientPlayerInteractionManagerMixin {
     }
 
     @Inject(method = "interactBlock", at = @At("HEAD"), cancellable = true)
-    private void stopInteractingBlock(ClientPlayerEntity player, ClientWorld world, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
+    private void stopInteractingBlock(ClientPlayerEntity player, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
         if (TweakerPlusConfigs.LIMIT_WORLD_MODIFICATION.getBooleanValue()) {
             cir.setReturnValue(ActionResult.PASS);
         }
@@ -42,7 +40,7 @@ public class ClientPlayerInteractionManagerMixin {
     }
 
     @Inject(method = "interactItem", at = @At("HEAD"), cancellable = true)
-    private void stopInteractingItem(PlayerEntity player, World world, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+    private void stopInteractingItem(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         if (TweakerPlusConfigs.LIMIT_WORLD_MODIFICATION.getBooleanValue()) {
             cir.setReturnValue(ActionResult.PASS);
         }

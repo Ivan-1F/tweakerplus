@@ -3,7 +3,7 @@ package me.ivan1f.tweakerplus.util.doc;
 import fi.dy.masa.malilib.util.StringUtils;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.util.FileUtil;
-import net.minecraft.text.TranslatableText;
+//import net.minecraft.text.TranslatableText;
 
 import java.io.IOException;
 import java.nio.file.Path;
