@@ -1,6 +1,5 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.tweakpVillagerAutoTrade;
 
-import fi.dy.masa.malilib.util.InfoUtils;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade.VillagerTrader;
 import net.minecraft.client.MinecraftClient;
