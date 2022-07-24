@@ -20,6 +20,7 @@
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)
  - [disableBubbleColumnRendering](document.md#disableBubbleColumnRendering)
  - [resourcePackIncompatibleIgnored](document.md#resourcePackIncompatibleIgnored)
+ - [reloadGameOptions](document.md#reloadGameOptions)
 
 ## [Mods Tweaks](document.md#mods-tweaks)
 
