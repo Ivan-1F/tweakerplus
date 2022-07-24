@@ -20,6 +20,7 @@
  - [禁用凋灵生成音效](document-zh_cn.md#禁用凋灵生成音效-disableWitherSpawnSound)
  - [禁用气泡柱渲染](document-zh_cn.md#禁用气泡柱渲染-disableBubbleColumnRendering)
  - [忽略资源包不兼容](document-zh_cn.md#忽略资源包不兼容-resourcePackIncompatibleIgnored)
+ - [重新加载游戏选项](document-zh_cn.md#重新加载游戏选项-reloadGameOptions)
 
 ## [模组修改](document-zh_cn.md#模组修改)
 
