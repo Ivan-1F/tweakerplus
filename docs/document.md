@@ -158,6 +158,15 @@ Ignore the warning on the resource pack screen when the resource pack is incompa
  - Category: `MC Tweaks`
  - Config Type: `Generic`
 
+### reloadGameOptions
+
+Reload options.txt
+
+ - Type: `hotkey`
+ - Default value: *no hotkey*
+ - Category: `MC Tweaks`
+ - Config Type: `Hotkey`
+
 ## Mods Tweaks
 
 Tweaks on mods

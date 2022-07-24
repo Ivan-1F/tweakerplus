@@ -1,5 +1,5 @@
 {
-  "// MC Tweaks": "================================================",
+  "// Features": "================================================",
 
   "tweakerplus.config.limitWorldModification": "limitWorldModification",
   "tweakerplus.config.limitWorldModification.comment": "Prevent any player interaction",
@@ -9,27 +9,9 @@
   "tweakerplus.config.immediatelyRespawn.comment": "Respawn immediately after death without showing the death screen",
   "tweakerplus.config.immediatelyRespawn.pretty_name": "Immediately Respawn",
 
-  "tweakerplus.config.playerListScale": "playerListScale",
-  "tweakerplus.config.playerListScale.comment": "Scale the player list hud with given factor",
-
-  "tweakerplus.config.disablePumpkinOverlay": "disablePumpkinOverlay",
-  "tweakerplus.config.disablePumpkinOverlay.comment": "Disable the overlay rendered when the player is equipped with a carved pumpkin",
-  "tweakerplus.config.disablePumpkinOverlay.pretty_name": "Disable Pumpkin Overlay",
-
-  "tweakerplus.config.disablePortalOverlay": "disablePortalOverlay",
-  "tweakerplus.config.disablePortalOverlay.comment": "Disable the overlay rendered when the player is in the nether portal",
-  "tweakerplus.config.disablePortalOverlay.pretty_name": "Disable Portal Overlay",
-
-  "tweakerplus.config.disableWitherSpawnSound": "disableWitherSpawnSound",
-  "tweakerplus.config.disableWitherSpawnSound.comment": "Disable the wither spawned sound emitted when a wither fully reset its health after summoned",
-  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "Disable Wither Spawn Sound",
-
-  "tweakerplus.config.resourcePackIncompatibleIgnored": "resourcePackIncompatibleIgnored",
-  "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "Ignore the warning on the resource pack screen when the resource pack is incompatible",
-
-  "tweakerplus.config.disableBubbleColumnRendering": "disableBubbleColumnRendering",
-  "tweakerplus.config.disableBubbleColumnRendering.comment": "Prevents rendering bubble column particles",
-  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "Disable Bubble Column Rendering",
+  "tweakerplus.config.tweakpAutoTrade": "tweakpAutoTrade",
+  "tweakerplus.config.tweakpAutoTrade.comment": "The main switch of auto trade functionalities including\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r the recipe selector in the merchant screen",
+  "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
 
   "tweakerplus.config.tweakpTradeEverything": "tweakpTradeEverything",
   "tweakerplus.config.tweakpTradeEverything.comment": "Use all items in the inventory to trade",
@@ -51,9 +33,33 @@
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.offer_not_found": "offer not found",
   "tweakerplus.config.tweakpAutoTradeEverything.not_merchant_screen": "§cMerchant screen is not opened",
 
-  "tweakerplus.config.tweakpAutoTrade": "tweakpAutoTrade",
-  "tweakerplus.config.tweakpAutoTrade.comment": "The main switch of auto trade functionalities including\n§8-§r tweakpTradeEverything\n§8-§r tweakpAutoTradeThrowOutput\n§8-§r tweakpAutoTradeEverything\n§8-§r the recipe selector in the merchant screen",
-  "tweakerplus.config.tweakpAutoTrade.pretty_name": "Auto Trade",
+  "// MC Tweaks": "================================================",
+
+  "tweakerplus.config.playerListScale": "playerListScale",
+  "tweakerplus.config.playerListScale.comment": "Scale the player list hud with given factor",
+
+  "tweakerplus.config.disablePumpkinOverlay": "disablePumpkinOverlay",
+  "tweakerplus.config.disablePumpkinOverlay.comment": "Disable the overlay rendered when the player is equipped with a carved pumpkin",
+  "tweakerplus.config.disablePumpkinOverlay.pretty_name": "Disable Pumpkin Overlay",
+
+  "tweakerplus.config.disablePortalOverlay": "disablePortalOverlay",
+  "tweakerplus.config.disablePortalOverlay.comment": "Disable the overlay rendered when the player is in the nether portal",
+  "tweakerplus.config.disablePortalOverlay.pretty_name": "Disable Portal Overlay",
+
+  "tweakerplus.config.disableWitherSpawnSound": "disableWitherSpawnSound",
+  "tweakerplus.config.disableWitherSpawnSound.comment": "Disable the wither spawned sound emitted when a wither fully reset its health after summoned",
+  "tweakerplus.config.disableWitherSpawnSound.pretty_name": "Disable Wither Spawn Sound",
+
+  "tweakerplus.config.disableBubbleColumnRendering": "disableBubbleColumnRendering",
+  "tweakerplus.config.disableBubbleColumnRendering.comment": "Prevents rendering bubble column particles",
+  "tweakerplus.config.disableBubbleColumnRendering.pretty_name": "Disable Bubble Column Rendering",
+
+  "tweakerplus.config.resourcePackIncompatibleIgnored": "resourcePackIncompatibleIgnored",
+  "tweakerplus.config.resourcePackIncompatibleIgnored.comment": "Ignore the warning on the resource pack screen when the resource pack is incompatible",
+
+  "tweakerplus.config.reloadGameOptions": "reloadGameOptions",
+  "tweakerplus.config.reloadGameOptions.comment": "Reload options.txt",
+  "tweakerplus.config.reloadGameOptions.options_reloaded": "Game options reloaded",
 
   "// Mod Tweaks": "================================================",
 
