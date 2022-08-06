@@ -61,6 +61,14 @@
   "tweakerplus.config.reloadGameOptions.comment": "Reload options.txt",
   "tweakerplus.config.reloadGameOptions.options_reloaded": "Game options reloaded",
 
+  "tweakerplus.config.disablePortalTeleportSound": "disablePortalTeleportSound",
+  "tweakerplus.config.disablePortalTeleportSound.comment": "Disable the sound played when standing in the nether portal and being teleported through the portal",
+  "tweakerplus.config.disablePortalTeleportSound.pretty_name": "Disable Portal Teleport Sound",
+
+  "tweakerplus.config.disableEndermanAngrySound": "disableEndermanAngrySound",
+  "tweakerplus.config.disableEndermanAngrySound.comment": "Disable the enderman angry sound",
+  "tweakerplus.config.disableEndermanAngrySound.pretty_name": "Disable Enderman Angry Sound",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",
