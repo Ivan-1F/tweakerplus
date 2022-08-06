@@ -61,6 +61,14 @@
   "tweakerplus.config.reloadGameOptions.comment": "重新加载options.txt",
   "tweakerplus.config.reloadGameOptions.options_reloaded": "游戏选项已重载",
 
+  "tweakerplus.config.disablePortalTeleportSound": "禁用地狱门传送音效",
+  "tweakerplus.config.disablePortalTeleportSound.comment": "禁用在使用玩家站在传送门里与玩家被地狱门传送后时的音效",
+  "tweakerplus.config.disablePortalTeleportSound.pretty_name": "禁用地狱门传送音效",
+
+  "tweakerplus.config.disableEndermanAngrySound": "禁用末影人生气音效",
+  "tweakerplus.config.disableEndermanAngrySound.comment": "禁用末影人被激怒后的音效",
+  "tweakerplus.config.disableEndermanAngrySound.pretty_name": "禁用末影人生气音效",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
