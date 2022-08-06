@@ -82,6 +82,12 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.HOTKEY, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigHotkey RELOAD_GAME_OPTIONS = ConfigFactory.newConfigHotKey("reloadGameOptions", "");
 
+    @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PORTAL_TELEPORT_SOUND = ConfigFactory.newConfigBooleanHotkeyed("disablePortalTeleportSound", false, "");
+
+    @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBooleanHotkeyed DISABLE_ENDERMAN_ANGRY_SOUND = ConfigFactory.newConfigBooleanHotkeyed("disableEndermanAngrySound", false, "");
+
     ////////////////////
     //   Mod Tweaks   //
     ////////////////////
