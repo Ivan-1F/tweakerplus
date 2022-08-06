@@ -25,6 +25,8 @@ public @interface Config {
 
     boolean devOnly() default false;
 
+    String[] tags() default {};
+
     enum Type implements IStringValue {
         GENERIC, HOTKEY, LIST, TWEAK, DISABLE;
 
