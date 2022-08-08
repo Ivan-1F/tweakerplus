@@ -69,6 +69,10 @@
   "tweakerplus.config.disableEndermanAngrySound.comment": "禁用末影人被激怒后的音效",
   "tweakerplus.config.disableEndermanAngrySound.pretty_name": "禁用末影人生气音效",
 
+  "tweakerplus.config.enchantedBookHint": "附魔书附魔提示",
+  "tweakerplus.config.enchantedBookHint.comment": "在附魔书物品上渲染它的所有附魔\n在附魔较多时文字可能会阻挡",
+  "tweakerplus.config.enchantedBookHint.pretty_name": "附魔书附魔提示",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "全局左对齐标题",
