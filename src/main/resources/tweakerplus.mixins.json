@@ -31,6 +31,7 @@
     "tweaks.disablePortalTeleportSound.WorldRendererMixin",
     "tweaks.disablePumpkinOverlay.InGameHudMixin",
     "tweaks.disableWitherSpawnSound.WorldRendererMixin",
+    "tweaks.enchantmentBookHint.ItemRendererMixin",
     "tweaks.immediatelyRespawn.ClientPlayNetworkHandlerMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",

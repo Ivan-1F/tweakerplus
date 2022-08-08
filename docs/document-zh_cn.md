@@ -24,7 +24,7 @@ TweakerPlus提供的新功能
  - 分类: `功能`
  - 配置类型: `工具`
 
-### 自动交易-总开关 (tweakpAutoTrade)
+### 自动交易总开关 (tweakpAutoTrade)
 
 自动交易相关功能的总开关，影响：
 
@@ -56,7 +56,7 @@ TweakerPlus提供的新功能
    - 依赖模组:
      - Item Scroller (`itemscroller`)
 
-### 自动交易-储存配方 (tweakpAutoTradeStoreRecipe)
+### 自动交易储存配方 (tweakpAutoTradeStoreRecipe)
 
 将鼠标悬停在交易输出槽位上时存储交易配方
 
@@ -70,7 +70,7 @@ TweakerPlus提供的新功能
    - 依赖模组:
      - Item Scroller (`itemscroller`)
 
-### 自动交易-扔出输出 (tweakpAutoTradeThrowOutput)
+### 自动交易扔出输出 (tweakpAutoTradeThrowOutput)
 
 强制将自动交易得到的输出扔出背包，而不是放入背包
 
@@ -164,6 +164,35 @@ TweakerPlus提供的新功能
  - 默认值: *无快捷键*
  - 分类: `MC修改`
  - 配置类型: `热键`
+
+### 禁用地狱门传送音效 (disablePortalTeleportSound)
+
+禁用在使用玩家站在传送门里与玩家被地狱门传送后时的音效
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `MC修改`
+ - 配置类型: `禁用`
+
+### 禁用末影人生气音效 (disableEndermanAngrySound)
+
+禁用末影人被激怒后的音效
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `MC修改`
+ - 配置类型: `禁用`
+
+### 附魔书附魔提示 (enchantedBookHint)
+
+在附魔书物品上渲染它的所有附魔
+
+在附魔较多时文字可能会阻挡
+
+ - 类型: `可开关型热键`
+ - 默认值: *无快捷键*, `false`
+ - 分类: `MC修改`
+ - 配置类型: `通用`
 
 ## 模组修改
 

@@ -88,6 +88,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_ENDERMAN_ANGRY_SOUND = ConfigFactory.newConfigBooleanHotkeyed("disableEndermanAngrySound", false, "");
 
+    @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigBooleanHotkeyed ENCHANTED_BOOK_HINT = ConfigFactory.newConfigBooleanHotkeyed("enchantedBookHint", false, "");
+
     ////////////////////
     //   Mod Tweaks   //
     ////////////////////
