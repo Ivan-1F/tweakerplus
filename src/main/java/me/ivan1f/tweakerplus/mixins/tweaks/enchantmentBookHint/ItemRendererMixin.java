@@ -50,7 +50,7 @@ public class ItemRendererMixin {
                     (float) (currentY),
                     16777215,
                     true,
-                    matrixStack.peek().getModel(),
+                    matrixStack.peek().getPositionMatrix(),
                     immediate,
                     false,
                     0,
