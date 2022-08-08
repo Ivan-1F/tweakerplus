@@ -167,6 +167,35 @@ Reload options.txt
  - Category: `MC Tweaks`
  - Config Type: `Hotkey`
 
+### disablePortalTeleportSound
+
+Disable the sound played when standing in the nether portal and being teleported through the portal
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `MC Tweaks`
+ - Config Type: `Disable`
+
+### disableEndermanAngrySound
+
+Disable the enderman angry sound
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `MC Tweaks`
+ - Config Type: `Disable`
+
+### enchantedBookHint
+
+Render all its enchantments on the enchantment book item
+
+Texts may be blocked if there are too many enchantments
+
+ - Type: `togglable hotkey`
+ - Default value: *no hotkey*, `false`
+ - Category: `MC Tweaks`
+ - Config Type: `Generic`
+
 ## Mods Tweaks
 
 Tweaks on mods

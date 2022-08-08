@@ -6,10 +6,10 @@
 
  - [限制世界修改](document-zh_cn.md#限制世界修改-limitWorldModification)
  - [立即重生](document-zh_cn.md#立即重生-immediatelyRespawn)
- - [自动交易-总开关](document-zh_cn.md#自动交易-总开关-tweakpAutoTrade)
+ - [自动交易总开关](document-zh_cn.md#自动交易总开关-tweakpAutoTrade)
  - [交易全部物品](document-zh_cn.md#交易全部物品-tweakpTradeEverything)
- - [自动交易-储存配方](document-zh_cn.md#自动交易-储存配方-tweakpAutoTradeStoreRecipe)
- - [自动交易-扔出输出](document-zh_cn.md#自动交易-扔出输出-tweakpAutoTradeThrowOutput)
+ - [自动交易储存配方](document-zh_cn.md#自动交易储存配方-tweakpAutoTradeStoreRecipe)
+ - [自动交易扔出输出](document-zh_cn.md#自动交易扔出输出-tweakpAutoTradeThrowOutput)
  - [自动交易全部物品](document-zh_cn.md#自动交易全部物品-tweakpAutoTradeEverything)
 
 ## [MC修改](document-zh_cn.md#mc修改)
@@ -21,6 +21,9 @@
  - [禁用气泡柱渲染](document-zh_cn.md#禁用气泡柱渲染-disableBubbleColumnRendering)
  - [忽略资源包不兼容](document-zh_cn.md#忽略资源包不兼容-resourcePackIncompatibleIgnored)
  - [重新加载游戏选项](document-zh_cn.md#重新加载游戏选项-reloadGameOptions)
+ - [禁用地狱门传送音效](document-zh_cn.md#禁用地狱门传送音效-disablePortalTeleportSound)
+ - [禁用末影人生气音效](document-zh_cn.md#禁用末影人生气音效-disableEndermanAngrySound)
+ - [附魔书附魔提示](document-zh_cn.md#附魔书附魔提示-enchantedBookHint)
 
 ## [模组修改](document-zh_cn.md#模组修改)
 
