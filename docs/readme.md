@@ -21,6 +21,9 @@
  - [disableBubbleColumnRendering](document.md#disableBubbleColumnRendering)
  - [resourcePackIncompatibleIgnored](document.md#resourcePackIncompatibleIgnored)
  - [reloadGameOptions](document.md#reloadGameOptions)
+ - [disablePortalTeleportSound](document.md#disablePortalTeleportSound)
+ - [disableEndermanAngrySound](document.md#disableEndermanAngrySound)
+ - [enchantedBookHint](document.md#enchantedBookHint)
 
 ## [Mods Tweaks](document.md#mods-tweaks)
 

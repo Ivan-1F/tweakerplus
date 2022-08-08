@@ -69,6 +69,10 @@
   "tweakerplus.config.disableEndermanAngrySound.comment": "Disable the enderman angry sound",
   "tweakerplus.config.disableEndermanAngrySound.pretty_name": "Disable Enderman Angry Sound",
 
+  "tweakerplus.config.enchantedBookHint": "enchantedBookHint",
+  "tweakerplus.config.enchantedBookHint.comment": "Render all its enchantments on the enchantment book item\nTexts may be blocked if there are too many enchantments",
+  "tweakerplus.config.enchantedBookHint.pretty_name": "Enchanted Book Hint",
+
   "// Mod Tweaks": "================================================",
 
   "tweakerplus.config.leftAlignTitleGlobally": "leftAlignTitleGlobally",
