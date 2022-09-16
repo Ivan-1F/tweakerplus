@@ -35,6 +35,8 @@
     "tweaks.immediatelyRespawn.ClientPlayNetworkHandlerMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
+    "tweaks.subtitlesScale.SubtitlesHudMixin",
+    "tweaks.debugHudScale.DebugHudMixin",
     "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
     "tweaks.tweakpVillagerAutoTrade.MerchantContainerMixin",
     "tweaks.tweakpVillagerAutoTrade.MerchantScreenMixin",
