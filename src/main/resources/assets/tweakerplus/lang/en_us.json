@@ -38,6 +38,12 @@
   "tweakerplus.config.playerListScale": "playerListScale",
   "tweakerplus.config.playerListScale.comment": "Scale the player list hud with given factor",
 
+  "tweakerplus.config.subtitlesScale": "subtitlesScale",
+  "tweakerplus.config.subtitlesScale.comment": "Scale the subtitles hud with given factor",
+
+  "tweakerplus.config.debugHudScale": "debugHudScale",
+  "tweakerplus.config.debugHudScale.comment": "Scale the F3 debug hud with given factor",
+
   "tweakerplus.config.disablePumpkinOverlay": "disablePumpkinOverlay",
   "tweakerplus.config.disablePumpkinOverlay.comment": "Disable the overlay rendered when the player is equipped with a carved pumpkin",
   "tweakerplus.config.disablePumpkinOverlay.pretty_name": "Disable Pumpkin Overlay",
