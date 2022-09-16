@@ -15,6 +15,8 @@
 ## [MC Tweaks](document.md#mc-tweaks)
 
  - [playerListScale](document.md#playerListScale)
+ - [subtitlesScale](document.md#subtitlesScale)
+ - [debugHudScale](document.md#debugHudScale)
  - [disablePumpkinOverlay](document.md#disablePumpkinOverlay)
  - [disablePortalOverlay](document.md#disablePortalOverlay)
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)

@@ -15,6 +15,8 @@
 ## [MC修改](document-zh_cn.md#mc修改)
 
  - [玩家列表缩放](document-zh_cn.md#玩家列表缩放-playerListScale)
+ - [音频字幕缩放](document-zh_cn.md#音频字幕缩放-subtitlesScale)
+ - [调试信息缩放](document-zh_cn.md#调试信息缩放-debugHudScale)
  - [禁用南瓜头覆盖渲染](document-zh_cn.md#禁用南瓜头覆盖渲染-disablePumpkinOverlay)
  - [禁用地狱门覆盖渲染](document-zh_cn.md#禁用地狱门覆盖渲染-disablePortalOverlay)
  - [禁用凋灵生成音效](document-zh_cn.md#禁用凋灵生成音效-disableWitherSpawnSound)
