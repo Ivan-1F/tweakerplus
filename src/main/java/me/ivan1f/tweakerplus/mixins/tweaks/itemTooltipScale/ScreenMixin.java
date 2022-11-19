@@ -26,7 +26,7 @@ public class ScreenMixin {
     }
 
     @Inject(method = "renderTooltip(Ljava/util/List;II)V", at = @At("RETURN"))
-    private void tweakerPlus_itemTooltipScale_pop(CallbackInfo ci) {
+    private void tweakerPlus_itemTooltipScale_pop(List<String> text, int x, int y, CallbackInfo ci) {
         if (this.scaler != null) {
             this.scaler.restore();
         }
