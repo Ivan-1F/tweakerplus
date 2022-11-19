@@ -70,6 +70,9 @@ public class TweakerPlusConfigs {
     @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigDouble DEBUG_HUD_SCALE = ConfigFactory.newConfigDouble("debugHudScale", 1, 0.001, 2);
 
+    @Config(type = Config.Type.GENERIC, category = Config.Category.MC_TWEAKS)
+    public static final TweakerPlusConfigDouble ITEM_TOOLTIP_SCALE = ConfigFactory.newConfigDouble("itemTooltipScale", 1, 0.001, 2);
+
     @Config(type = Config.Type.DISABLE, category = Config.Category.MC_TWEAKS)
     public static final TweakerPlusConfigBooleanHotkeyed DISABLE_PUMPKIN_OVERLAY = ConfigFactory.newConfigBooleanHotkeyed("disablePumpkinOverlay", false, "");
 
