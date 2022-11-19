@@ -44,6 +44,9 @@
   "tweakerplus.config.debugHudScale": "调试信息缩放",
   "tweakerplus.config.debugHudScale.comment": "将F3调试信息按照给定参数进行缩放显示",
 
+  "tweakerplus.config.itemTooltipScale": "物品提示信息缩放",
+  "tweakerplus.config.itemTooltipScale.comment": "将物品提示信息按照给定参数进行缩放显示",
+
   "tweakerplus.config.disablePumpkinOverlay": "禁用南瓜头覆盖渲染",
   "tweakerplus.config.disablePumpkinOverlay.comment": "禁用玩家佩戴南瓜头时的覆盖渲染",
   "tweakerplus.config.disablePumpkinOverlay.pretty_name": "禁用南瓜头覆盖渲染",
