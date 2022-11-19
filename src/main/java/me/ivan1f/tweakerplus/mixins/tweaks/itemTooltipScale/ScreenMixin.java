@@ -28,7 +28,7 @@ public class ScreenMixin {
     }
 
     @Inject(method = "renderTooltipFromComponents", at = @At("RETURN"))
-    private void tweakerPlus_itemTooltipScale_pop(CallbackInfo ci) {
+    private void tweakerPlus_itemTooltipScale_pop(MatrixStack matrices, List<TooltipComponent> components, int x, int y, CallbackInfo ci) {
         if (this.scaler != null) {
             this.scaler.restore();
         }
