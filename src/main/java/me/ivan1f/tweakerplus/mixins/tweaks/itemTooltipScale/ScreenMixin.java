@@ -28,7 +28,7 @@ public class ScreenMixin {
     }
 
     @Inject(method = "renderOrderedTooltip", at = @At("RETURN"))
-    private void tweakerPlus_itemTooltipScale_pop(CallbackInfo ci) {
+    private void tweakerPlus_itemTooltipScale_pop(MatrixStack matrices, List<? extends OrderedText> lines, int x, int y, CallbackInfo ci) {
         if (this.scaler != null) {
             this.scaler.restore();
         }
