@@ -23,6 +23,7 @@
     "tweaks.bundleOriginInSchematic.GuiSchematicSaveButtonListenerMixin",
     "tweaks.bundleOriginInSchematic.LitematicaSchematicMixin",
     "tweaks.bundleOriginInSchematic.WidgetSchematicBrowserMixin",
+    "tweaks.debugHudScale.DebugHudMixin",
     "tweaks.disableBubbleColumnRendering.BubbleColumnBlockMixin",
     "tweaks.disableEasyPlaceModeCache.WorldUtilsMixin",
     "tweaks.disableEndermanAngrySound.EndermanEntityMixin",
@@ -35,9 +36,8 @@
     "tweaks.immediatelyRespawn.ClientPlayNetworkHandlerMixin",
     "tweaks.limitWorldModification.ClientPlayerInteractionManagerMixin",
     "tweaks.playerListScale.PlayerListHudMixin",
-    "tweaks.subtitlesScale.SubtitlesHudMixin",
-    "tweaks.debugHudScale.DebugHudMixin",
     "tweaks.resourcePackIncompatibleIgnored.ResourcePackCompatibilityMixin",
+    "tweaks.subtitlesScale.SubtitlesHudMixin",
     "tweaks.tweakpVillagerAutoTrade.MerchantContainerMixin",
     "tweaks.tweakpVillagerAutoTrade.MerchantScreenMixin",
     "tweaks.tweakpVillagerAutoTrade.render.GameRendererMixin",
@@ -45,6 +45,7 @@
     "tweaks.xmapNoDeathWaypointForCreative.WaypointsManagerMixin"
   ],
   "client": [
+    "tweaks.itemTooltipScale.ScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
