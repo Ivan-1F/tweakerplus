@@ -135,6 +135,17 @@ Scale the F3 debug hud with given factor
  - Minimum value: `0.001`
  - Maximum value: `2.0`
 
+### itemTooltipScale
+
+Scale the item tooltip with given factor
+
+ - Type: `double`
+ - Default value: `1.0`
+ - Category: `MC Tweaks`
+ - Config Type: `Generic`
+ - Minimum value: `0.001`
+ - Maximum value: `2.0`
+
 ### disablePumpkinOverlay
 
 Disable the overlay rendered when the player is equipped with a carved pumpkin
