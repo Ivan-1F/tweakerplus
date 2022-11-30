@@ -17,6 +17,7 @@
  - [playerListScale](document.md#playerListScale)
  - [subtitlesScale](document.md#subtitlesScale)
  - [debugHudScale](document.md#debugHudScale)
+ - [itemTooltipScale](document.md#itemTooltipScale)
  - [disablePumpkinOverlay](document.md#disablePumpkinOverlay)
  - [disablePortalOverlay](document.md#disablePortalOverlay)
  - [disableWitherSpawnSound](document.md#disableWitherSpawnSound)
