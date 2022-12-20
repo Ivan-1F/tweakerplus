@@ -1,5 +1,6 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.itemTooltipScale;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.util.RenderUtil;
 import net.minecraft.client.gui.screen.Screen;
@@ -23,7 +24,9 @@ public class ScreenMixin {
         this.scaler = null;
         if (TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(x, y, TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.getDoubleValue());
-            this.scaler.apply(matrices);
+            // scaling the model view matrix because ItemRenderer doesn't accept any MatrixStack
+            this.scaler.apply(RenderSystem.getModelViewStack());
+            RenderSystem.applyModelViewMatrix();
         }
     }
 
@@ -31,6 +34,7 @@ public class ScreenMixin {
     private void tweakerPlus_itemTooltipScale_pop(MatrixStack matrices, List<TooltipComponent> components, int x, int y, CallbackInfo ci) {
         if (this.scaler != null) {
             this.scaler.restore();
+            RenderSystem.applyModelViewMatrix();
         }
     }
 }
