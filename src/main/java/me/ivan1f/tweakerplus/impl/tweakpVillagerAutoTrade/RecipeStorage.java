@@ -8,7 +8,7 @@ import me.ivan1f.tweakerplus.util.JsonSavable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
 
 import java.util.Arrays;
 import java.util.List;
@@ -59,7 +59,7 @@ public class RecipeStorage implements JsonSavable {
     private JsonObject dumpItemStack(ItemStack stack) {
         JsonObject jsonObject = new JsonObject();
         if (!stack.isEmpty()) {
-            jsonObject.addProperty("item", Registry.ITEM.getId(stack.getItem()).toString());
+            jsonObject.addProperty("item", Registries.ITEM.getId(stack.getItem()).toString());
             jsonObject.addProperty("count", stack.getCount());
         }
         return jsonObject;
@@ -71,7 +71,7 @@ public class RecipeStorage implements JsonSavable {
                 return ItemStack.EMPTY;
             }
             String id = jsonObject.get("item").getAsString();
-            Item item = Registry.ITEM.get(new Identifier(id));
+            Item item = Registries.ITEM.get(new Identifier(id));
             int count = jsonObject.get("count").getAsInt();
             return new ItemStack(item, count);
         } catch (Exception e) {

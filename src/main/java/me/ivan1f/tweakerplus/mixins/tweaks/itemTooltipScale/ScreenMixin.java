@@ -3,6 +3,7 @@ package me.ivan1f.tweakerplus.mixins.tweaks.itemTooltipScale;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.util.RenderUtil;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.tooltip.TooltipPositioner;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
 import org.jetbrains.annotations.Nullable;
@@ -19,7 +20,7 @@ public class ScreenMixin {
     private RenderUtil.Scaler scaler = null;
 
     @Inject(method = "renderTooltipFromComponents", at = @At("HEAD"))
-    private void tweakerPlus_itemTooltipScale_push(MatrixStack matrices, List<TooltipComponent> components, int x, int y, CallbackInfo ci) {
+    private void tweakerPlus_itemTooltipScale_push(MatrixStack matrices, List<TooltipComponent> components, int x, int y, TooltipPositioner positioner, CallbackInfo ci) {
         this.scaler = null;
         if (TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(x, y, TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.getDoubleValue());
@@ -28,7 +29,7 @@ public class ScreenMixin {
     }
 
     @Inject(method = "renderTooltipFromComponents", at = @At("RETURN"))
-    private void tweakerPlus_itemTooltipScale_pop(MatrixStack matrices, List<TooltipComponent> components, int x, int y, CallbackInfo ci) {
+    private void tweakerPlus_itemTooltipScale_pop(MatrixStack matrices, List<TooltipComponent> components, int x, int y, TooltipPositioner positioner, CallbackInfo ci) {
         if (this.scaler != null) {
             this.scaler.restore();
         }

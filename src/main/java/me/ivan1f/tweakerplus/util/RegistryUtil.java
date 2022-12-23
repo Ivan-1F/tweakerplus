@@ -3,7 +3,7 @@ package me.ivan1f.tweakerplus.util;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
 
 public class RegistryUtil {
     public static Identifier id(String path) {
@@ -11,6 +11,6 @@ public class RegistryUtil {
     }
 
     public static String getItemId(Item item) {
-        return Registry.ITEM.getId(item).toString();
+        return Registries.ITEM.getId(item).toString();
     }
 }
