@@ -30,8 +30,8 @@ public class DocumentGeneration {
         TweakerPlusMod.LOGGER.info("Setting client language to {}", lang);
         LanguageManager languageManager = MinecraftClient.getInstance().getLanguageManager();
         LanguageDefinition languageDefinition = languageManager.getLanguage(lang);
-        if (languageDefinition != languageManager.getLanguage()) {
-            languageManager.setLanguage(languageDefinition);
+        if (languageDefinition != languageManager.getLanguage(languageManager.getLanguage())) {
+            languageManager.setLanguage(lang);
             return MinecraftClient.getInstance().reloadResources();
         }
         return CompletableFuture.allOf();

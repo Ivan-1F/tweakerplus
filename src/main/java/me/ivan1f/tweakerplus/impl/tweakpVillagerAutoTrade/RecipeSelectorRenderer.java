@@ -115,9 +115,8 @@ public class RecipeSelectorRenderer {
 
             stack = stack.copy();
             InventoryUtils.setStackSize(stack, 1);
-            this.client.getItemRenderer().zOffset += 100;
-            this.client.getItemRenderer().renderInGui(stack, x, y);
-            this.client.getItemRenderer().zOffset -= 100;
+            matrixStack.translate(0.0F, 0.0F, 100.0F);
+            this.client.getItemRenderer().renderInGui(matrixStack, stack, x, y);
         }
 
         renderContext.popMatrix();

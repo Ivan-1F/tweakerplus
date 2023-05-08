@@ -20,19 +20,6 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
         shouldRenderTweakerPlusConfigGuiDropDownList = true;
     }
 
-    @Inject(
-            method = "drawContents",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lfi/dy/masa/malilib/gui/widgets/WidgetBase;postRenderHovered(IIZLnet/minecraft/client/util/math/MatrixStack;)V",
-                    remap = true
-            ),
-            remap = false
-    )
-    private void drawTweakerPlusConfigGuiDropDownListAgainBeforeHover$tweakerplus(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(matrixStack, mouseX, mouseY);
-    }
-
     @Inject(method = "drawContents", at = @At("TAIL"), remap = false)
     private void drawTweakerMoreConfigGuiDropDownListAgainAfterHover$tweakerplus(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
         this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(matrixStack, mouseX, mouseY);

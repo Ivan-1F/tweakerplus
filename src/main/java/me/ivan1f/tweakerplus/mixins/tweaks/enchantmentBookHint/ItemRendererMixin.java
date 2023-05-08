@@ -12,7 +12,6 @@ import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -22,21 +21,18 @@ import java.util.Set;
 
 @Mixin(ItemRenderer.class)
 public class ItemRendererMixin {
-    @Shadow
-    public float zOffset;
-
     @Inject(
-            method = "renderGuiItemOverlay(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V",
+            method = "renderGuiItemOverlay(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V",
             at = @At(value = "RETURN")
     )
-    private void onRenderItem(TextRenderer fontRenderer, ItemStack stack, int x, int y, String amountText, CallbackInfo ci) {
+    private void onRenderItem(MatrixStack matrices, TextRenderer fontRenderer, ItemStack stack, int x, int y, String amountText, CallbackInfo ci) {
         if (!TweakerPlusConfigs.ENCHANTED_BOOK_HINT.getBooleanValue()) return;
 
         Item item = stack.getItem();
         if (!(item instanceof EnchantedBookItem)) return;
-        MatrixStack matrixStack = new MatrixStack();
-        matrixStack.translate(x / 2.0, y / 2.0, (this.zOffset + 200.0F));
-        matrixStack.scale(0.5F, 0.5F, 0.5F);
+        matrices.push();
+        matrices.translate(x / 2.0, y / 2.0, 200.0F);
+        matrices.scale(0.5F, 0.5F, 0.5F);
         VertexConsumerProvider.Immediate immediate = VertexConsumerProvider.immediate(Tessellator.getInstance().getBuffer());
 
         Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.get(stack).entrySet();
@@ -50,14 +46,15 @@ public class ItemRendererMixin {
                     (float) (currentY),
                     16777215,
                     true,
-                    matrixStack.peek().getPositionMatrix(),
+                    matrices.peek().getPositionMatrix(),
                     immediate,
-                    false,
+                    TextRenderer.TextLayerType.NORMAL,
                     0,
                     15728880
             );
             currentY += 9;
         }
         immediate.draw();
+        matrices.pop();
     }
 }

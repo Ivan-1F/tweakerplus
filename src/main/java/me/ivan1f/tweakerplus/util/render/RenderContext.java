@@ -48,10 +48,6 @@ public class RenderContext {
         RenderSystem.disableDepthTest();
     }
 
-    public void enableTexture() {
-        RenderSystem.enableTexture();
-    }
-
     public void depthMask(boolean mask) {
         RenderSystem.depthMask(mask);
     }

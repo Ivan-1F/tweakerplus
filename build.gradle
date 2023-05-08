@@ -51,7 +51,6 @@ dependencies {
 
     // runtime mods
     modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modRuntimeOnly "com.github.astei:lazydfu:0.1.2"  // faster startup
 }
 
 processResources {
