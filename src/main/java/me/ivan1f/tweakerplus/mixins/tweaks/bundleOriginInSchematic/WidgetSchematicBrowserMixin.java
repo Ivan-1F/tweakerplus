@@ -20,6 +20,10 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.io.File;
 
+//#if MC < 11500
+//$$ import net.minecraft.util.math.Vec3i;
+//#endif
+
 @Mixin(WidgetSchematicBrowser.class)
 @Restriction(require = @Condition(ModIds.litematica))
 public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase {
@@ -40,9 +44,19 @@ public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase 
         if (schematic != null && ((ILitematicaSchematic) schematic).hasOrigin()) {
             String msg = StringUtils.translate(
                     "tweakerplus.gui.label.schematic_info.origin",
+                    //#if MC >= 11500
                     ((ILitematicaSchematic) schematic).getOrigin().toShortString()
+                    //#else
+                    //$$ toShortString(((ILitematicaSchematic) schematic).getOrigin())
+                    //#endif
             );
             this.drawString(msg, x, y, textColor);
         }
     }
+
+    //#if MC < 11500
+    //$$ private String toShortString(Vec3i pos) {
+    //$$     return "" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ();
+    //$$ }
+    //#endif
 }

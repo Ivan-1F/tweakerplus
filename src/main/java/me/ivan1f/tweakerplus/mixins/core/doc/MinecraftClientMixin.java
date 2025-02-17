@@ -10,7 +10,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MinecraftClient.class)
 public abstract class MinecraftClientMixin {
     @Inject(
+            //#if MC >= 11500
             method = "method_24227",
+            //#else
+            //$$ method = "method_18504",
+            //#endif
             at = @At("TAIL"),
             remap = false
     )

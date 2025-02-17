@@ -94,7 +94,11 @@ public class SelectorDropDownList<T extends IStringValue> extends WidgetDropDown
 
         if (this.hoverText != null && this.isMouseOver(mouseX, mouseY) && !this.isOpen) {
             RenderUtils.drawHoverText(mouseX, mouseY, Collections.singletonList(this.hoverText.getStringValue()));
+            //#if MC >= 11500
             RenderUtils.disableDiffuseLighting();
+            //#else
+            //$$ RenderUtils.disableItemLighting();
+            //#endif
         }
     }
 }

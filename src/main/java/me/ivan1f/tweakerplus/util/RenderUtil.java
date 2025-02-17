@@ -1,6 +1,10 @@
 package me.ivan1f.tweakerplus.util;
 
+//#if MC >= 11500
 import com.mojang.blaze3d.systems.RenderSystem;
+//#else
+//$$ import com.mojang.blaze3d.platform.GlStateManager;
+//#endif
 
 public class RenderUtil {
     public static Scaler createScaler(int anchorX, int anchorY, double factor) {
@@ -22,14 +26,25 @@ public class RenderUtil {
         }
 
         public void apply() {
+            //#if MC >= 11500
             RenderSystem.pushMatrix();
             RenderSystem.translated(-anchorX * factor, -anchorY * factor, 0);
             RenderSystem.scaled(factor, factor, 1);
             RenderSystem.translated(anchorX / factor, anchorY / factor, 0);
+            //#else
+            //$$ GlStateManager.pushMatrix();
+            //$$ GlStateManager.translated(-anchorX * factor, -anchorY * factor, 0);
+            //$$ GlStateManager.scaled(factor, factor, 1);
+            //$$ GlStateManager.translated(anchorX / factor, anchorY / factor, 0);
+            //#endif
         }
 
         public void restore() {
+            //#if MC >= 11500
             RenderSystem.popMatrix();
+            //#else
+            //$$ GlStateManager.popMatrix();
+            //#endif
         }
     }
 }

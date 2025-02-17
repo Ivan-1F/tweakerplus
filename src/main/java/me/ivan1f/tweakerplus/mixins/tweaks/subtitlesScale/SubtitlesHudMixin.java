@@ -22,7 +22,16 @@ public class SubtitlesHudMixin {
     private void tweakerPlus_subtitlesScale_push(CallbackInfo ci) {
         this.scaler = null;
         if (TweakerPlusConfigs.SUBTITLES_SCALE.isModified()) {
-            this.scaler = RenderUtil.createScaler(this.client.getWindow().getScaledWidth(), this.client.getWindow().getScaledHeight() - 30, TweakerPlusConfigs.SUBTITLES_SCALE.getDoubleValue());
+            this.scaler = RenderUtil.createScaler(
+                    //#if MC >= 11500
+                    this.client.getWindow().getScaledWidth(),
+                    this.client.getWindow().getScaledHeight() - 30,
+                    //#else
+                    //$$ this.client.window.getScaledWidth(),
+                    //$$ this.client.window.getScaledHeight() - 30,
+                    //#endif
+                    TweakerPlusConfigs.SUBTITLES_SCALE.getDoubleValue()
+            );
             this.scaler.apply();
         }
     }

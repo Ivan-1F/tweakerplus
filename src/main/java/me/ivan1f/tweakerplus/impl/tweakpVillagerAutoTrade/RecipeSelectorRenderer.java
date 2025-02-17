@@ -110,7 +110,11 @@ public class RecipeSelectorRenderer {
         }
 
         if (!InventoryUtils.isStackEmpty(stack)) {
+            //#if MC >= 11500
             DiffuseLighting.enableGuiDepthLighting();
+            //#else
+            //$$ DiffuseLighting.enable();
+            //#endif
 
             stack = stack.copy();
             InventoryUtils.setStackSize(stack, 1);

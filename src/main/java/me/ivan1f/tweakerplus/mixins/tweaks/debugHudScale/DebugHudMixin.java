@@ -38,7 +38,15 @@ public class DebugHudMixin {
     private void tweakerPlus_debugHudScale_right_push(CallbackInfo ci) {
         this.scaler = null;
         if (TweakerPlusConfigs.DEBUG_HUD_SCALE.isModified()) {
-            this.scaler = RenderUtil.createScaler(this.client.getWindow().getScaledWidth(), 0, TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue());
+            this.scaler = RenderUtil.createScaler(
+                    //#if MC >= 11500
+                    this.client.getWindow().getScaledWidth(),
+                    //#else
+                    //$$ this.client.window.getScaledWidth(),
+                    //#endif
+                    0,
+                    TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue()
+            );
             this.scaler.apply();
         }
     }

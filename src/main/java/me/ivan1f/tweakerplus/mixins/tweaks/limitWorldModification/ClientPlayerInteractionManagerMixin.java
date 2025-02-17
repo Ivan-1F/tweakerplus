@@ -62,7 +62,15 @@ public class ClientPlayerInteractionManagerMixin {
         }
     }
 
-    @Inject(method = "updateBlockBreakingProgress", at = @At("HEAD"), cancellable = true)
+    @Inject(
+            //#if MC >= 11500
+            method = "updateBlockBreakingProgress",
+            //#else
+            //$$ method = "method_2902",
+            //#endif
+            at = @At("HEAD"),
+            cancellable = true
+    )
     private void resetBlockBreakingProgress(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         if (TweakerPlusConfigs.LIMIT_WORLD_MODIFICATION.getBooleanValue()) {
             cir.setReturnValue(false);
