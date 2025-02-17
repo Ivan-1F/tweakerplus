@@ -1,0 +1,263 @@
+// Credit: https://github.com/Fallen-Breath/tweakermore/blob/master/common.gradle
+
+apply plugin: 'maven-publish'
+apply plugin: 'fabric-loom'
+apply plugin: 'com.replaymod.preprocess'
+apply plugin: 'me.fallenbreath.yamlang'
+
+int mcVersion = project.mcVersion
+
+repositories {
+    maven {
+        url 'https://masa.dy.fi/maven'
+    }
+    maven {
+        url 'https://maven.terraformersmc.com/releases'
+    }
+    maven {
+        url 'https://www.cursemaven.com'
+    }
+    maven {
+        url 'https://jitpack.io'
+    }
+    maven {
+        url 'https://maven.fallenbreath.me/releases'
+    }
+}
+
+static String curseForgeOrOther(version, curseForge, other) {
+    return ((version as String).isNumber() ? curseForge : other) + ':' + version
+}
+
+// list of (dependencyNotation -> should use modImplementation)
+def mod_dependencies = [
+        [mcVersion >= 12101 ? "com.github.sakura-ryoko:malilib:${project.malilib_version}" : "fi.dy.masa.malilib:${project.malilib_version}", true],
+        [curseForgeOrOther(project.tweakeroo_file_id   , 'curse.maven:tweakeroo-297344'    , 'com.github.sakura-ryoko:tweakeroo'   ), true],
+        [curseForgeOrOther(project.itemscroller_file_id, 'curse.maven:item-scroller-242064', 'com.github.sakura-ryoko:itemscroller'), true],
+        [curseForgeOrOther(project.minihud_file_id     , 'curse.maven:minihud-244260'      , 'com.github.sakura-ryoko:minihud'     ), true],
+
+        // - loom doesn't remap base class method (method_10263) call of fi.dy.masa.malilib.util.SubChunkPos in
+        //   fi.dy.masa.litematica.render.schematic.WorldRendererSchematic.setupTerrain, resulting in a crash in dev env
+        //   so we have to disable litematica in [1.15, 1.17) at runtime
+        [curseForgeOrOther(project.litematica_file_id, 'curse.maven:litematica-308892', 'com.github.sakura-ryoko:litematica'), mcVersion < 11500 || 11700 <= mcVersion],
+
+        // we're using modmenu for mc 1.15.2 for 1.14.4, so we use modCompileOnly
+        ["com.terraformersmc:modmenu:${project.mod_menu_version}"          , mcVersion >= 11500],
+]
+
+
+// https://github.com/FabricMC/fabric-loader/issues/783
+configurations {
+    modRuntimeOnly.exclude group: 'net.fabricmc', module: 'fabric-loader'
+}
+configurations {
+    modImplementation.exclude group: 'io.github.prospector', module: 'modmenu'
+}
+
+dependencies {
+    // loom
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // compact stuffs
+    if (11700 <= mcVersion && mcVersion < 11800) {
+        configurations.configureEach {
+            // 1.17 litematica mod crashes in dev env due to guava's version is set to 27.1-jre
+            resolutionStrategy.force 'com.google.guava:guava:21.0'
+        }
+    }
+
+    // runtime mods
+    if (mcVersion < 11904) {
+        modRuntimeOnly(mcVersion < 11900 ? "com.github.astei:lazydfu:0.1.2" : "com.github.Fallen-Breath:lazydfu:a7cfc44c0c")
+    }
+    if (mcVersion >= 12006) {
+        // modmenu needs these
+        modRuntimeOnly fabricApi.module("fabric-screen-api-v1", project.fabric_api_version)
+        modRuntimeOnly fabricApi.module("fabric-key-binding-api-v1", project.fabric_api_version)
+        modRuntimeOnly fabricApi.module("fabric-lifecycle-events-v1", project.fabric_api_version)
+    }
+
+    mod_dependencies.forEach {item ->
+        def dependencyNotation = item[0]
+        def activatedInRuntime = item[1]
+        if (activatedInRuntime) {
+            modImplementation(dependencyNotation) {
+                exclude group: 'com.github.sakura-ryoko', module: 'malilib'
+            }
+        }
+        else {
+            modCompileOnly(dependencyNotation) {
+                exclude group: 'com.github.sakura-ryoko', module: 'malilib'
+            }
+        }
+    }
+
+    // library mods
+    if (mcVersion >= 11600) {
+        // the client-side command
+        include(modImplementation(fabricApi.module("fabric-api-base", project.fabric_api_version)))  // command api dependency
+        include(modImplementation(fabricApi.module("fabric-command-api-v${mcVersion >= 11900 ? 2 : 1}", project.fabric_api_version)))
+    }
+    include(modImplementation("me.fallenbreath:conditional-mixin-fabric:${project.conditionalmixin_version}"))
+    include(annotationProcessor(implementation("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}")))
+
+    // libraries
+    testImplementation "junit:junit:${project.junit_version}"
+}
+
+def MIXIN_CONFIG_PATHS = ['tweakerplus.mixins.json']
+String LANG_DIR = 'assets/tweakerplus/lang'
+JavaVersion JAVA_COMPATIBILITY
+if (mcVersion >= 12005) {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_21
+} else if (mcVersion >= 11800) {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_17
+} else if (mcVersion >= 11700) {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_16
+} else {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_1_8
+}
+JavaVersion MIXIN_COMPATIBILITY_LEVEL = JAVA_COMPATIBILITY
+
+loom {
+    accessWidenerPath = file("tweakerplus.accesswidener")
+
+    def commonVmArgs = ['-Dmixin.debug.export=true']
+    var enableCountInjections = false
+    if (enableCountInjections) {
+        // Notes: most tweakeroo versions cannot pass this check
+        commonVmArgs.add('-Dmixin.debug.countInjections=true')
+    }
+    runConfigs.configureEach {
+        runDir '../../run'
+        vmArgs commonVmArgs
+    }
+    runConfigs.client {
+        // to make sure it generates all "Minecraft Client (:subproject_name)" applications
+        ideConfigGenerated = true
+    }
+    runs {
+        def auditVmArgs = [*commonVmArgs, '-Dtweakerplus.mixin_audit=true']
+        clientMixinAudit {
+            client()
+            vmArgs auditVmArgs
+            ideConfigGenerated false
+        }
+    }
+}
+
+String modVersionSuffix = ''
+String artifactVersion = project.mod_version
+String artifactVersionSuffix = ''
+// detect github action environment variables
+// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+if (System.getenv("BUILD_RELEASE") != "true") {
+    String buildNumber = System.getenv("BUILD_ID")
+    modVersionSuffix += buildNumber != null ? ('+build.' + buildNumber) : '-SNAPSHOT'
+    artifactVersionSuffix = '-SNAPSHOT'  // A non-release artifact is always a SNAPSHOT artifact
+}
+String fullModVersion = project.mod_version + modVersionSuffix
+String fullProjectVersion, fullArtifactVersion
+
+// Example version values:
+//   project.mod_version     1.0.3                      (the base mod version)
+//   modVersionSuffix        +build.88                  (use github action build number if possible)
+//   artifactVersionSuffix   -SNAPSHOT
+//   fullModVersion          1.0.3+build.88             (the actual mod version to use in the mod)
+//   fullProjectVersion      v1.0.3-mc1.15.2+build.88   (in build output jar name)
+//   fullArtifactVersion     1.0.3-mc1.15.2-SNAPSHOT    (maven artifact version)
+
+group = project.maven_group
+if (System.getenv("JITPACK") == "true") {
+    // move mc version into archivesBaseName, so jitpack will be able to organize archives from multiple subprojects correctly
+    base.archivesName = project.archives_base_name + '-mc' + project.minecraft_version
+    fullProjectVersion = 'v' + project.mod_version + modVersionSuffix
+    fullArtifactVersion = artifactVersion + artifactVersionSuffix
+} else {
+    base.archivesName = project.archives_base_name
+    fullProjectVersion = 'v' + project.mod_version + '-mc' + project.minecraft_version + modVersionSuffix
+    fullArtifactVersion = artifactVersion + '-mc' + project.minecraft_version + artifactVersionSuffix
+}
+version = fullProjectVersion
+
+// See https://youtrack.jetbrains.com/issue/IDEA-296490
+// if IDEA complains about "Cannot resolve resource filtering of MatchingCopyAction" and you want to know why
+processResources {
+    from "tweakerplus.accesswidener"
+
+    inputs.property "id", project.mod_id
+    inputs.property "name", project.mod_name
+    inputs.property "version", fullModVersion
+    inputs.property "minecraft_dependency", project.minecraft_dependency
+
+    filesMatching("fabric.mod.json") {
+        def valueMap = [
+                "id": project.mod_id,
+                "name": project.mod_name,
+                "version": fullModVersion,
+                "minecraft_dependency": project.minecraft_dependency,
+                "malilib_dependency": project.malilib_dependency,
+                "litematica_conflict": project.getProperties().getOrDefault("litematica_conflict", "<0.0.0-"),
+                "minihud_conflict": project.getProperties().getOrDefault("minihud_conflict", "<0.0.0"),
+                "tweakeroo_conflict": project.getProperties().getOrDefault("tweakeroo_conflict", "<0.0.0"),
+        ]
+        expand valueMap
+    }
+
+    MIXIN_CONFIG_PATHS.each {mixinConfigPath ->
+        filesMatching(mixinConfigPath) {
+            filter { s -> s.replace('{{COMPATIBILITY_LEVEL}}', "JAVA_${MIXIN_COMPATIBILITY_LEVEL.ordinal() + 1}") }
+        }
+    }
+}
+
+// https://github.com/Fallen-Breath/yamlang
+yamlang {
+    targetSourceSets = [sourceSets.main]
+    inputDir = LANG_DIR
+}
+
+// ensure that the encoding is set to UTF-8, no matter what the system default is
+// this fixes some edge cases with special characters not displaying correctly
+// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+    if (JAVA_COMPATIBILITY <= JavaVersion.VERSION_1_8) {
+        // suppressed "source/target value 8 is obsolete and will be removed in a future release"
+        options.compilerArgs << '-Xlint:-options'
+    }
+}
+
+java {
+    sourceCompatibility = JAVA_COMPATIBILITY
+    targetCompatibility = JAVA_COMPATIBILITY
+
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+}
+
+jar {
+    from("../../LICENSE") {
+        rename { "${it}_${project.archives_base_name}" }
+    }
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    // select the repositories you want to publish to
+    repositories {
+        // uncomment to publish to the local maven
+        // mavenLocal()
+    }
+}
