@@ -6,9 +6,36 @@ import com.mojang.blaze3d.systems.RenderSystem;
 //#endif
 import net.minecraft.client.util.math.Matrix4f;
 
+//#if MC >= 11600
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//$$ import org.jetbrains.annotations.NotNull;
+//#endif
+
+
+//#if MC >= 11600
+//$$ @SuppressWarnings("deprecation")
+//#endif
 public class RenderContext {
-    public RenderContext() {
+    //#if MC >= 11600
+    //$$ @NotNull
+    //$$ private final MatrixStack matrixStack;
+    //#endif
+
+    public RenderContext(
+            //#if MC >= 11600
+            //$$ @NotNull MatrixStack matrixStack
+            //#endif
+    ) {
+        //#if MC >= 11600
+        //$$ this.matrixStack = matrixStack;
+        //#endif
     }
+
+    //#if MC >= 11600
+    //$$ public @NotNull MatrixStack getMatrixStack() {
+    //$$     return this.matrixStack;
+    //$$ }
+    //#endif
 
     public void pushMatrix() {
         //#if MC >= 11500
@@ -76,6 +103,12 @@ public class RenderContext {
 
     //#if MC < 11500
     //$$ public void enableAlphaTest() {
+    //$$     RenderSystem.enableAlphaTest();
+    //$$ }
+    //#endif
+
+    //#if MC >= 11600
+    //$$ public void enableAlphaTest() {
     //$$     GlStateManager.enableAlphaTest();
     //$$ }
     //#endif
@@ -116,9 +149,15 @@ public class RenderContext {
         //#endif
     }
 
-    //#if MC >= 11500
+    //#if MC < 11500
     //$$ public void disableLighting() {
     //$$     GlStateManager.disableLighting();
+    //$$ }
+    //#endif
+
+    //#if MC >= 11500
+    //$$ public void disableLighting() {
+    //$$     RenderSystem.disableLighting();
     //$$ }
     //#endif
 }

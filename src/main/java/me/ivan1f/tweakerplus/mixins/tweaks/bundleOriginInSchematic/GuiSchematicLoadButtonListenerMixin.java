@@ -45,7 +45,11 @@ public class GuiSchematicLoadButtonListenerMixin {
     )
     private Vec3d movePlacementToOrigin(ClientPlayerEntity player) {
         if (this.shouldMoveToOrigin()) {
+            //#if MC >= 11600
+            //$$ return Vec3d.of(((ILitematicaSchematic) this.loadingSchematic).getOrigin());
+            //#else
             return new Vec3d(((ILitematicaSchematic) this.loadingSchematic).getOrigin());
+            //#endif
         }
         return player.getPos();
     }

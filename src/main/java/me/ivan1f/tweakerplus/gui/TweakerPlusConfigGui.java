@@ -27,6 +27,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+//#if MC >= 11600
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 public class TweakerPlusConfigGui extends GuiConfigsBase {
     @Nullable
     private static TweakerPlusConfigGui currentInstance = null;
@@ -141,8 +145,22 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
         this.initGui();
     }
 
-    public void renderHoveringWidgets(int mouseX, int mouseY) {
-        this.hoveringWidgets.forEach(widgetBase -> widgetBase.render(mouseX, mouseY, widgetBase.isMouseOver(mouseX, mouseY)));
+    public void renderHoveringWidgets(
+            //#if MC >= 11600
+            //$$ MatrixStack matrixStack,
+            //#endif
+            int mouseX, int mouseY
+    ) {
+        this.hoveringWidgets.forEach(
+                widgetBase -> widgetBase.render(
+                        mouseX,
+                        mouseY,
+                        widgetBase.isMouseOver(mouseX, mouseY)
+                        //#if MC >= 11600
+                        //$$ , matrixStack
+                        //#endif
+                )
+        );
     }
 
     public Pair<Integer, Integer> adjustWidths(int guiWidth, int maxTextWidth) {

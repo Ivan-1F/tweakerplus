@@ -24,6 +24,10 @@ import java.io.File;
 //$$ import net.minecraft.util.math.Vec3i;
 //#endif
 
+//#if MC >= 11600
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 @Mixin(WidgetSchematicBrowser.class)
 @Restriction(require = @Condition(ModIds.litematica))
 public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase {
@@ -37,7 +41,13 @@ public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase 
             locals = LocalCapture.CAPTURE_FAILHARD,
             remap = false
     )
-    private void appendOriginInfo(DirectoryEntry entry, CallbackInfo ci, int x, int y) {
+    private void appendOriginInfo(
+            DirectoryEntry entry,
+            //#if MC >= 11600
+            //$$ MatrixStack matrixStack,
+            //#endif
+            CallbackInfo ci, int x, int y
+    ) {
         int textColor = -1061109568;
         if (!TweakerPlusConfigs.BUNDLE_ORIGIN_IN_SCHEMATIC.getBooleanValue()) return;
         LitematicaSchematic schematic = LitematicaSchematic.createFromFile(entry.getDirectory(), entry.getName());
@@ -50,7 +60,12 @@ public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase 
                     //$$ toShortString(((ILitematicaSchematic) schematic).getOrigin())
                     //#endif
             );
-            this.drawString(msg, x, y, textColor);
+            this.drawString(
+                    //#if MC >= 11600
+                    //$$ matrixStack,
+                    //#endif
+                    msg, x, y, textColor
+            );
         }
     }
 

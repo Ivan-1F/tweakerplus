@@ -12,7 +12,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(WorldRenderer.class)
 public class WorldRendererMixin {
     @Inject(
+            //#if MC >= 11600
+            //$$ method = "processWorldEvent",
+            //#elseif
             method = "playLevelEvent",
+            //#endif
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/MinecraftClient;getSoundManager()Lnet/minecraft/client/sound/SoundManager;"

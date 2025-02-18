@@ -26,7 +26,7 @@
   "tweakerplus.config.tweakpAutoTradeEverything": "tweakpAutoTradeEverything",
   "tweakerplus.config.tweakpAutoTradeEverything.comment": "Automatically trade everything in the opened merchant screen\nand close the screen",
   "tweakerplus.config.tweakpAutoTradeEverything.pretty_name": "Auto Trade Everything",
-  "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§aTraded %1$d times successfully",
+  "tweakerplus.config.tweakpAutoTradeEverything.traded_successfully": "§aTraded %1$a times successfully",
   "tweakerplus.config.tweakpAutoTradeEverything.traded_failed": "§cTrade failed: %1$s",
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.locked": "trade locked",
   "tweakerplus.config.tweakpAutoTradeEverything.failed_reason.lack_of_buy_items": "lack of buy items",

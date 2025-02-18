@@ -13,6 +13,10 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+//#if MC >= 11600
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 import java.util.List;
 
 @Mixin(WidgetLabel.class)
@@ -54,7 +58,12 @@ public abstract class WidgetLabelMixin extends WidgetBase {
         return yTextStart;
     }
 
+
+    //#if MC >= 11600
+    //$$ @SuppressWarnings({"ConstantConditions", "deprecation"})
+    //#else
     @SuppressWarnings("ConstantConditions")
+    //#endif
     @Inject(
             method = "render",
             at = @At(
@@ -65,7 +74,13 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             remap = false,
             locals = LocalCapture.CAPTURE_FAILHARD
     )
-    private void translatedOptionLabelRenderTranslation$tweakerplus(int mouseX, int mouseY, boolean selected, CallbackInfo ci, int fontHeight, int yCenter, int yTextStart, int i, String text) {
+    private void translatedOptionLabelRenderTranslation$tweakerplus(
+            int mouseX, int mouseY, boolean selected,
+            //#if MC >= 11600
+            //$$ MatrixStack matrixStack,
+            //#endif
+            CallbackInfo ci, int fontHeight, int yCenter, int yTextStart, int i, String text
+    ) {
         if (this.shouldUseTranslatedOptionLabelLogic$tweakerplus()) {
             int color = darkerColor$tweakerplus(this.textColor);
             double scale = TweakerPlusOptionLabel.TRANSLATION_SCALE;
@@ -73,7 +88,11 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             int x = this.x + (this.centered ? this.width / 2 : 0);
             int y = (int) (yTextStart + (this.labels.size() + i * scale + 0.2) * fontHeight);
 
-            RenderContext renderContext = new RenderContext();
+            RenderContext renderContext = new RenderContext(
+                    //#if MC >= 11600
+                    //$$ matrixStack
+                    //#endif
+            );
 
             renderContext.pushMatrix();
             renderContext.scale(scale, scale, 1);
@@ -81,9 +100,19 @@ public abstract class WidgetLabelMixin extends WidgetBase {
             y /= scale;
 
             if (this.centered) {
-                this.drawCenteredStringWithShadow(x, y, color, originText);
+                this.drawCenteredStringWithShadow(
+                        x, y, color, originText
+                        //#if MC >= 11600
+                        //$$ , matrixStack
+                        //#endif
+                );
             } else {
-                this.drawStringWithShadow(x, y, color, originText);
+                this.drawStringWithShadow(
+                        x, y, color, originText
+                        //#if MC >= 11600
+                        //$$ , matrixStack
+                        //#endif
+                );
             }
             renderContext.popMatrix();
         }

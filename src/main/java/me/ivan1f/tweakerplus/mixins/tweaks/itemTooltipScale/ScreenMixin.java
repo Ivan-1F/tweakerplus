@@ -11,13 +11,32 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
+//#if MC > 11600
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//$$ import net.minecraft.text.OrderedText;
+//#endif
+
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Nullable
     private RenderUtil.Scaler scaler = null;
 
-    @Inject(method = "renderTooltip(Ljava/util/List;II)V", at = @At("HEAD"))
-    private void tweakerPlus_itemTooltipScale_push(List<String> text, int x, int y, CallbackInfo ci) {
+    @Inject(
+            //#if MC > 11600
+            //$$ method = "renderOrderedTooltip",
+            //#else
+            method = "renderTooltip(Ljava/util/List;II)V",
+            //#endif
+            at = @At("HEAD")
+    )
+    private void tweakerPlus_itemTooltipScale_push(
+            //#if MC > 11600
+            //$$ MatrixStack matrices, List<? extends OrderedText> lines,
+            //#else
+            List<String> text,
+            //#endif
+            int x, int y, CallbackInfo ci
+    ) {
         this.scaler = null;
         if (TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(x, y, TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.getDoubleValue());
@@ -25,8 +44,22 @@ public class ScreenMixin {
         }
     }
 
-    @Inject(method = "renderTooltip(Ljava/util/List;II)V", at = @At("RETURN"))
-    private void tweakerPlus_itemTooltipScale_pop(List<String> text, int x, int y, CallbackInfo ci) {
+    @Inject(
+            //#if MC > 11600
+            //$$ method = "renderOrderedTooltip",
+            //#else
+            method = "renderTooltip(Ljava/util/List;II)V",
+            //#endif
+            at = @At("RETURN")
+    )
+    private void tweakerPlus_itemTooltipScale_pop(
+            //#if MC > 11600
+            //$$ MatrixStack matrices, List<? extends OrderedText> lines,
+            //#else
+            List<String> text,
+            //#endif
+            int x, int y, CallbackInfo ci
+    ) {
         if (this.scaler != null) {
             this.scaler.restore();
         }

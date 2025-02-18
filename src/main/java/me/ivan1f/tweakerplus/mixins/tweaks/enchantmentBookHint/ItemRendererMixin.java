@@ -50,7 +50,11 @@ public class ItemRendererMixin {
         //$$ GlStateManager.scalef(0.5F, 0.5F, 0.5F);
         //#endif
 
+        //#if MC >= 11600
+        //$$ Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.get(stack).entrySet();
+        //#else
         Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.getEnchantments(stack).entrySet();
+        //#endif
         int currentY = y + 17 - entries.size() * 9 / 2;
 
         //#if MC < 11500

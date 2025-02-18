@@ -10,6 +10,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//#if MC >= 11600
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 @Mixin(WidgetListBase.class)
 public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBase<TYPE>> {
     private boolean shouldRenderTweakerPlusConfigGuiDropDownList = false;
@@ -23,18 +27,43 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
             method = "drawContents",
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 11600
+                    //$$ target = "Lfi/dy/masa/malilib/gui/widgets/WidgetBase;postRenderHovered(IIZLnet/minecraft/client/util/math/MatrixStack;)V",
+                    //$$ remap = true
+                    //#else
                     target = "Lfi/dy/masa/malilib/gui/widgets/WidgetBase;postRenderHovered(IIZ)V",
                     remap = false
+                    //#endif
             ),
             remap = false
     )
-    private void drawTweakerPlusConfigGuiDropDownListAgainBeforeHover$tweakerplus(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(mouseX, mouseY);
+    private void drawTweakerPlusConfigGuiDropDownListAgainBeforeHover$tweakerplus(
+            //#if MC >= 11600
+            //$$ MatrixStack matrixStack,
+            //#endif
+            int mouseX, int mouseY, float partialTicks, CallbackInfo ci
+    ) {
+        this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(
+                //#if MC >= 11600
+                //$$ matrixStack,
+                //#endif
+                mouseX, mouseY
+        );
     }
 
     @Inject(method = "drawContents", at = @At("TAIL"), remap = false)
-    private void drawTweakerPlusConfigGuiDropDownListAgainAfterHover$tweakerplus(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(mouseX, mouseY);
+    private void drawTweakerPlusConfigGuiDropDownListAgainAfterHover$tweakerplus(
+            //#if MC >= 11600
+            //$$ MatrixStack matrixStack,
+            //#endif
+            int mouseX, int mouseY, float partialTicks, CallbackInfo ci
+    ) {
+        this.drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(
+                //#if MC >= 11600
+                //$$ matrixStack,
+                //#endif
+                mouseX, mouseY
+        );
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -46,12 +75,22 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
         return false;
     }
 
-    private void drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(int mouseX, int mouseY) {
+    private void drawTweakerPlusConfigGuiDropDownListAgain$tweakerplus(
+            //#if MC >= 11600
+            //$$ MatrixStack matrixStack,
+            //#endif
+            int mouseX, int mouseY
+    ) {
         if (this.isTweakerPlusConfigGui() && this.shouldRenderTweakerPlusConfigGuiDropDownList) {
             GuiConfigsBase guiConfig = ((WidgetListConfigOptionsAccessor) this).getParent();
 
             // render it again to make sure it's on the top but below hovering widgets
-            ((TweakerPlusConfigGui) guiConfig).renderHoveringWidgets(mouseX, mouseY);
+            ((TweakerPlusConfigGui) guiConfig).renderHoveringWidgets(
+                    //#if MC >= 11600
+                    //$$ matrixStack,
+                    //#endif
+                    mouseX, mouseY
+            );
             this.shouldRenderTweakerPlusConfigGuiDropDownList = false;
         }
     }
