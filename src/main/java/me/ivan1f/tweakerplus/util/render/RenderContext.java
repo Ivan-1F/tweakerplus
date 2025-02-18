@@ -12,7 +12,7 @@ import net.minecraft.client.util.math.Matrix4f;
 //#endif
 
 
-//#if MC >= 11600
+//#if MC >= 11600 && MC < 11700
 //$$ @SuppressWarnings("deprecation")
 //#endif
 public class RenderContext {
@@ -38,7 +38,9 @@ public class RenderContext {
     //#endif
 
     public void pushMatrix() {
-        //#if MC >= 11500
+        //#if MC >= 11700
+        //$$ this.matrixStack.push();
+        //#elseif MC >= 11500
         RenderSystem.pushMatrix();
         //#else
         //$$ GlStateManager.pushMatrix();
@@ -46,7 +48,9 @@ public class RenderContext {
     }
 
     public void popMatrix() {
-        //#if MC >= 11500
+        //#if MC >= 11700
+        //$$ this.matrixStack.pop();
+        //#elseif MC >= 11500
         RenderSystem.popMatrix();
         //#else
         //$$ GlStateManager.popMatrix();
@@ -54,7 +58,9 @@ public class RenderContext {
     }
 
     public void translate(double x, double y, double z) {
-        //#if MC >= 11500
+        //#if MC >= 11700
+        //$$ matrixStack.translate(x, y, z);
+        //#elseif MC >= 11500
         RenderSystem.translated(x, y, z);
         //#else
         //$$ GlStateManager.translated(x, y, z);
@@ -62,7 +68,9 @@ public class RenderContext {
     }
 
     public void scale(double x, double y, double z) {
-        //#if MC >= 11500
+        //#if MC >= 11700
+        //$$ matrixStack.scale((float) x, (float) y, (float) z);
+        //#elseif MC >= 11500
         RenderSystem.scaled(x, y, z);
         //#else
         //$$ GlStateManager.scaled(x, y, z);
@@ -70,7 +78,9 @@ public class RenderContext {
     }
 
     public void multMatrix(Matrix4f matrix4f) {
-        //#if MC >= 11500
+        //#if MC >= 11700
+        //$$ matrixStack.method_34425(matrix4f);
+        //#elseif MC >= 11500
         RenderSystem.multMatrix(matrix4f);
         //#else
         //$$ GlStateManager.multMatrix(matrix4f);
@@ -107,9 +117,9 @@ public class RenderContext {
     //$$ }
     //#endif
 
-    //#if MC >= 11600
+    //#if MC >= 11600 && MC < 11700
     //$$ public void enableAlphaTest() {
-    //$$     GlStateManager.enableAlphaTest();
+    //$$     RenderSystem.enableAlphaTest();
     //$$ }
     //#endif
 
@@ -155,9 +165,9 @@ public class RenderContext {
     //$$ }
     //#endif
 
-    //#if MC >= 11500
-    //$$ public void disableLighting() {
-    //$$     RenderSystem.disableLighting();
-    //$$ }
+    //#if MC >= 11500 && MC < 11700
+    public void disableLighting() {
+        RenderSystem.disableLighting();
+    }
     //#endif
 }

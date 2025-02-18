@@ -12,6 +12,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//#if MC >= 11700
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 @Mixin(DebugHud.class)
 public class DebugHudMixin {
     @Shadow @Final private MinecraftClient client;
@@ -19,23 +23,42 @@ public class DebugHudMixin {
     private RenderUtil.Scaler scaler = null;
 
     @Inject(method = "renderLeftText", at = @At("HEAD"))
-    private void tweakerPlus_debugHudScale_left_push(CallbackInfo ci) {
+    private void tweakerPlus_debugHudScale_left_push(
+            //#if MC >= 11700
+            //$$ MatrixStack matrices,
+            //#endif
+            CallbackInfo ci
+    ) {
         this.scaler = null;
         if (TweakerPlusConfigs.DEBUG_HUD_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(0, 0, TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue());
-            this.scaler.apply();
+            this.scaler.apply(
+                    //#if MC >= 11700
+                    //$$ matrices
+                    //#endif
+            );
         }
     }
 
     @Inject(method = "renderLeftText", at = @At("RETURN"))
-    private void tweakerPlus_debugHudScale_left_pop(CallbackInfo ci) {
+    private void tweakerPlus_debugHudScale_left_pop(
+            //#if MC >= 11700
+            //$$ MatrixStack matrices,
+            //#endif
+            CallbackInfo ci
+    ) {
         if (this.scaler != null) {
             this.scaler.restore();
         }
     }
 
     @Inject(method = "renderRightText", at = @At("HEAD"))
-    private void tweakerPlus_debugHudScale_right_push(CallbackInfo ci) {
+    private void tweakerPlus_debugHudScale_right_push(
+            //#if MC >= 11700
+            //$$ MatrixStack matrices,
+            //#endif
+            CallbackInfo ci
+    ) {
         this.scaler = null;
         if (TweakerPlusConfigs.DEBUG_HUD_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(
@@ -47,12 +70,21 @@ public class DebugHudMixin {
                     0,
                     TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue()
             );
-            this.scaler.apply();
+            this.scaler.apply(
+                    //#if MC >= 11700
+                    //$$ matrices
+                    //#endif
+            );
         }
     }
 
     @Inject(method = "renderRightText", at = @At("RETURN"))
-    private void tweakerPlus_debugHudScale_right_pop(CallbackInfo ci) {
+    private void tweakerPlus_debugHudScale_right_pop(
+            //#if MC >= 11700
+            //$$ MatrixStack matrices,
+            //#endif
+            CallbackInfo ci
+    ) {
         if (this.scaler != null) {
             this.scaler.restore();
         }

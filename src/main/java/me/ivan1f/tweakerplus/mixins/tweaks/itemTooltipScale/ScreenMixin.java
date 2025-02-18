@@ -11,8 +11,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
-//#if MC > 11600
+//#if MC >= 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
+//$$ import net.minecraft.text.OrderedText;
+//#endif
+
+//#if MC >= 11700
+//$$ import net.minecraft.client.gui.tooltip.TooltipComponent;
+//#elseif MC >= 11600
 //$$ import net.minecraft.text.OrderedText;
 //#endif
 
@@ -22,7 +28,9 @@ public class ScreenMixin {
     private RenderUtil.Scaler scaler = null;
 
     @Inject(
-            //#if MC > 11600
+            //#if MC > 11700
+            //$$ method = "renderTooltipFromComponents",
+            //#elseif MC > 11600
             //$$ method = "renderOrderedTooltip",
             //#else
             method = "renderTooltip(Ljava/util/List;II)V",
@@ -30,7 +38,9 @@ public class ScreenMixin {
             at = @At("HEAD")
     )
     private void tweakerPlus_itemTooltipScale_push(
-            //#if MC > 11600
+            //#if MC > 11700
+            //$$ MatrixStack matrices, List<TooltipComponent> components,
+            //#elseif MC > 11600
             //$$ MatrixStack matrices, List<? extends OrderedText> lines,
             //#else
             List<String> text,
@@ -40,12 +50,18 @@ public class ScreenMixin {
         this.scaler = null;
         if (TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(x, y, TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.getDoubleValue());
-            this.scaler.apply();
+            this.scaler.apply(
+                    //#if MC >= 11700
+                    //$$ matrices
+                    //#endif
+            );
         }
     }
 
     @Inject(
-            //#if MC > 11600
+            //#if MC > 11700
+            //$$ method = "renderTooltipFromComponents",
+            //#elseif MC > 11600
             //$$ method = "renderOrderedTooltip",
             //#else
             method = "renderTooltip(Ljava/util/List;II)V",
@@ -53,7 +69,9 @@ public class ScreenMixin {
             at = @At("RETURN")
     )
     private void tweakerPlus_itemTooltipScale_pop(
-            //#if MC > 11600
+            //#if MC > 11700
+            //$$ MatrixStack matrices, List<TooltipComponent> components,
+            //#elseif MC > 11600
             //$$ MatrixStack matrices, List<? extends OrderedText> lines,
             //#else
             List<String> text,

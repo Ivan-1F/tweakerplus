@@ -12,6 +12,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//#if MC > 11700
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 @Mixin(SubtitlesHud.class)
 public class SubtitlesHudMixin {
     @Shadow @Final private MinecraftClient client;
@@ -19,7 +23,12 @@ public class SubtitlesHudMixin {
     private RenderUtil.Scaler scaler = null;
 
     @Inject(method = "render", at = @At("HEAD"))
-    private void tweakerPlus_subtitlesScale_push(CallbackInfo ci) {
+    private void tweakerPlus_subtitlesScale_push(
+            //#if MC > 11700
+            //$$ MatrixStack matrices,
+            //#endif
+            CallbackInfo ci
+    ) {
         this.scaler = null;
         if (TweakerPlusConfigs.SUBTITLES_SCALE.isModified()) {
             this.scaler = RenderUtil.createScaler(
@@ -32,12 +41,21 @@ public class SubtitlesHudMixin {
                     //#endif
                     TweakerPlusConfigs.SUBTITLES_SCALE.getDoubleValue()
             );
-            this.scaler.apply();
+            this.scaler.apply(
+                    //#if MC > 11700
+                    //$$ matrices
+                    //#endif
+            );
         }
     }
 
     @Inject(method = "render", at = @At("RETURN"))
-    private void tweakerPlus_subtitlesScale_pop(CallbackInfo ci) {
+    private void tweakerPlus_subtitlesScale_pop(
+            //#if MC > 11700
+            //$$ MatrixStack matrices,
+            //#endif
+            CallbackInfo ci
+    ) {
         if (this.scaler != null) {
             this.scaler.restore();
         }

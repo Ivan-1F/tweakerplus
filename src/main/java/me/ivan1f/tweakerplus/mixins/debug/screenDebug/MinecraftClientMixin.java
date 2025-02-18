@@ -11,7 +11,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
-    @Inject(method = "openScreen", at = @At("HEAD"))
+    @Inject(
+            //#if MC >= 11700
+            //$$ method = "setScreen",
+            //#else
+            method = "openScreen",
+            //#endif
+            at = @At("HEAD")
+    )
     private void logOpenScreen(Screen screen, CallbackInfo ci) {
         if (TweakerPlusConfigs.SCREEN_DEBUG.getBooleanValue()) {
             if (screen != null) {

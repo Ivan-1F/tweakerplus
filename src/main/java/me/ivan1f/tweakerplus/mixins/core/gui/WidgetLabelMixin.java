@@ -59,7 +59,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
     }
 
 
-    //#if MC >= 11600
+    //#if MC >= 11600 && MC < 11700
     //$$ @SuppressWarnings({"ConstantConditions", "deprecation"})
     //#else
     @SuppressWarnings("ConstantConditions")

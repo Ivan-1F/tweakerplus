@@ -14,7 +14,7 @@ public class WorldRendererMixin {
     @Inject(
             //#if MC >= 11600
             //$$ method = "processWorldEvent",
-            //#elseif
+            //#else
             method = "playLevelEvent",
             //#endif
             at = @At(
