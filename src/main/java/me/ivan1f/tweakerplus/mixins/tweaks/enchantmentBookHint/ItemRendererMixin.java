@@ -75,7 +75,11 @@ public class ItemRendererMixin {
                     16777215
                     //#if MC >= 11500
                     , true,
+                    //#if MC >= 11800
+                    //$$ matrixStack.peek().getPositionMatrix(),
+                    //#else
                     matrixStack.peek().getModel(),
+                    //#endif
                     immediate,
                     false,
                     0,

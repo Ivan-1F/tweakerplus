@@ -78,7 +78,9 @@ public class RenderContext {
     }
 
     public void multMatrix(Matrix4f matrix4f) {
-        //#if MC >= 11700
+        //#if MC >= 11800
+        //$$ matrixStack.multiplyPositionMatrix(matrix4f);
+        //#elseif MC >= 11700
         //$$ matrixStack.method_34425(matrix4f);
         //#elseif MC >= 11500
         RenderSystem.multMatrix(matrix4f);

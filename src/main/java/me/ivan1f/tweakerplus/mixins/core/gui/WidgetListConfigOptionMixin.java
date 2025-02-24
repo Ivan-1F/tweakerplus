@@ -1,32 +1,39 @@
 package me.ivan1f.tweakerplus.mixins.core.gui;
 
 import fi.dy.masa.malilib.config.IConfigBase;
-import fi.dy.masa.malilib.config.IHotkeyTogglable;
-import fi.dy.masa.malilib.config.gui.ConfigOptionChangeListenerButton;
-import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
 import fi.dy.masa.malilib.gui.GuiConfigsBase;
 import fi.dy.masa.malilib.gui.button.ButtonGeneric;
-import fi.dy.masa.malilib.gui.button.ConfigButtonBoolean;
 import fi.dy.masa.malilib.gui.button.ConfigButtonKeybind;
 import fi.dy.masa.malilib.gui.interfaces.IKeybindConfigGui;
 import fi.dy.masa.malilib.gui.widgets.*;
 import fi.dy.masa.malilib.hotkeys.*;
 import fi.dy.masa.malilib.util.StringUtils;
-import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.config.options.TweakerPlusIConfigBase;
-import me.ivan1f.tweakerplus.gui.HotkeyedBooleanResetListener;
 import me.ivan1f.tweakerplus.gui.TweakerPlusConfigGui;
 import me.ivan1f.tweakerplus.gui.TweakerPlusOptionLabel;
 import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
+
+//#if MC >= 11800
+//$$ import fi.dy.masa.malilib.config.IConfigBoolean;
+//$$ import fi.dy.masa.malilib.config.IConfigResettable;
+//$$ import org.spongepowered.asm.mixin.injection.*;
+//#else
+import fi.dy.masa.malilib.config.IHotkeyTogglable;
+import fi.dy.masa.malilib.config.gui.ConfigOptionChangeListenerButton;
+import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
+import fi.dy.masa.malilib.gui.button.ConfigButtonBoolean;
+import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
+import me.ivan1f.tweakerplus.gui.HotkeyedBooleanResetListener;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
-
 import java.util.Objects;
+//#endif
+
 import java.util.function.Function;
 
 @Mixin(value = WidgetConfigOption.class)
@@ -35,6 +42,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
     @Final
     protected IKeybindConfigGui host;
 
+    //#if MC < 11800
     @Shadow(remap = false)
     @Final
     protected GuiConfigsBase.ConfigOptionWrapper wrapper;
@@ -43,6 +51,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
     @Shadow(remap = false)
     @Final
     protected KeybindSettings initialKeybindSettings;
+    //#endif
 
     @Shadow(remap = false)
     protected abstract void addKeybindResetButton(int x, int y, IKeybind keybind, ConfigButtonKeybind buttonHotkey);
@@ -58,6 +67,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
         return this.parent instanceof WidgetListConfigOptions && ((WidgetListConfigOptionsAccessor) this.parent).getParent() instanceof TweakerPlusConfigGui;
     }
 
+    //#if MC < 11800
     /**
      * Stolen from malilib 1.18 v0.11.4
      * to make compact ConfigBooleanHotkeyed option panel works
@@ -73,6 +83,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
             }
         }
     }
+    //#endif
 
     private boolean showOriginalTextsThisTime;
 
@@ -146,16 +157,35 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
     }
 
     @Inject(
+            //#if MC >= 11800
+            //$$ method = "addHotkeyConfigElements",
+            //$$ at = @At(value = "HEAD"),
+            //#else
             method = "addConfigOption",
             at = @At(
                     value = "FIELD",
                     target = "Lfi/dy/masa/malilib/config/ConfigType;BOOLEAN:Lfi/dy/masa/malilib/config/ConfigType;",
                     remap = false
             ),
+            //#endif
             remap = false,
             cancellable = true
     )
-    private void tweakerPlusCustomConfigGui(int x, int y, float zLevel, int labelWidth, int configWidth, IConfigBase config, CallbackInfo ci) {
+    private void tweakerPlusCustomConfigGui(
+            //#if MC >= 11800
+            //$$ int x, int y, int configWidth, String configName, IHotkey config, CallbackInfo ci
+            //#else
+            int x, int y, float zLevel, int labelWidth, int configWidth, IConfigBase config, CallbackInfo ci
+            //#endif
+    ) {
+        //#if MC >= 11800
+        //$$ if (this.isTweakerPlusConfigGui()) {
+        //$$     if ((config).getKeybind() instanceof KeybindMulti) {
+        //$$         this.addButtonAndHotkeyWidgets$tweakerplus(x, y, configWidth, config);
+        //$$         ci.cancel();
+        //$$     }
+        //$$ }
+        //#else
         if (this.isTweakerPlusConfigGui() && config instanceof IHotkey) {
             boolean modified = true;
             if (config instanceof IHotkeyTogglable) {
@@ -169,6 +199,7 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
                 ci.cancel();
             }
         }
+        //#endif
     }
 
     private void addButtonAndHotkeyWidgets$tweakerplus(int x, int y, int configWidth, IHotkey config) {
@@ -198,12 +229,33 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
         x += configWidth + 2;
 
         this.addWidget(new WidgetKeybindSettings(x, y, 20, 20, keybind, config.getName(), this.parent, this.host.getDialogHandler()));
+        //#if MC >= 11800
+        //$$ x += 22;
+        //#else
         x += 24;
+        //#endif
 
         this.addButton(keybindButton, this.host.getButtonPressListener());
         this.addKeybindResetButton(x, y, keybind, keybindButton);
     }
 
+    //#if MC >= 11800
+    //$$ @ModifyVariable(
+    //$$         method = "addBooleanAndHotkeyWidgets",
+    //$$         at = @At(
+    //$$                 value = "STORE",
+    //$$                 ordinal = 0
+    //$$         ),
+    //$$         ordinal = 3,
+    //$$         remap = false
+    //$$ )
+    //$$ private int tweakerPlusDynamicBooleanButtonWidth(int booleanBtnWidth, int x, int y, int configWidth, IConfigResettable resettableConfig, IConfigBoolean booleanConfig, IKeybind keybind) {
+    //$$     if (this.isTweakerPlusConfigGui()) {
+    //$$         booleanBtnWidth = (configWidth - 24) / 2;
+    //$$     }
+    //$$     return booleanBtnWidth;
+    //$$ }
+    //#else
     private void addBooleanAndHotkeyWidgets$tweakerplus(int x, int y, int configWidth, IHotkeyTogglable config) {
         IKeybind keybind = config.getKeybind();
 
@@ -293,4 +345,5 @@ public abstract class WidgetListConfigOptionMixin extends WidgetConfigOptionBase
         }
         return width;
     }
+    //#endif
 }

@@ -132,9 +132,19 @@ public class VillagerTrader {
 
     private void clearVillagerTradingSlots() {
         InventoryUtils.leftClickSlot(this.screen, 0);
-        InventoryUtils.tryClearCursor(this.screen, MinecraftClient.getInstance());
+        InventoryUtils.tryClearCursor(
+                this.screen
+                //#if MC < 11800
+                , MinecraftClient.getInstance()
+                //#endif
+        );
         InventoryUtils.leftClickSlot(this.screen, 1);
-        InventoryUtils.tryClearCursor(this.screen, MinecraftClient.getInstance());
+        InventoryUtils.tryClearCursor(
+                this.screen
+                //#if MC < 11800
+                , MinecraftClient.getInstance()
+                //#endif
+        );
     }
 
     public void pickItemsAndPutToVillagerTradingSlot(ItemStack stack, int targetSlot) {
