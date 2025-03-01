@@ -197,6 +197,10 @@ public class RecipeSelectorRenderer {
 
             stack = stack.copy();
             InventoryUtils.setStackSize(stack, 1);
+            //#if MC >= 11900
+            //$$ matrixStack.translate(0.0F, 0.0F, 100.0F);
+            //$$ this.client.getItemRenderer().renderInGui(matrixStack, stack, x, y);
+            //#else
             this.client.getItemRenderer().zOffset += 100;
             //#if MC >= 11600
             //$$ this.client.getItemRenderer().renderInGui(stack, x, y);
@@ -204,6 +208,7 @@ public class RecipeSelectorRenderer {
             this.client.getItemRenderer().renderGuiItem(this.client.player, stack, x, y);
             //#endif
             this.client.getItemRenderer().zOffset -= 100;
+            //#endif
         }
 
         renderContext.popMatrix();

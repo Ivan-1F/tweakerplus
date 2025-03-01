@@ -22,6 +22,10 @@ import java.util.List;
 //$$ import net.minecraft.text.OrderedText;
 //#endif
 
+//#if MC >= 11900
+//$$ import net.minecraft.client.gui.tooltip.TooltipPositioner;
+//#endif
+
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Nullable
@@ -45,7 +49,11 @@ public class ScreenMixin {
             //#else
             List<String> text,
             //#endif
-            int x, int y, CallbackInfo ci
+            int x, int y,
+            //#if MC >= 11900
+            //$$ TooltipPositioner positioner,
+            //#endif
+            CallbackInfo ci
     ) {
         this.scaler = null;
         if (TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.isModified()) {
@@ -76,7 +84,11 @@ public class ScreenMixin {
             //#else
             List<String> text,
             //#endif
-            int x, int y, CallbackInfo ci
+            int x, int y,
+            //#if MC >= 11900
+            //$$ TooltipPositioner positioner,
+            //#endif
+            CallbackInfo ci
     ) {
         if (this.scaler != null) {
             this.scaler.restore();

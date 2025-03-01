@@ -23,6 +23,7 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
         shouldRenderTweakerPlusConfigGuiDropDownList = true;
     }
 
+    //#if MC < 11900
     @Inject(
             method = "drawContents",
             at = @At(
@@ -50,6 +51,7 @@ public abstract class WidgetListBaseMixin<TYPE, WIDGET extends WidgetListEntryBa
                 mouseX, mouseY
         );
     }
+    //#endif
 
     @Inject(method = "drawContents", at = @At("TAIL"), remap = false)
     private void drawTweakerPlusConfigGuiDropDownListAgainAfterHover$tweakerplus(

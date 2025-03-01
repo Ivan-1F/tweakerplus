@@ -11,11 +11,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //$$ import net.minecraft.util.Identifier;
 //#endif
 
+//#if MC >= 11900
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
     //#if MC >= 11700
     //$$ @Inject(method = "renderOverlay", at = @At("HEAD"), cancellable = true)
-    //$$ private void disablePumpkinOverlay(Identifier texture, float opacity, CallbackInfo ci) {
+    //$$ private void disablePumpkinOverlay(
+            //#if MC >= 11900
+            //$$ MatrixStack matrices,
+            //#endif
+    //$$         Identifier texture, float opacity, CallbackInfo ci
+    //$$ ) {
     //$$     // maybe there's a better way to do this
     //$$     if (texture.equals(new Identifier("textures/misc/pumpkinblur.png")) && TweakerPlusConfigs.DISABLE_PUMPKIN_OVERLAY.getBooleanValue()) ci.cancel();
     //$$ }

@@ -105,6 +105,7 @@ public class RenderContext {
         //#endif
     }
 
+    //#if MC < 11900
     public void enableTexture() {
         //#if MC >= 11500
         RenderSystem.enableTexture();
@@ -112,6 +113,7 @@ public class RenderContext {
         //$$ GlStateManager.enableTexture();
         //#endif
     }
+    //#endif
 
     //#if MC < 11500
     //$$ public void enableAlphaTest() {

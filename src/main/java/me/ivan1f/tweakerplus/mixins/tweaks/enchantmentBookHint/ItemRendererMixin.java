@@ -28,19 +28,35 @@ import java.util.Set;
 
 @Mixin(ItemRenderer.class)
 public class ItemRendererMixin {
+    //#if MC < 11900
     @Shadow
     public float zOffset;
+    //#endif
 
     @Inject(
+            //#if MC >= 11900
+            //$$ method = "renderGuiItemOverlay(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V",
+            //#else
             method = "renderGuiItemOverlay(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V",
+            //#endif
             at = @At(value = "RETURN")
     )
-    private void onRenderItem(TextRenderer fontRenderer, ItemStack stack, int x, int y, String amountText, CallbackInfo ci) {
+    private void onRenderItem(
+            //#if MC >= 11900
+            //$$ MatrixStack matrixStack,
+            //#endif
+            TextRenderer fontRenderer, ItemStack stack, int x, int y, String amountText, CallbackInfo ci
+    ) {
         if (!TweakerPlusConfigs.ENCHANTED_BOOK_HINT.getBooleanValue()) return;
 
         Item item = stack.getItem();
         if (!(item instanceof EnchantedBookItem)) return;
-        //#if MC >= 11500
+        //#if MC >= 11900
+        //$$ matrixStack.push();
+        //$$ matrixStack.translate(x / 2.0, y / 2.0, 200.0F);
+        //$$ matrixStack.scale(0.5F, 0.5F, 0.5F);
+        //$$ VertexConsumerProvider.Immediate immediate = VertexConsumerProvider.immediate(Tessellator.getInstance().getBuffer());
+        //#elseif MC >= 11500
         MatrixStack matrixStack = new MatrixStack();
         matrixStack.translate(x / 2.0, y / 2.0, (this.zOffset + 200.0F));
         matrixStack.scale(0.5F, 0.5F, 0.5F);
@@ -81,7 +97,11 @@ public class ItemRendererMixin {
                     matrixStack.peek().getModel(),
                     //#endif
                     immediate,
+                    //#if MC >= 11900
+                    //$$ TextRenderer.TextLayerType.NORMAL,
+                    //#else
                     false,
+                    //#endif
                     0,
                     15728880
                     //#endif
@@ -96,6 +116,10 @@ public class ItemRendererMixin {
         //$$ GlStateManager.enableBlend();
         //$$ GlStateManager.enableLighting();
         //$$ GlStateManager.enableDepthTest();
+        //#endif
+
+        //#if MC >= 11900
+        //$$ matrixStack.pop();
         //#endif
     }
 }
