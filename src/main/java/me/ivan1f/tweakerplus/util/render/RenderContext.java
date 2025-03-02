@@ -117,7 +117,7 @@ public class RenderContext {
 
     //#if MC < 11500
     //$$ public void enableAlphaTest() {
-    //$$     RenderSystem.enableAlphaTest();
+    //$$     GlStateManager.enableAlphaTest();
     //$$ }
     //#endif
 
