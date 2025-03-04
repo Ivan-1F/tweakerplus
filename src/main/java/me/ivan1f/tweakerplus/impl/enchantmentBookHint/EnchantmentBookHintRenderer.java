@@ -52,7 +52,7 @@ public class EnchantmentBookHintRenderer {
         matrixStack.scale(0.5F, 0.5F, 0.5F);
         VertexConsumerProvider.Immediate immediate = VertexConsumerProvider.immediate(Tessellator.getInstance().getBuffer());
         //#else
-        //$$ GlStateManager.translated(x / 2.0, y / 2.0, (this.zOffset + 200.0F));
+        //$$ GlStateManager.translated(x / 2.0, y / 2.0, (itemRenderer.zOffset + 200.0F));
         //$$ GlStateManager.scalef(0.5F, 0.5F, 0.5F);
         //#endif
 
@@ -74,9 +74,9 @@ public class EnchantmentBookHintRenderer {
             String string = entry.getKey().getName(entry.getValue()).getString();
             //#if MC >= 11500
             textRenderer.draw(
-                    //#else
-                    //$$ fontRenderer.drawWithShadow(
-                    //#endif
+            //#else
+            //$$ textRenderer.drawWithShadow(
+            //#endif
                     string,
                     (float) (x + 17 - textRenderer.getStringWidth(string) / 2),
                     (float) (currentY),
@@ -104,7 +104,7 @@ public class EnchantmentBookHintRenderer {
         immediate.draw();
         //#else
         //$$ GlStateManager.scalef(2, 2, 2);
-        //$$ GlStateManager.translated(-x / 2.0, -y / 2.0, -(this.zOffset + 200.0F));
+        //$$ GlStateManager.translated(-x / 2.0, -y / 2.0, -(itemRenderer.zOffset + 200.0F));
         //$$ GlStateManager.enableBlend();
         //$$ GlStateManager.enableLighting();
         //$$ GlStateManager.enableDepthTest();
