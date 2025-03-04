@@ -1,7 +1,8 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.itemTooltipScale;
 
+import me.fallenbreath.tweakermore.util.render.RenderUtils;
+import me.fallenbreath.tweakermore.util.render.context.RenderContext;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
-import me.ivan1f.tweakerplus.util.RenderUtil;
 import net.minecraft.client.gui.screen.Screen;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,7 +30,7 @@ import java.util.List;
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Nullable
-    private RenderUtil.Scaler scaler = null;
+    private RenderUtils.Scaler scaler = null;
 
     @Inject(
             //#if MC > 11700
@@ -57,12 +58,12 @@ public class ScreenMixin {
     ) {
         this.scaler = null;
         if (TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.isModified()) {
-            this.scaler = RenderUtil.createScaler(x, y, TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.getDoubleValue());
-            this.scaler.apply(
+            this.scaler = RenderUtils.createScaler(x, y, TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.getDoubleValue());
+            this.scaler.apply(RenderContext.of(
                     //#if MC >= 11700
                     //$$ matrices
                     //#endif
-            );
+            ));
         }
     }
 

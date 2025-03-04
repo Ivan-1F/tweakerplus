@@ -1,7 +1,8 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.debugHudScale;
 
+import me.fallenbreath.tweakermore.util.render.RenderUtils;
+import me.fallenbreath.tweakermore.util.render.context.RenderContext;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
-import me.ivan1f.tweakerplus.util.RenderUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.DebugHud;
 import org.jetbrains.annotations.Nullable;
@@ -20,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class DebugHudMixin {
     @Shadow @Final private MinecraftClient client;
     @Nullable
-    private RenderUtil.Scaler scaler = null;
+    private RenderUtils.Scaler scaler = null;
 
     @Inject(method = "renderLeftText", at = @At("HEAD"))
     private void tweakerPlus_debugHudScale_left_push(
@@ -31,12 +32,12 @@ public class DebugHudMixin {
     ) {
         this.scaler = null;
         if (TweakerPlusConfigs.DEBUG_HUD_SCALE.isModified()) {
-            this.scaler = RenderUtil.createScaler(0, 0, TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue());
-            this.scaler.apply(
+            this.scaler = RenderUtils.createScaler(0, 0, TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue());
+            this.scaler.apply(RenderContext.of(
                     //#if MC >= 11700
                     //$$ matrices
                     //#endif
-            );
+            ));
         }
     }
 
@@ -61,7 +62,7 @@ public class DebugHudMixin {
     ) {
         this.scaler = null;
         if (TweakerPlusConfigs.DEBUG_HUD_SCALE.isModified()) {
-            this.scaler = RenderUtil.createScaler(
+            this.scaler = RenderUtils.createScaler(
                     //#if MC >= 11500
                     this.client.getWindow().getScaledWidth(),
                     //#else
@@ -70,11 +71,11 @@ public class DebugHudMixin {
                     0,
                     TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue()
             );
-            this.scaler.apply(
+            this.scaler.apply(RenderContext.of(
                     //#if MC >= 11700
                     //$$ matrices
                     //#endif
-            );
+            ));
         }
     }
 

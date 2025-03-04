@@ -1,7 +1,8 @@
 package me.ivan1f.tweakerplus.mixins.tweaks.subtitlesScale;
 
+import me.fallenbreath.tweakermore.util.render.RenderUtils;
+import me.fallenbreath.tweakermore.util.render.context.RenderContext;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
-import me.ivan1f.tweakerplus.util.RenderUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.SubtitlesHud;
 import org.jetbrains.annotations.Nullable;
@@ -18,9 +19,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SubtitlesHud.class)
 public class SubtitlesHudMixin {
-    @Shadow @Final private MinecraftClient client;
+    @Shadow
+    @Final
+    private MinecraftClient client;
     @Nullable
-    private RenderUtil.Scaler scaler = null;
+    private RenderUtils.Scaler scaler = null;
 
     @Inject(method = "render", at = @At("HEAD"))
     private void tweakerPlus_subtitlesScale_push(
@@ -31,7 +34,7 @@ public class SubtitlesHudMixin {
     ) {
         this.scaler = null;
         if (TweakerPlusConfigs.SUBTITLES_SCALE.isModified()) {
-            this.scaler = RenderUtil.createScaler(
+            this.scaler = RenderUtils.createScaler(
                     //#if MC >= 11500
                     this.client.getWindow().getScaledWidth(),
                     this.client.getWindow().getScaledHeight() - 30,
@@ -41,11 +44,11 @@ public class SubtitlesHudMixin {
                     //#endif
                     TweakerPlusConfigs.SUBTITLES_SCALE.getDoubleValue()
             );
-            this.scaler.apply(
-                    //#if MC > 11700
+            this.scaler.apply(RenderContext.of(
+                    //#if MC >= 11700
                     //$$ matrices
                     //#endif
-            );
+            ));
         }
     }
 
