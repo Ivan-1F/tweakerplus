@@ -19,6 +19,10 @@ import net.minecraft.client.util.math.MatrixStack;
 //$$ import com.mojang.blaze3d.platform.GlStateManager;
 //#endif
 
+//#if MC >= 12006
+//$$ import java.util.AbstractMap;
+//$$ import java.util.stream.Collectors;
+//#endif
 
 import java.util.Map;
 import java.util.Set;
@@ -52,7 +56,9 @@ public class EnchantmentBookHintRenderer {
         //$$ GlStateManager.scalef(0.5F, 0.5F, 0.5F);
         //#endif
 
-        //#if MC >= 11600
+        //#if MC >= 12006
+        //$$ Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.getEnchantments(stack).getEnchantmentsMap().stream().map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey().value(), entry.getIntValue())).collect(Collectors.toSet());
+        //#elseif MC >= 11600
         //$$ Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.get(stack).entrySet();
         //#else
         Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.getEnchantments(stack).entrySet();
