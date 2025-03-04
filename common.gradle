@@ -21,6 +21,9 @@ repositories {
         url 'https://jitpack.io'
     }
     maven {
+        url 'https://maven.fallenbreath.me/jitpack'
+    }
+    maven {
         url 'https://maven.fallenbreath.me/releases'
     }
 }
@@ -102,6 +105,8 @@ dependencies {
     }
     include(modImplementation("me.fallenbreath:conditional-mixin-fabric:${project.conditionalmixin_version}"))
     include(annotationProcessor(implementation("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}")))
+
+    modImplementation("me.fallenbreath:tweakermore:${project.tweakermore_version}")
 
     // libraries
     testImplementation "junit:junit:${project.junit_version}"
