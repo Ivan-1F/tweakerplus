@@ -31,6 +31,10 @@ public class ScreenMixin {
             //#elseif MC > 11600
             //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
+
+            //#if MC >= 12002
+            //$$ int mouseX, int mouseY, float delta,
+            //#endif
             CallbackInfo ci
     ) {
         RecipeSelectorRenderer
