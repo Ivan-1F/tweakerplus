@@ -13,12 +13,12 @@ import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
 import fi.dy.masa.malilib.interfaces.IStringValue;
 import fi.dy.masa.malilib.util.StringUtils;
+import me.fallenbreath.tweakermore.util.FabricUtils;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.Config;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
 import me.ivan1f.tweakerplus.config.TweakerPlusOption;
 import me.ivan1f.tweakerplus.mixins.core.gui.WidgetSearchBarAccessor;
-import me.ivan1f.tweakerplus.util.FabricUtil;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -205,7 +205,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
             return false;
         }
         // hide dev only options unless debug mode on and is dev env
-        if (option.isDevOnly() && !(TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue() && FabricUtil.isDevelopmentEnvironment())) {
+        if (option.isDevOnly() && !(TweakerPlusConfigs.TWEAKERPLUS_DEBUG_MODE.getBooleanValue() && FabricUtils.isDevelopmentEnvironment())) {
             return false;
         }
         return true;

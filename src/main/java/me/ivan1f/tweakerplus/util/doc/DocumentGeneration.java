@@ -1,8 +1,8 @@
 package me.ivan1f.tweakerplus.util.doc;
 
 import com.google.common.collect.ImmutableList;
+import me.fallenbreath.tweakermore.util.FabricUtils;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
-import me.ivan1f.tweakerplus.util.FabricUtil;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.resource.language.LanguageDefinition;
@@ -103,7 +103,7 @@ public class DocumentGeneration {
 
     public static void onClientInitFinished() {
         // -Dtweakerplus.gen_doc=true
-        if (FabricUtil.isDevelopmentEnvironment() && "true".equals(System.getProperty(TweakerPlusMod.MOD_ID + ".gen_doc"))) {
+        if (FabricUtils.isDevelopmentEnvironment() && "true".equals(System.getProperty(TweakerPlusMod.MOD_ID + ".gen_doc"))) {
             TweakerPlusMod.LOGGER.info("Starting TweakerPlus automatic doc generating");
             generateDocuments(true);
         }

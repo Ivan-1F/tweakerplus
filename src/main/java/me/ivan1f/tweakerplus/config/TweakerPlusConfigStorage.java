@@ -6,7 +6,7 @@ import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
 import fi.dy.masa.malilib.util.JsonUtils;
-import me.ivan1f.tweakerplus.util.FabricUtil;
+import me.fallenbreath.tweakermore.util.FabricUtils;
 import me.ivan1f.tweakerplus.util.FileUtil;
 import me.ivan1f.tweakerplus.util.InternalSaver;
 
@@ -33,7 +33,7 @@ public class TweakerPlusConfigStorage implements IConfigHandler {
     @SuppressWarnings("unchecked")
     private static <T extends IConfigBase> List<T> getConfigOptions(Config.Type optionType) {
         return (List<T>) TweakerPlusConfigs.getOptions(optionType).stream().
-                filter(o -> !o.isDevOnly() || FabricUtil.isDevelopmentEnvironment()).
+                filter(o -> !o.isDevOnly() || FabricUtils.isDevelopmentEnvironment()).
                 map(TweakerPlusOption::getConfig).
                 collect(Collectors.toList());
     }
