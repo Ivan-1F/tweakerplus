@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//#if MC > 11700
+//#if MC > 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
@@ -27,7 +27,7 @@ public class SubtitlesHudMixin {
 
     @Inject(method = "render", at = @At("HEAD"))
     private void tweakerPlus_subtitlesScale_push(
-            //#if MC > 11700
+            //#if MC > 11600
             //$$ MatrixStack matrices,
             //#endif
             CallbackInfo ci
@@ -45,7 +45,7 @@ public class SubtitlesHudMixin {
                     TweakerPlusConfigs.SUBTITLES_SCALE.getDoubleValue()
             );
             this.scaler.apply(RenderContext.of(
-                    //#if MC >= 11700
+                    //#if MC >= 11600
                     //$$ matrices
                     //#endif
             ));
@@ -54,7 +54,7 @@ public class SubtitlesHudMixin {
 
     @Inject(method = "render", at = @At("RETURN"))
     private void tweakerPlus_subtitlesScale_pop(
-            //#if MC > 11700
+            //#if MC > 11600
             //$$ MatrixStack matrices,
             //#endif
             CallbackInfo ci

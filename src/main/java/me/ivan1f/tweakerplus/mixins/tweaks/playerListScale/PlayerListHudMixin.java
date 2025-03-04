@@ -32,7 +32,7 @@ public class PlayerListHudMixin {
         if (TweakerPlusConfigs.PLAYER_LIST_SCALE.isModified()) {
             this.scaler = RenderUtils.createScaler(width / 2, 0, TweakerPlusConfigs.PLAYER_LIST_SCALE.getDoubleValue());
             this.scaler.apply(RenderContext.of(
-                    //#if MC >= 11700
+                    //#if MC >= 11600
                     //$$ matrices
                     //#endif
             ));

@@ -60,7 +60,7 @@ public class ScreenMixin {
         if (TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.isModified()) {
             this.scaler = RenderUtils.createScaler(x, y, TweakerPlusConfigs.ITEM_TOOLTIP_SCALE.getDoubleValue());
             this.scaler.apply(RenderContext.of(
-                    //#if MC >= 11700
+                    //#if MC >= 11600
                     //$$ matrices
                     //#endif
             ));
