@@ -12,6 +12,10 @@ import net.minecraft.client.gui.screen.ingame.MerchantScreen;
 import net.minecraft.client.render.DiffuseLighting;
 import net.minecraft.item.ItemStack;
 
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#endif
+
 //#if MC >= 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
@@ -25,8 +29,10 @@ public class RecipeSelectorRenderer {
     }
 
     public void onDrawBackgroundPost(
-            //#if MC >= 11600
-            //$$ MatrixStack matrixStack
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext
             //#endif
     ) {
         if (GuiUtils.getCurrentScreen() instanceof MerchantScreen && TweakerPlusConfigs.TWEAKP_AUTO_TRADE.getBooleanValue()) {
@@ -35,7 +41,7 @@ public class RecipeSelectorRenderer {
 
             RenderContext renderContext = RenderContext.of(
                     //#if MC >= 11600
-                    //$$ matrixStack
+                    //$$ matrixStackOrDrawContext
                     //#endif
             );
             renderContext.pushMatrix();
@@ -45,7 +51,7 @@ public class RecipeSelectorRenderer {
             for (int i = 0; i < storage.get().size(); i++) {
                 y = renderRecipe(
                         //#if MC >= 11600
-                        //$$ matrixStack,
+                        //$$ matrixStackOrDrawContext,
                         //#endif
                         storage.get(i),
                         x,
@@ -94,6 +100,12 @@ public class RecipeSelectorRenderer {
             int mouseY,
             MerchantScreen screen
     ) {
+        RenderContext renderContext = RenderContext.of(
+                //#if MC >= 11600
+                //$$ matrixStack
+                //#endif
+        );
+
         ItemStack stack = null;
         RecipeStorage storage = RecipeStorage.getInstance();
 
@@ -122,16 +134,20 @@ public class RecipeSelectorRenderer {
                     mouseY,
                     stack,
                     this.client
-                    //#if MC >= 11600
-                    //$$ , matrixStack
+                    //#if MC >= 12000
+                    //$$ , renderContext.getGuiDrawer()
+                    //#elseif MC >= 11600
+                    //$$ , renderContext.getMatrixStack().asMcRaw()
                     //#endif
             );
         }
     }
 
     private int renderRecipe(
-            //#if MC >= 11600
-            //$$ MatrixStack matrixStack,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             RecipeStorage.TradeRecipe recipe,
             int x,
@@ -140,19 +156,19 @@ public class RecipeSelectorRenderer {
     ) {
         this.renderStackAt(
                 //#if MC >= 11600
-                //$$ matrixStack,
+                //$$ matrixStackOrDrawContext,
                 //#endif
                 recipe.firstBuyItem, x, y, false
         );
         this.renderStackAt(
                 //#if MC >= 11600
-                //$$ matrixStack,
+                //$$ matrixStackOrDrawContext,
                 //#endif
                 recipe.secondBuyItem, x + 16 + 1, y, false
         );
         return this.renderStackAt(
                 //#if MC >= 11600
-                //$$ matrixStack,
+                //$$ matrixStackOrDrawContext,
                 //#endif
                 recipe.sellItem, x + 16 + 1 + 16 + 10, y, selected) + 1;
     }
@@ -161,14 +177,16 @@ public class RecipeSelectorRenderer {
      * Reference: fi.dy.masa.itemscroller.event.RenderEventHandler#renderStackAt
      */
     private int renderStackAt(
-            //#if MC >= 11600
-            //$$ MatrixStack matrixStack,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             ItemStack stack, int x, int y, boolean border
     ) {
         RenderContext renderContext = RenderContext.of(
                 //#if MC >= 11600
-                //$$ matrixStack
+                //$$ matrixStackOrDrawContext
                 //#endif
         );
         renderContext.pushMatrix();
@@ -197,9 +215,12 @@ public class RecipeSelectorRenderer {
 
             stack = stack.copy();
             InventoryUtils.setStackSize(stack, 1);
-            //#if MC >= 11900
-            //$$ matrixStack.translate(0.0F, 0.0F, 100.0F);
-            //$$ this.client.getItemRenderer().renderInGui(matrixStack, stack, x, y);
+            //#if MC >= 12000
+            //$$ renderContext.translate(0.0F, 0.0F, 100.0F);
+            //$$ matrixStackOrDrawContext.drawItemWithoutEntity(stack, x, y);
+            //#elseif MC >= 11900
+            //$$ renderContext.translate(0.0F, 0.0F, 100.0F);
+            //$$ this.client.getItemRenderer().renderInGui(matrixStackOrDrawContext, stack, x, y);
             //#else
             this.client.getItemRenderer().zOffset += 100;
             //#if MC >= 11600

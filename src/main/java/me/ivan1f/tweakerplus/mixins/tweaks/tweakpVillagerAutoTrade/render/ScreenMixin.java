@@ -7,14 +7,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//#if MC > 11600
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#elseif MC > 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Inject(
-            //#if MC > 11600
+            //#if MC >= 12000
+            //$$ method = "renderBackground",
+            //#elseif MC > 11600
             //$$ method = "renderBackground(Lnet/minecraft/client/util/math/MatrixStack;)V",
             //#else
             method = "renderBackground()V",
@@ -22,8 +26,10 @@ public class ScreenMixin {
             at = @At("RETURN")
     )
     private void onDrawDefaultBackgroundPost(
-            //#if MC > 11600
-            //$$ MatrixStack matrixStack,
+            //#if MC > 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC > 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             CallbackInfo ci
     ) {
@@ -31,7 +37,7 @@ public class ScreenMixin {
                 .getInstance()
                 .onDrawBackgroundPost(
                         //#if MC > 11600
-                        //$$ matrixStack
+                        //$$ matrixStackOrDrawContext
                         //#endif
                 );
     }

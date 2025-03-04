@@ -24,6 +24,10 @@ import java.io.File;
 //$$ import net.minecraft.util.math.Vec3i;
 //#endif
 
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#endif
+
 //#if MC >= 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
@@ -43,8 +47,10 @@ public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase 
     )
     private void appendOriginInfo(
             DirectoryEntry entry,
-            //#if MC >= 11600
-            //$$ MatrixStack matrixStack,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             CallbackInfo ci, int x, int y
     ) {
@@ -62,7 +68,7 @@ public abstract class WidgetSchematicBrowserMixin extends WidgetFileBrowserBase 
             );
             this.drawString(
                     //#if MC >= 11600
-                    //$$ matrixStack,
+                    //$$ matrixStackOrDrawContext,
                     //#endif
                     msg, x, y, textColor
             );

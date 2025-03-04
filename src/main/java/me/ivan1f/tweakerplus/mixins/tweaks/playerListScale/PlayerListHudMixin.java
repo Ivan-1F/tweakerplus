@@ -12,7 +12,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//#if MC > 11600
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#elseif MC >= 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
@@ -23,8 +25,10 @@ public class PlayerListHudMixin {
 
     @Inject(method = "render", at = @At("HEAD"))
     private void tweakerPlus_playerListScale_push(
-            //#if MC > 11600
-            //$$ MatrixStack matrices,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             int width, Scoreboard scoreboard, ScoreboardObjective playerListScoreboardObjective, CallbackInfo ci
     ) {
@@ -33,7 +37,7 @@ public class PlayerListHudMixin {
             this.scaler = RenderUtils.createScaler(width / 2, 0, TweakerPlusConfigs.PLAYER_LIST_SCALE.getDoubleValue());
             this.scaler.apply(RenderContext.of(
                     //#if MC >= 11600
-                    //$$ matrices
+                    //$$ matrixStackOrDrawContext
                     //#endif
             ));
         }
@@ -41,8 +45,10 @@ public class PlayerListHudMixin {
 
     @Inject(method = "render", at = @At("RETURN"))
     private void tweakerPlus_playerListScale_pop(
-            //#if MC > 11600
-            //$$ MatrixStack matrices,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             int width, Scoreboard scoreboard, ScoreboardObjective playerListScoreboardObjective, CallbackInfo ci
     ) {

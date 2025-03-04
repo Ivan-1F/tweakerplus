@@ -11,7 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //$$ import net.minecraft.util.Identifier;
 //#endif
 
-//#if MC >= 11900
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#elseif MC >= 11900
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
@@ -20,8 +22,10 @@ public class InGameHudMixin {
     //#if MC >= 11700
     //$$ @Inject(method = "renderOverlay", at = @At("HEAD"), cancellable = true)
     //$$ private void disablePumpkinOverlay(
-            //#if MC >= 11900
-            //$$ MatrixStack matrices,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11900
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
     //$$         Identifier texture, float opacity, CallbackInfo ci
     //$$ ) {

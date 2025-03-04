@@ -10,6 +10,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//#if MC >= 11900
+//$$ import net.minecraft.client.util.math.MatrixStack;
+//#endif
+
 @Mixin(ItemRenderer.class)
 public class ItemRendererMixin {
     @Inject(
@@ -28,6 +32,13 @@ public class ItemRendererMixin {
     ) {
         if (!TweakerPlusConfigs.ENCHANTED_BOOK_HINT.getBooleanValue()) return;
 
-        EnchantmentBookHintRenderer.render((ItemRenderer) (Object) this, fontRenderer, stack, x, y);
+        ItemRenderer self = (ItemRenderer) (Object) this;
+
+        EnchantmentBookHintRenderer.render(
+                //#if MC >= 11900
+                //$$ matrixStack,
+                //#endif
+                self, fontRenderer, stack, x, y
+        );
     }
 }

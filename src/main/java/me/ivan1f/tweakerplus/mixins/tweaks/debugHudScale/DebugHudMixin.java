@@ -13,7 +13,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//#if MC >= 11600
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#elseif MC >= 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
@@ -25,8 +27,10 @@ public class DebugHudMixin {
 
     @Inject(method = "renderLeftText", at = @At("HEAD"))
     private void tweakerPlus_debugHudScale_left_push(
-            //#if MC >= 11600
-            //$$ MatrixStack matrices,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             CallbackInfo ci
     ) {
@@ -35,7 +39,7 @@ public class DebugHudMixin {
             this.scaler = RenderUtils.createScaler(0, 0, TweakerPlusConfigs.DEBUG_HUD_SCALE.getDoubleValue());
             this.scaler.apply(RenderContext.of(
                     //#if MC >= 11600
-                    //$$ matrices
+                    //$$ matrixStackOrDrawContext
                     //#endif
             ));
         }
@@ -43,8 +47,10 @@ public class DebugHudMixin {
 
     @Inject(method = "renderLeftText", at = @At("RETURN"))
     private void tweakerPlus_debugHudScale_left_pop(
-            //#if MC >= 11600
-            //$$ MatrixStack matrices,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             CallbackInfo ci
     ) {
@@ -55,8 +61,10 @@ public class DebugHudMixin {
 
     @Inject(method = "renderRightText", at = @At("HEAD"))
     private void tweakerPlus_debugHudScale_right_push(
-            //#if MC >= 11600
-            //$$ MatrixStack matrices,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             CallbackInfo ci
     ) {
@@ -73,7 +81,7 @@ public class DebugHudMixin {
             );
             this.scaler.apply(RenderContext.of(
                     //#if MC >= 11600
-                    //$$ matrices
+                    //$$ matrixStackOrDrawContext
                     //#endif
             ));
         }
@@ -81,8 +89,10 @@ public class DebugHudMixin {
 
     @Inject(method = "renderRightText", at = @At("RETURN"))
     private void tweakerPlus_debugHudScale_right_pop(
-            //#if MC >= 11600
-            //$$ MatrixStack matrices,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             CallbackInfo ci
     ) {

@@ -1,7 +1,7 @@
 package me.ivan1f.tweakerplus.mixins.core.gui;
 
 import fi.dy.masa.malilib.gui.widgets.WidgetDropDownList;
-import me.ivan1f.tweakerplus.gui.SelectorDropDownList;
+import me.fallenbreath.tweakermore.gui.SelectorDropDownList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

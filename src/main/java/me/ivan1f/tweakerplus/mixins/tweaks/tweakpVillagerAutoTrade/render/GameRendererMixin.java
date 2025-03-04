@@ -18,7 +18,9 @@ public class GameRendererMixin {
             at = @At(
                     value = "INVOKE",
                     shift = At.Shift.AFTER,
-                    //#if MC >= 11900
+                    //#if MC >= 12000
+                    //$$ target = "Lnet/minecraft/client/gui/screen/Screen;renderWithTooltip(Lnet/minecraft/client/gui/DrawContext;IIF)V"
+                    //#elseif MC >= 11900
                     //$$ target = "Lnet/minecraft/client/gui/screen/Screen;renderWithTooltip(Lnet/minecraft/client/util/math/MatrixStack;IIF)V"
                     //#elseif MC > 11600
                     //$$ target = "Lnet/minecraft/client/gui/screen/Screen;render(Lnet/minecraft/client/util/math/MatrixStack;IIF)V"

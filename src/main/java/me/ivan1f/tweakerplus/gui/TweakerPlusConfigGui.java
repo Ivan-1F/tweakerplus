@@ -13,6 +13,7 @@ import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
 import fi.dy.masa.malilib.interfaces.IStringValue;
 import fi.dy.masa.malilib.util.StringUtils;
+import me.fallenbreath.tweakermore.gui.SelectorDropDownList;
 import me.fallenbreath.tweakermore.util.FabricUtils;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.config.Config;
@@ -27,7 +28,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-//#if MC >= 11600
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#elseif MC >= 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
@@ -146,8 +149,10 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
     }
 
     public void renderHoveringWidgets(
-            //#if MC >= 11600
-            //$$ MatrixStack matrixStack,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             int mouseX, int mouseY
     ) {
@@ -157,7 +162,7 @@ public class TweakerPlusConfigGui extends GuiConfigsBase {
                         mouseY,
                         widgetBase.isMouseOver(mouseX, mouseY)
                         //#if MC >= 11600
-                        //$$ , matrixStack
+                        //$$ , matrixStackOrDrawContext
                         //#endif
                 )
         );

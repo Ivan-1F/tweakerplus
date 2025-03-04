@@ -13,6 +13,10 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+//#if MC >= 12000
+//$$ import net.minecraft.client.gui.DrawContext;
+//#endif
+
 //#if MC >= 11600
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
@@ -76,8 +80,10 @@ public abstract class WidgetLabelMixin extends WidgetBase {
     )
     private void translatedOptionLabelRenderTranslation$tweakerplus(
             int mouseX, int mouseY, boolean selected,
-            //#if MC >= 11600
-            //$$ MatrixStack matrixStack,
+            //#if MC >= 12000
+            //$$ DrawContext matrixStackOrDrawContext,
+            //#elseif MC >= 11600
+            //$$ MatrixStack matrixStackOrDrawContext,
             //#endif
             CallbackInfo ci, int fontHeight, int yCenter, int yTextStart, int i, String text
     ) {
@@ -90,7 +96,7 @@ public abstract class WidgetLabelMixin extends WidgetBase {
 
             RenderContext renderContext = RenderContext.of(
                     //#if MC >= 11600
-                    //$$ matrixStack
+                    //$$ matrixStackOrDrawContext
                     //#endif
             );
 
@@ -103,14 +109,14 @@ public abstract class WidgetLabelMixin extends WidgetBase {
                 this.drawCenteredStringWithShadow(
                         x, y, color, originText
                         //#if MC >= 11600
-                        //$$ , matrixStack
+                        //$$ , matrixStackOrDrawContext
                         //#endif
                 );
             } else {
                 this.drawStringWithShadow(
                         x, y, color, originText
                         //#if MC >= 11600
-                        //$$ , matrixStack
+                        //$$ , matrixStackOrDrawContext
                         //#endif
                 );
             }

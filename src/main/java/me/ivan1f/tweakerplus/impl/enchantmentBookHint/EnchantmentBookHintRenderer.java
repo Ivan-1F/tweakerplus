@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 
 //#if MC >= 12000
 //$$ import net.minecraft.client.gui.DrawContext;
+//#endif
 //#if MC >= 11500
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -25,7 +26,7 @@ import java.util.Set;
 public class EnchantmentBookHintRenderer {
     public static void render(
             //#if MC >= 11904
-            //$$ MatrixStack matrices,
+            //$$ MatrixStack matrixStack,
             //#endif
             //#if MC >= 12000
             //$$ DrawContext drawContext,
