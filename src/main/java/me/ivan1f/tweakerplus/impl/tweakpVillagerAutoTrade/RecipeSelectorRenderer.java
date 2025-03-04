@@ -5,8 +5,8 @@ import fi.dy.masa.itemscroller.util.InventoryUtils;
 import fi.dy.masa.malilib.render.InventoryOverlay;
 import fi.dy.masa.malilib.render.RenderUtils;
 import fi.dy.masa.malilib.util.GuiUtils;
+import me.fallenbreath.tweakermore.util.render.context.RenderContext;
 import me.ivan1f.tweakerplus.config.TweakerPlusConfigs;
-import me.ivan1f.tweakerplus.util.render.RenderContext;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
 import net.minecraft.client.render.DiffuseLighting;
@@ -33,7 +33,7 @@ public class RecipeSelectorRenderer {
             MerchantScreen screen = (MerchantScreen) GuiUtils.getCurrentScreen();
             RecipeStorage storage = RecipeStorage.getInstance();
 
-            RenderContext renderContext = new RenderContext(
+            RenderContext renderContext = RenderContext.of(
                     //#if MC >= 11600
                     //$$ matrixStack
                     //#endif
@@ -67,7 +67,7 @@ public class RecipeSelectorRenderer {
             final int mouseX = fi.dy.masa.malilib.util.InputUtils.getMouseX();
             final int mouseY = fi.dy.masa.malilib.util.InputUtils.getMouseY();
 
-            RenderContext renderContext = new RenderContext(
+            RenderContext renderContext = RenderContext.of(
                     //#if MC >= 11600
                     //$$ matrixStack
                     //#endif
@@ -166,7 +166,7 @@ public class RecipeSelectorRenderer {
             //#endif
             ItemStack stack, int x, int y, boolean border
     ) {
-        RenderContext renderContext = new RenderContext(
+        RenderContext renderContext = RenderContext.of(
                 //#if MC >= 11600
                 //$$ matrixStack
                 //#endif
