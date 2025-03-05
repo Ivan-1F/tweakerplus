@@ -10,6 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
+//#if MC >= 12103
+//$$ import net.minecraft.registry.entry.RegistryEntry;
+//#endif
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -71,7 +75,11 @@ public class RecipeStorage implements JsonSavable {
                 return ItemStack.EMPTY;
             }
             String id = jsonObject.get("item").getAsString();
+            //#if MC >= 12103
+            //$$ Item item = Registries.ITEM.getEntry(IdentifierUtils.of(id)).map(RegistryEntry.Reference::value).orElse(null);
+            //#else
             Item item = Registry.ITEM.get(IdentifierUtils.of(id));
+            //#endif
             int count = jsonObject.get("count").getAsInt();
             return new ItemStack(item, count);
         } catch (Exception e) {

@@ -4,7 +4,6 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -25,6 +24,12 @@ import net.minecraft.client.util.math.MatrixStack;
 //$$ import net.minecraft.registry.entry.RegistryEntry;
 //#endif
 
+//#if MC >= 12103
+//$$ import net.minecraft.item.Items;
+//#else
+import net.minecraft.item.EnchantedBookItem;
+//#endif
+
 import java.util.Map;
 import java.util.Set;
 
@@ -41,7 +46,12 @@ public class EnchantmentBookHintRenderer {
             TextRenderer textRenderer, ItemStack stack, int x, int y
     ) {
         Item item = stack.getItem();
+        //#if MC >= 12103
+        //$$ if (item != Items.ENCHANTED_BOOK) return;
+        //#else
         if (!(item instanceof EnchantedBookItem)) return;
+        //#endif
+
         //#if MC >= 11900
         //$$ matrixStack.push();
         //$$ matrixStack.translate(x / 2.0, y / 2.0, 200.0F);
