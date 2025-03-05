@@ -11,10 +11,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //$$ import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
+//#if MC >= 12100
+//$$ import net.minecraft.client.render.RenderTickCounter;
+//#endif
+
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
     @Inject(
-            method = "render(FJZ)V",
+            method = "render",
             at = @At(
                     value = "INVOKE",
                     shift = At.Shift.AFTER,
@@ -29,7 +33,14 @@ public class GameRendererMixin {
                     //#endif
             )
     )
-    private void onDrawScreenPost(float partialTicks, long nanoTime, boolean renderWorldIn, CallbackInfo ci) {
+    private void onDrawScreenPost(
+            //#if MC >= 12100
+            //$$ RenderTickCounter tickCounter, boolean tick,
+            //#else
+            float partialTicks, long nanoTime, boolean renderWorldIn,
+            //#endif
+            CallbackInfo ci
+    ) {
         RecipeSelectorRenderer
                 .getInstance()
                 .onDrawScreenPost(

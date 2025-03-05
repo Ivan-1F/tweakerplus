@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 //$$ import net.minecraft.client.gui.DrawContext;
 //#endif
 //#if MC >= 11500
-import net.minecraft.client.render.Tessellator;
+import me.fallenbreath.tweakermore.util.render.RenderUtils;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.util.math.MatrixStack;
 //#else
@@ -22,6 +22,7 @@ import net.minecraft.client.util.math.MatrixStack;
 //#if MC >= 12006
 //$$ import java.util.AbstractMap;
 //$$ import java.util.stream.Collectors;
+//$$ import net.minecraft.registry.entry.RegistryEntry;
 //#endif
 
 import java.util.Map;
@@ -45,19 +46,19 @@ public class EnchantmentBookHintRenderer {
         //$$ matrixStack.push();
         //$$ matrixStack.translate(x / 2.0, y / 2.0, 200.0F);
         //$$ matrixStack.scale(0.5F, 0.5F, 0.5F);
-        //$$ VertexConsumerProvider.Immediate immediate = VertexConsumerProvider.immediate(Tessellator.getInstance().getBuffer());
+        //$$ VertexConsumerProvider.Immediate immediate = RenderUtils.getVertexConsumer();
         //#elseif MC >= 11500
         MatrixStack matrixStack = new MatrixStack();
         matrixStack.translate(x / 2.0, y / 2.0, (itemRenderer.zOffset + 200.0F));
         matrixStack.scale(0.5F, 0.5F, 0.5F);
-        VertexConsumerProvider.Immediate immediate = VertexConsumerProvider.immediate(Tessellator.getInstance().getBuffer());
+        VertexConsumerProvider.Immediate immediate = RenderUtils.getVertexConsumer();
         //#else
         //$$ GlStateManager.translated(x / 2.0, y / 2.0, (itemRenderer.zOffset + 200.0F));
         //$$ GlStateManager.scalef(0.5F, 0.5F, 0.5F);
         //#endif
 
         //#if MC >= 12006
-        //$$ Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.getEnchantments(stack).getEnchantmentsMap().stream().map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey().value(), entry.getIntValue())).collect(Collectors.toSet());
+        //$$ Set<Map.Entry<RegistryEntry<Enchantment>, Integer>> entries = EnchantmentHelper.getEnchantments(stack).getEnchantmentsMap().stream().map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getIntValue())).collect(Collectors.toSet());
         //#elseif MC >= 11600
         //$$ Set<Map.Entry<Enchantment, Integer>> entries = EnchantmentHelper.get(stack).entrySet();
         //#else
@@ -70,8 +71,20 @@ public class EnchantmentBookHintRenderer {
         //$$ GlStateManager.disableDepthTest();
         //$$ GlStateManager.disableBlend();
         //#endif
+
+        //#if MC >= 12006
+        //$$ for (Map.Entry<RegistryEntry<Enchantment>, Integer> entry : entries) {
+        //#else
         for (Map.Entry<Enchantment, Integer> entry : entries) {
+        //#endif
+            //#if MC >= 12100
+            //$$ String string = Enchantment.getName(entry.getKey(), entry.getValue()).getString();
+            //#elseif MC >= 12006
+            //$$ String string = entry.getKey().value().getName(entry.getValue()).getString();
+            //#else
             String string = entry.getKey().getName(entry.getValue()).getString();
+            //#endif
+
             //#if MC >= 11500
             textRenderer.draw(
             //#else

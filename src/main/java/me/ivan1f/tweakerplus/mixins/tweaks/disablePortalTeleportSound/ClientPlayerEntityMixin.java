@@ -11,7 +11,11 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(ClientPlayerEntity.class)
 public class ClientPlayerEntityMixin {
     @Redirect(
+            //#if MC >= 12100
+            //$$ method = "tickNausea",
+            //#else
             method = "updateNausea",
+            //#endif
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/sound/SoundManager;play(Lnet/minecraft/client/sound/SoundInstance;)V"

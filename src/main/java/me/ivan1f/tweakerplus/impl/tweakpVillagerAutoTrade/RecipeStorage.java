@@ -3,11 +3,11 @@ package me.ivan1f.tweakerplus.impl.tweakpVillagerAutoTrade;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import me.fallenbreath.tweakermore.util.IdentifierUtils;
 import me.ivan1f.tweakerplus.TweakerPlusMod;
 import me.ivan1f.tweakerplus.util.JsonSavable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.Arrays;
@@ -71,7 +71,7 @@ public class RecipeStorage implements JsonSavable {
                 return ItemStack.EMPTY;
             }
             String id = jsonObject.get("item").getAsString();
-            Item item = Registry.ITEM.get(new Identifier(id));
+            Item item = Registry.ITEM.get(IdentifierUtils.of(id));
             int count = jsonObject.get("count").getAsInt();
             return new ItemStack(item, count);
         } catch (Exception e) {

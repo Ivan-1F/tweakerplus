@@ -10,6 +10,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+// don't do the "net.minecraft.util.math.random.Random <-> net.minecraft.world.gen.random.AbstractRandom" remap thing
+//#disable-remap
+
 //#if MC >= 11900
 //$$ import net.minecraft.util.math.random.Random;
 //#else
@@ -25,3 +28,5 @@ public class BubbleColumnBlockMixin {
         }
     }
 }
+
+//#enable-remap

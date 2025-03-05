@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 //#if MC >= 11700
 //$$ import net.minecraft.util.Identifier;
+//$$ import me.fallenbreath.tweakermore.util.IdentifierUtils;
 //#endif
 
 //#if MC >= 12000
@@ -30,7 +31,7 @@ public class InGameHudMixin {
     //$$         Identifier texture, float opacity, CallbackInfo ci
     //$$ ) {
     //$$     // maybe there's a better way to do this
-    //$$     if (texture.equals(new Identifier("textures/misc/pumpkinblur.png")) && TweakerPlusConfigs.DISABLE_PUMPKIN_OVERLAY.getBooleanValue()) ci.cancel();
+    //$$     if (texture.equals(IdentifierUtils.of("textures/misc/pumpkinblur.png")) && TweakerPlusConfigs.DISABLE_PUMPKIN_OVERLAY.getBooleanValue()) ci.cancel();
     //$$ }
     //#else
     @Inject(method = "renderPumpkinOverlay", at = @At("HEAD"), cancellable = true)
