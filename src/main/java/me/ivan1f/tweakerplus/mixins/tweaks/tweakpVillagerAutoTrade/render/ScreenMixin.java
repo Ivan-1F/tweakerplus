@@ -16,7 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Inject(
-            //#if MC >= 12000
+            //#if MC >= 12006
+            //$$ method = "renderWithTooltip",
+            //#elseif MC >= 12000
             //$$ method = "renderBackground",
             //#elseif MC > 11600
             //$$ method = "renderBackground(Lnet/minecraft/client/util/math/MatrixStack;)V",
